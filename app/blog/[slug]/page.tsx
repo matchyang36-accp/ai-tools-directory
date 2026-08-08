@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getReviewBySlug, getToolBySlug } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const r = await getReviewBySlug(params.slug);

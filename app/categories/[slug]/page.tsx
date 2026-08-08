@@ -9,6 +9,7 @@ import {
 } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   if (params.slug === "free") {

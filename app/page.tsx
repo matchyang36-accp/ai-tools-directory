@@ -12,6 +12,7 @@ import {
 } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export default async function HomePage() {
   const [categories, featured, comparisons, reviews] = await Promise.all([

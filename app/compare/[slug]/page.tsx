@@ -4,6 +4,7 @@ import AdSlot from "@/components/AdSlot";
 import { getComparisonBySlug, getToolBySlug } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const c = await getComparisonBySlug(params.slug);

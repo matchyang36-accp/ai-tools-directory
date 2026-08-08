@@ -2,6 +2,7 @@ import ReviewCard from "@/components/ReviewCard";
 import { getReviews } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export const metadata = {
   title: "Blog & reviews",

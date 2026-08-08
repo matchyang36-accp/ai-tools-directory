@@ -1,0 +1,14 @@
+{
+  "name": "ai-tools-directory",
+  "pages_build_output_dir": ".vercel/output/static",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ai-tools-directory",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ]
+}

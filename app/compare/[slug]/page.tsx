@@ -2,9 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdSlot from "@/components/AdSlot";
 import { getComparisonBySlug, getToolBySlug } from "@/lib/db";
+import { getComparisons } from "@/data/tools";
 
-export const dynamic = "force-dynamic";
-export const runtime = "edge";
+export function generateStaticParams() {
+  return getComparisons().map((c) => ({ slug: c.slug }));
+}
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const c = await getComparisonBySlug(params.slug);

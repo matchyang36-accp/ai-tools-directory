@@ -2,9 +2,6 @@ import Link from "next/link";
 import ComparisonRow from "@/components/ComparisonRow";
 import { getComparisons } from "@/lib/db";
 
-export const dynamic = "force-dynamic";
-export const runtime = "edge";
-
 export const metadata = {
   title: "Tool comparisons",
   description:

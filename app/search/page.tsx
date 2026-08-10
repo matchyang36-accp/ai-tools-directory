@@ -1,39 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
+import { getTools } from "@/data/tools";
 
-type Tool = {
-  slug: string;
-  name: string;
-  tagline: string;
-};
+// Pure client-side search — no API route needed for a static export.
+// The full tool list is tiny, so we filter it in the browser.
+const ALL_TOOLS = getTools().map((t) => ({
+  slug: t.slug,
+  name: t.name,
+  tagline: t.tagline,
+}));
 
 export default function SearchPage() {
   const [q, setQ] = useState("");
-  const [results, setResults] = useState<Tool[]>([]);
-  const [loading, setLoading] = useState(false);
+  const query = q.trim().toLowerCase();
 
-  useEffect(() => {
-    const query = q.trim();
-    if (!query) {
-      setResults([]);
-      setLoading(false);
-      return;
-    }
-    const ctrl = new AbortController();
-    setLoading(true);
-    fetch(`/api/search?q=${encodeURIComponent(query)}`, { signal: ctrl.signal })
-      .then((r) => r.json())
-      .then((data: Tool[]) => {
-        setResults(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-    return () => ctrl.abort();
-  }, [q]);
-
-  const query = q.trim();
+  const results = useMemo(() => {
+    if (!query) return [];
+    return ALL_TOOLS.filter(
+      (t) =>
+        t.name.toLowerCase().includes(query) ||
+        t.tagline.toLowerCase().includes(query)
+    );
+  }, [query]);
 
   return (
     <div className="mx-auto max-w-3xl px-4 mt-8">
@@ -48,8 +38,8 @@ export default function SearchPage() {
 
       {query.length > 0 && (
         <p className="text-[13px] text-ink-400 mt-3">
-          {loading
-            ? "Searching…"
+          {results.length === 0
+            ? `No results for “${q}”`
             : `${results.length} result${results.length === 1 ? "" : "s"} for “${q}”`}
         </p>
       )}
@@ -72,7 +62,7 @@ export default function SearchPage() {
         ))}
       </div>
 
-      {query.length > 0 && results.length === 0 && !loading && (
+      {query.length > 0 && results.length === 0 && (
         <p className="text-[13px] text-ink-600 mt-4">
           No match. Try a broader keyword or{" "}
           <Link href="/submit" className="text-brand-600 hover:underline">

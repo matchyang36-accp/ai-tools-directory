@@ -2,9 +2,6 @@ import Link from "next/link";
 import CategoryCard from "@/components/CategoryCard";
 import { getCategories } from "@/lib/db";
 
-export const dynamic = "force-dynamic";
-export const runtime = "edge";
-
 export const metadata = {
   title: "All categories",
   description:

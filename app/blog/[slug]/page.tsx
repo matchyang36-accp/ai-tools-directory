@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getReviewBySlug, getToolBySlug } from "@/lib/db";
+import { getReviews } from "@/data/tools";
 
-export const dynamic = "force-dynamic";
-export const runtime = "edge";
+export function generateStaticParams() {
+  return getReviews().map((r) => ({ slug: r.slug }));
+}
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const r = await getReviewBySlug(params.slug);

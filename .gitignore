@@ -2,6 +2,8 @@
 /.next
 /.vercel
 /.wrangler
+/out
+*.disabled
 .dev.vars
 scripts/seed.sql
 next-env.d.ts

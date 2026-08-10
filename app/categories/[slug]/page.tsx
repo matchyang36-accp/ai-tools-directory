@@ -7,9 +7,13 @@ import {
   getToolsByCategory,
   getCategoryCount,
 } from "@/lib/db";
+import { getCategories } from "@/data/tools";
 
-export const dynamic = "force-dynamic";
-export const runtime = "edge";
+export function generateStaticParams() {
+  const cats = getCategories().map((c) => ({ slug: c.slug }));
+  if (!cats.some((c) => c.slug === "free")) cats.push({ slug: "free" });
+  return cats;
+}
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   if (params.slug === "free") {

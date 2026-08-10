@@ -1,87 +1,51 @@
-# Deploy — Self-Service Cloudflare Pages + D1 (Git integration)
+# 部署指南 — Cloudflare Pages 纯静态托管（小白版）
 
-Everything in this folder is already committed to a local **git** repo on branch `main`
-(39 tracked files; `node_modules`/`.next`/`.vercel` are ignored). You just need to push it
-and click through the Cloudflare Dashboard. No keys are shared with anyone.
-
-> **Why this path?** `@cloudflare/next-on-pages` shells out to `npx vercel build`, which
-> fails on **native Windows** (`spawn npx ENOENT`). Cloudflare builds on **Linux**, so the
-> Git integration bypasses that bug entirely. (Adapter note: next-on-pages is deprecated;
-> future-proof by migrating to `@opennextjs/cloudflare` — works on Windows, no `vercel build`.)
+本网站已改为**纯静态导出（SSG）**：所有页面在构建时一次性生成 HTML 文件，
+**不需要数据库、不需要服务器函数、不需要 edge 运行时**。
+这正是之前 Cloudflare 构建卡在 `async_hooks` 错误的根因被彻底绕开的办法。
 
 ---
 
-## Part A — Push to GitHub
+## 第一步：把代码推到 GitHub（代码已在 GitHub 可跳过）
+在 `ai-tools-directory` 文件夹里打开终端，执行：
 ```bash
-# from inside ai-tools-directory/
-git remote add origin https://github.com/<you>/<repo>.git
-git push -u origin main
+git add -A
+git commit -m "feat: convert to static export"
+git push origin main
 ```
-(Repo is on branch `main`. If GitHub created a default `main` already and rejects push,
-use `git push -u origin main --force` only on a fresh empty repo.)
 
-## Part B — Create the D1 database and copy its id
-**Easiest (Dashboard):** Cloudflare → **Workers & Pages → D1 → Create database** →
-name it exactly `ai-tools-directory`. After creation, copy the **database_id**.
+## 第二步：Cloudflare Pages 连 Git（在浏览器里点）
+1. 登录 [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages → Create → Pages → 连接 Git 仓库**。
+2. 选你的仓库 `matchyang36-accp/ai-tools-directory`，Production branch 选 `main`。
+3. **Build command（构建命令）：** `npm run build`
+4. **Output directory（输出目录）：** `out`
+5. **环境变量**（点 "Add variable"，构建时）：`NODE_VERSION` = `20`
+6. 点 **Save and Deploy** 开始首次构建。
 
-Then open `wrangler.jsonc` and replace the placeholder:
-```jsonc
-"database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"   →   "database_id": "<paste-real-id>"
-```
-Commit & push that one-line change:
+> ⚠️ 不要把输出目录用默认的，一定手动改成 `out`。也不要选 Next.js 预设自带的输出目录。
+
+## 第三步：验证上线
+构建完成后打开分配的 `*.pages.dev` 网址，检查：
+- 首页 `/` 正常显示工具列表
+- `/tools/<任意slug>` 能打开（例如 `/tools/jasper`）
+- `/search` 输入关键词能实时出结果
+- `/sitemap.xml` 和 `/robots.txt` 能打开（SEO 用）
+
+## 以后改内容怎么更新？
+网站所有内容都在 `data/tools.ts`（57 个工具、9 个分类、评测、对比）里。
+改完这个文件后：
 ```bash
-git add wrangler.jsonc && git commit -m "chore: set D1 database_id" && git push
+git add -A && git commit -m "update content" && git push origin main
 ```
+Cloudflare 会自动重新构建部署（几分钟）。**不需要碰数据库、不需要 D1、不需要 Functions。**
 
-## Part C — Load schema + seed into D1
-Pick ONE:
-
-**Option 1 — wrangler CLI** (needs `wrangler login` or `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`):
-```bash
-npx tsx scripts/seed.ts                                  # (re)generate scripts/seed.sql
-npx wrangler d1 migrations apply ai-tools-directory --remote
-npx wrangler d1 execute   ai-tools-directory --remote --file=scripts/seed.sql
-```
-
-**Option 2 — Dashboard paste** (no CLI at all):
-Cloudflare → D1 → `ai-tools-directory` → **Console** → paste the contents of
-`scripts/setup-d1.sql` (schema + seed in one file) and run. That creates the 4 tables
-and inserts 9 categories / 57 tools / 4 reviews / 5 comparisons.
-
-## Part D — Connect Cloudflare Pages
-Cloudflare Dashboard → **Workers & Pages → Create → Pages → connect your Git repo**.
-
-- **Build command:** `npm run build && npm run pages:build`
-- **Build output directory:** `.vercel/output/static`
-- **Environment variable (build):** `NODE_VERSION = 20`
-- **D1 binding:** Settings → **Variables / D1** → add binding
-  - Variable name: `DB`  (must match `wrangler.jsonc` + the code's `getRequestContext().env.DB`)
-  - Database: `ai-tools-directory`
-- Do **not** rely on the "Next.js" framework preset's own build step — the custom build
-  command above is what wires up `next-on-pages` output.
-
-## Part E — Deploy & verify
-1. Save → Cloudflare runs the Linux build. Watch the build log; it should finish with
-   `✓ Successfully created a Pages project` and upload `.vercel/output/static`.
-2. Open the assigned `*.pages.dev` URL. Spot-check:
-   - Home `/` lists tools (reads D1 `DB` at request time).
-   - `/tools/<slug>` renders a tool page with JSON-LD.
-   - `/api/search?q=seo` returns JSON.
-3. (Optional) Add a custom domain under **Custom domains**.
+## 自定义域名（可选）
+在 Cloudflare Pages 项目的 **Custom domains** 里添加你的域名，按提示改 DNS 即可。
 
 ---
 
-## Local dev (optional)
-Plain `npm run dev` / `npm run start` works using the static fallback in `data/tools.ts`.
-For the real local D1:
-```bash
-npm run db:migrate:local
-npm run db:seed:local
-npx wrangler pages dev .vercel/output/static
-```
-
-## Re-deploy after editing `data/tools.ts`
-1. `npx tsx scripts/seed.ts`
-2. Push to Git (Pages rebuilds automatically), **and** reload D1:
-   `npx wrangler d1 execute ai-tools-directory --remote --file=scripts/seed.sql`
-   (or re-paste `scripts/setup-d1.sql` in the D1 console).
+### 技术说明（可忽略）
+- `next.config.mjs` 设了 `output: "export"`，`npm run build` 把整站导出到 `out/`。
+- 搜索改成浏览器端过滤（`app/search/page.tsx` 直接 import 数据），不再依赖 API 路由。
+- 之前的 D1 / next-on-pages 配置已不再需要（数据全在 `data/tools.ts`）。
+  若将来要动态管理海量内容，可再迁回带数据库的架构，但当前纯静态方案最稳、最快、最便宜。

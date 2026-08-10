@@ -1,14 +1,10 @@
 {
+  // Pure static export — no D1, no Functions, no edge runtime.
+  // When deploying via Cloudflare Pages (Git integration) the build settings
+  // live in the Cloudflare Dashboard, NOT here:
+  //   Build command:    npm run build
+  //   Output directory: out
+  // (Or deploy from CLI with: `npx wrangler pages deploy out`)
   "name": "ai-tools-directory",
-  "pages_build_output_dir": ".vercel/output/static",
-  "compatibility_date": "2025-04-01",
-  "compatibility_flags": ["nodejs_compat"],
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "ai-tools-directory",
-      "database_id": "f2d2561a-7a03-4635-b483-6f764c229381",
-      "migrations_dir": "migrations"
-    }
-  ]
+  "pages_build_output_dir": "out"
 }

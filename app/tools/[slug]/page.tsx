@@ -2,9 +2,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AdSlot from "@/components/AdSlot";
 import { getToolBySlug, getCategoryBySlug } from "@/lib/db";
+import { getTools } from "@/data/tools";
 
-export const dynamic = "force-dynamic";
-export const runtime = "edge";
+export function generateStaticParams() {
+  return getTools().map((t) => ({ slug: t.slug }));
+}
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const t = await getToolBySlug(params.slug);

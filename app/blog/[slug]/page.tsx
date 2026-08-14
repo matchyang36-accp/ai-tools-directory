@@ -10,7 +10,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const r = await getReviewBySlug(params.slug);
   if (!r) return { title: "Not found" };
-  return { title: r.title, description: r.excerpt };
+  return {
+    title: r.title,
+    description: r.excerpt,
+    alternates: { canonical: `/blog/${r.slug}` },
+  };
 }
 
 export default async function BlogDetail({
@@ -38,9 +42,8 @@ export default async function BlogDetail({
         {review.excerpt}
       </p>
       <p className="text-[14px] text-ink-600 leading-relaxed mt-4">
-        This is a demo article stub. In production, this page would contain a
-        full, SEO-optimized review with headings, comparison tables, screenshots
-        and internal links to the related tool page
+        This editorial brief highlights the core use case and links to the
+        related tool profile
         {tool ? (
           <>
             {" "}
@@ -54,8 +57,8 @@ export default async function BlogDetail({
             )
           </>
         ) : null}
-        . Long-form content like this is the primary SEO traffic driver for the
-        whole directory.
+        . A detailed hands-on review will be added after our testing notes are
+        complete; we do not publish unsupported performance claims.
       </p>
 
       {tool && (

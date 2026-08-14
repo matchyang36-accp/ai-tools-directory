@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE } from "@/lib/site";
 
 export const metadata = {
   title: "Submit a tool",
@@ -16,59 +17,24 @@ export default function SubmitPage() {
         low-quality or scammy tools.
       </p>
 
-      <form className="bg-white rounded-xl border border-black/10 p-6 space-y-4">
-        <div>
-          <label className="block text-[13px] text-ink-900 mb-1">
-            Tool name
-          </label>
-          <input
-            className="w-full h-[38px] px-3 rounded-lg border border-black/15 text-[13px] outline-none focus:border-brand-400"
-            placeholder="e.g. Acme AI"
-          />
-        </div>
-        <div>
-          <label className="block text-[13px] text-ink-900 mb-1">Website</label>
-          <input
-            className="w-full h-[38px] px-3 rounded-lg border border-black/15 text-[13px] outline-none focus:border-brand-400"
-            placeholder="https://"
-          />
-        </div>
-        <div>
-          <label className="block text-[13px] text-ink-900 mb-1">
-            Category
-          </label>
-          <select className="w-full h-[38px] px-3 rounded-lg border border-black/15 text-[13px] outline-none focus:border-brand-400 bg-white">
-            <option>Copywriting</option>
-            <option>SEO</option>
-            <option>Ads &amp; Creative</option>
-            <option>Social Media</option>
-            <option>Email &amp; Outreach</option>
-            <option>Image &amp; Design</option>
-            <option>Video</option>
-            <option>Chatbots</option>
-            <option>Productivity</option>
-          </select>
-        </div>
-        <div>
-          <label className="block text-[13px] text-ink-900 mb-1">
-            Why should we list it?
-          </label>
-          <textarea
-            rows={4}
-            className="w-full px-3 py-2 rounded-lg border border-black/15 text-[13px] outline-none focus:border-brand-400"
-            placeholder="One or two sentences on what it does and who it's for."
-          />
-        </div>
-        <button
-          type="button"
-          className="h-[38px] px-6 rounded-lg bg-brand-600 text-white text-[13px] font-medium hover:bg-brand-800"
-        >
-          Submit for review
-        </button>
-        <p className="text-[12px] text-ink-400">
-          Demo form — wire this to your backend (D1 + a review queue) later.
+      <section className="bg-white rounded-xl border border-black/10 p-6">
+        <h2 className="text-[15px] font-medium text-ink-900">
+          Submissions are in early access
+        </h2>
+        <p className="text-[13px] text-ink-600 leading-relaxed mt-2">
+          Until the official domain and submission workflow are ready, send the
+          tool name, website, category, and a short description through a GitHub
+          issue. Do not include passwords, API keys, or private customer data.
         </p>
-      </form>
+        <a
+          href={`${SITE.repositoryUrl}/issues/new?title=Tool%20submission%3A%20`}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-5 inline-flex h-[38px] px-6 rounded-lg bg-brand-600 text-white text-[13px] font-medium items-center hover:bg-brand-800"
+        >
+          Submit through GitHub
+        </a>
+      </section>
 
       <Link
         href="/"

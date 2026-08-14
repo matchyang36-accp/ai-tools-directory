@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
-
-// Replace with your real domain before going live.
-const BASE_URL = "https://marketai.example.com";
+import { absoluteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: absoluteUrl("/sitemap.xml"),
   };
 }

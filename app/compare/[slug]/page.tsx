@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import AdSlot from "@/components/AdSlot";
 import { getComparisonBySlug, getToolBySlug } from "@/lib/db";
 import { getComparisons } from "@/data/tools";
 
@@ -88,11 +87,7 @@ export default async function CompareDetail({
         <StatRow label="Main con" a={a.cons[0] ?? "—"} b={b.cons[0] ?? "—"} />
       </div>
 
-      <div className="my-6">
-        <AdSlot className="h-[60px]" />
-      </div>
-
-      <p className="text-[13px] text-ink-600">
+      <p className="text-[13px] text-ink-600 mt-6">
         Verdict: pick <span className="font-medium text-ink-900">{a.name}</span> if{" "}
         {a.bestFor.toLowerCase()}; choose{" "}
         <span className="font-medium text-ink-900">{b.name}</span> if{" "}

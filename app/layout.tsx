@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
     default:
       "MarketAI — AI tools for marketers, SEOs & small businesses",
     template: "%s | MarketAI",
   },
   description:
-    "Hands-on reviews, honest comparisons, and free alternatives to the best AI tools for marketing, SEO and small business. Not just another link list.",
+    SITE.description,
   keywords: [
     "AI tools for marketing",
     "AI SEO tools",
@@ -24,6 +26,13 @@ export const metadata: Metadata = {
       "Hands-on reviews, honest comparisons, and free alternatives to the best AI tools for marketing.",
     type: "website",
     locale: "en_US",
+    url: "/",
+    siteName: SITE.name,
+  },
+  twitter: {
+    card: "summary",
+    title: "MarketAI — AI tools for marketers, SEOs & small businesses",
+    description: SITE.description,
   },
   robots: { index: true, follow: true },
 };

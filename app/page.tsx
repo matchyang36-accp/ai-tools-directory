@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AdSlot from "@/components/AdSlot";
 import ToolCard from "@/components/ToolCard";
 import CategoryCard from "@/components/CategoryCard";
 import ComparisonRow from "@/components/ComparisonRow";
@@ -9,14 +8,16 @@ import {
   getFeaturedTools,
   getComparisons,
   getReviews,
+  getTools,
 } from "@/lib/db";
 
 export default async function HomePage() {
-  const [categories, featured, comparisons, reviews] = await Promise.all([
+  const [categories, featured, comparisons, reviews, tools] = await Promise.all([
     getCategories(),
     getFeaturedTools(),
     getComparisons(),
     getReviews(),
+    getTools(),
   ]);
 
   return (
@@ -37,7 +38,7 @@ export default async function HomePage() {
           <input
             type="search"
             name="q"
-            placeholder="Search 1,200+ AI tools for marketing"
+            placeholder={`Search ${tools.length} curated AI tools`}
             className="w-full max-w-[420px] h-[40px] px-4 rounded-full border border-black/15 text-[13px] outline-none focus:border-brand-400"
           />
         </form>
@@ -56,11 +57,6 @@ export default async function HomePage() {
           </Link>
         </div>
       </section>
-
-      {/* Ad slot */}
-      <div className="mt-6">
-        <AdSlot className="h-[60px]" />
-      </div>
 
       {/* Editor's picks */}
       <section className="mt-8">
@@ -110,25 +106,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="bg-white rounded-xl border border-black/10 mt-8 px-6 py-8">
-        <h2 className="text-[15px] font-medium text-ink-900">
-          Get the weekly AI tools digest
-        </h2>
-        <form className="mt-4 flex flex-col sm:flex-row gap-3 max-w-[520px]">
-          <input
-            type="email"
-            placeholder="you@company.com"
-            className="flex-1 h-[36px] px-3 rounded-lg border border-black/15 text-[13px] outline-none focus:border-brand-400"
-          />
-          <button
-            type="button"
-            className="h-[36px] px-6 rounded-lg bg-brand-600 text-white text-[13px] font-medium hover:bg-brand-800"
-          >
-            Subscribe
-          </button>
-        </form>
-      </section>
     </div>
   );
 }

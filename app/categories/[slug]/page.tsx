@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ToolCard from "@/components/ToolCard";
-import AdSlot from "@/components/AdSlot";
 import {
   getCategoryBySlug,
   getToolsByCategory,
@@ -70,10 +69,6 @@ export default async function CategoryPage({
       <p className="text-[13px] text-ink-600 mt-1 mb-5">
         {cat.description} ({count} tools)
       </p>
-
-      <div className="mb-6">
-        <AdSlot className="h-[60px]" />
-      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {tools.map((t) => (

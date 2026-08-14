@@ -1,13 +1,12 @@
 import type { MetadataRoute } from "next";
 import { getTools, getCategories, getComparisons, getReviews } from "@/data/tools";
-
-// Replace with your real domain before going live.
-const BASE_URL = "https://marketai.example.com";
+import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/categories",
+    "/categories/free",
     "/compare",
     "/blog",
     "/search",
@@ -17,27 +16,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/affiliate-disclosure",
     "/privacy",
   ].map((p) => ({
-    url: `${BASE_URL}${p}`,
+    url: absoluteUrl(p || "/"),
     lastModified: new Date(),
   }));
 
   const tools = getTools().map((t) => ({
-    url: `${BASE_URL}/tools/${t.slug}`,
+    url: absoluteUrl(`/tools/${t.slug}`),
     lastModified: new Date(),
   }));
 
   const categories = getCategories().map((c) => ({
-    url: `${BASE_URL}/categories/${c.slug}`,
+    url: absoluteUrl(`/categories/${c.slug}`),
     lastModified: new Date(),
   }));
 
   const comparisons = getComparisons().map((c) => ({
-    url: `${BASE_URL}/compare/${c.slug}`,
+    url: absoluteUrl(`/compare/${c.slug}`),
     lastModified: new Date(),
   }));
 
   const reviews = getReviews().map((r) => ({
-    url: `${BASE_URL}/blog/${r.slug}`,
+    url: absoluteUrl(`/blog/${r.slug}`),
     lastModified: new Date(),
   }));
 

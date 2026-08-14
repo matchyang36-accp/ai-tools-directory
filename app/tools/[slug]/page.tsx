@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import AdSlot from "@/components/AdSlot";
 import { getToolBySlug, getCategoryBySlug } from "@/lib/db";
 import { getTools } from "@/data/tools";
+import { absoluteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return getTools().map((t) => ({ slug: t.slug }));
@@ -11,7 +11,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const t = await getToolBySlug(params.slug);
   if (!t) return { title: "Tool not found" };
-  return { title: `${t.name} review`, description: t.description };
+  return {
+    title: `${t.name} review`,
+    description: t.description,
+    alternates: { canonical: `/tools/${t.slug}` },
+  };
 }
 
 export default async function ToolPage({
@@ -27,7 +31,7 @@ export default async function ToolPage({
     "@context": "https://schema.org",
     "@type": "Review",
     name: `${tool.name} review`,
-    url: `https://marketai.example.com/tools/${tool.slug}`,
+    url: absoluteUrl(`/tools/${tool.slug}`),
     itemReviewed: {
       "@type": "SoftwareApplication",
       name: tool.name,
@@ -107,11 +111,7 @@ export default async function ToolPage({
         </a>
       </div>
 
-      <div className="my-6">
-        <AdSlot className="h-[60px]" />
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         <div className="bg-white rounded-lg border border-black/10 p-4">
           <h2 className="text-[14px] font-medium text-ink-900 mb-2">Pros</h2>
           <ul className="text-[13px] text-ink-600 space-y-1 list-disc pl-4">

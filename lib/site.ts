@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://ai-tools-directory-60e.pages.dev";
+const DEFAULT_SITE_URL = "https://whichaiuse.com";
 
 function getSiteUrl(): string {
   const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();

@@ -19,11 +19,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     return {
       title: "Free AI tools",
       description: "No-cost AI tools for marketing, SEO and small business.",
+      alternates: { canonical: "/categories/free" },
     };
   }
   const cat = await getCategoryBySlug(params.slug);
   if (!cat) return { title: "Category not found" };
-  return { title: `${cat.name} AI tools`, description: cat.description };
+  return {
+    title: `${cat.name} AI tools`,
+    description: cat.description,
+    alternates: { canonical: `/categories/${cat.slug}` },
+  };
 }
 
 export default async function CategoryPage({

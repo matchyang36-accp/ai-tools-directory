@@ -5,6 +5,7 @@ export const metadata = {
   title: "Blog & reviews",
   description:
     "In-depth reviews and buying guides for AI tools in marketing, SEO and small business.",
+  alternates: { canonical: "/blog" },
 };
 
 export default async function BlogIndex() {

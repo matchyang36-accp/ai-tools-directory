@@ -11,6 +11,10 @@ import {
   getTools,
 } from "@/lib/db";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default async function HomePage() {
   const [categories, featured, comparisons, reviews, tools] = await Promise.all([
     getCategories(),

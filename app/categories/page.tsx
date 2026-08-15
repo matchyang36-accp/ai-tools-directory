@@ -6,6 +6,7 @@ export const metadata = {
   title: "All categories",
   description:
     "Browse AI tools by category — copywriting, SEO, ads, social, email, design, video, chatbots and productivity.",
+  alternates: { canonical: "/categories" },
 };
 
 export default async function CategoriesPage() {

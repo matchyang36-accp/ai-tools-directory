@@ -9,35 +9,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/categories/free",
     "/compare",
     "/blog",
-    "/search",
     "/submit",
     "/about",
     "/contact",
     "/affiliate-disclosure",
     "/privacy",
-  ].map((p) => ({
-    url: absoluteUrl(p || "/"),
-    lastModified: new Date(),
-  }));
+  ].map((p) => ({ url: absoluteUrl(p || "/") }));
 
   const tools = getTools().map((t) => ({
     url: absoluteUrl(`/tools/${t.slug}`),
-    lastModified: new Date(),
   }));
 
   const categories = getCategories().map((c) => ({
     url: absoluteUrl(`/categories/${c.slug}`),
-    lastModified: new Date(),
   }));
 
   const comparisons = getComparisons().map((c) => ({
     url: absoluteUrl(`/compare/${c.slug}`),
-    lastModified: new Date(),
   }));
 
   const reviews = getReviews().map((r) => ({
     url: absoluteUrl(`/blog/${r.slug}`),
-    lastModified: new Date(),
+    lastModified: r.date,
   }));
 
   return [...staticRoutes, ...tools, ...categories, ...comparisons, ...reviews];

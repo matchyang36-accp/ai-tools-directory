@@ -18,13 +18,19 @@ export default function PrivacyPage() {
           security logs to deliver and protect the service.
         </p>
         <p>
+          We use Cloudflare Web Analytics to understand aggregate page views,
+          visits, referral sources, and site performance. Cloudflare states that
+          this privacy-first service does not collect or use visitors&apos; personal
+          data and does not use cookies for this purpose.
+        </p>
+        <p>
           MarketAI links to third-party websites. Those services have their own
           privacy practices, and this policy does not cover information they
           collect after you leave MarketAI.
         </p>
         <p>
-          This policy will be updated before analytics, advertising, accounts,
-          or email subscriptions are enabled. Last updated: August 2026.
+          This policy will be updated before advertising, accounts, payments, or
+          email subscriptions are enabled. Last updated: August 2026.
         </p>
       </div>
       <Link

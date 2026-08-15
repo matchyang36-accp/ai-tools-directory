@@ -6,6 +6,7 @@ export const metadata = {
   title: "Tool comparisons",
   description:
     "Head-to-head comparisons of the most popular AI marketing tools — features, pricing and which to pick.",
+  alternates: { canonical: "/compare" },
 };
 
 export default async function CompareIndex() {

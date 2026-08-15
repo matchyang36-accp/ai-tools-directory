@@ -41,25 +41,57 @@ export default async function BlogDetail({
       <p className="text-[15px] text-ink-600 leading-relaxed mt-4">
         {review.excerpt}
       </p>
-      <p className="text-[14px] text-ink-600 leading-relaxed mt-4">
-        This editorial brief highlights the core use case and links to the
-        related tool profile
-        {tool ? (
-          <>
-            {" "}
-            (
-            <Link
-              href={`/tools/${tool.slug}`}
-              className="text-brand-600 hover:underline"
-            >
-              {tool.name}
-            </Link>
-            )
-          </>
-        ) : null}
-        . A detailed hands-on review will be added after our testing notes are
-        complete; we do not publish unsupported performance claims.
-      </p>
+
+      {review.sections ? (
+        <div className="mt-7 space-y-7">
+          {review.sections.map((section, index) => (
+            <section key={`${section.heading ?? "intro"}-${index}`}>
+              {section.heading ? (
+                <h2 className="text-[18px] font-medium text-ink-900 mb-3">
+                  {section.heading}
+                </h2>
+              ) : null}
+              <div className="space-y-3">
+                {section.paragraphs.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="text-[14px] text-ink-600 leading-7"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              {section.bullets?.length ? (
+                <ul className="mt-3 list-disc pl-5 space-y-2 text-[14px] text-ink-600 leading-6">
+                  {section.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </section>
+          ))}
+        </div>
+      ) : (
+        <p className="text-[14px] text-ink-600 leading-relaxed mt-4">
+          This editorial brief highlights the core use case and links to the
+          related tool profile
+          {tool ? (
+            <>
+              {" "}
+              (
+              <Link
+                href={`/tools/${tool.slug}`}
+                className="text-brand-600 hover:underline"
+              >
+                {tool.name}
+              </Link>
+              )
+            </>
+          ) : null}
+          . A detailed hands-on review will be added after our testing notes are
+          complete; we do not publish unsupported performance claims.
+        </p>
+      )}
 
       {tool && (
         <div className="mt-6 bg-white rounded-xl border border-black/10 p-5 flex items-center justify-between">

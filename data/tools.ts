@@ -1,3 +1,5 @@
+import { publishedPosts } from "@/data/published-posts";
+
 // Seed data layer. Swap this module for a D1 query layer later — the getter
 // functions (getTools, getToolBySlug, etc.) are the only contract the pages use.
 
@@ -30,6 +32,11 @@ export interface Review {
   readMins: number;
   toolSlug?: string;
   date: string;
+  sections?: Array<{
+    heading?: string;
+    paragraphs: string[];
+    bullets?: string[];
+  }>;
 }
 
 export interface Comparison {
@@ -927,7 +934,7 @@ export const tools: Tool[] = [
   },
 ];
 
-export const reviews: Review[] = [
+const legacyReviews: Review[] = [
   {
     slug: "best-ai-seo-tools-2026",
     title: "Best AI SEO tools in 2026 (tested & ranked)",
@@ -964,6 +971,8 @@ export const reviews: Review[] = [
     date: "2026-07-15",
   },
 ];
+
+export const reviews: Review[] = [...publishedPosts, ...legacyReviews];
 
 export const comparisons: Comparison[] = [
   { slug: "surfer-seo-vs-clearscope", title: "Surfer SEO vs Clearscope", a: "surfer-seo", b: "clearscope" },

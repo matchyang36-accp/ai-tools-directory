@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE } from "@/lib/site";
 
+const CLOUDFLARE_ANALYTICS_TOKEN = "3840b35262494df38d5c3c3a0cf85e08";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
@@ -48,6 +50,13 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({
+            token: CLOUDFLARE_ANALYTICS_TOKEN,
+          })}
+        />
       </body>
     </html>
   );

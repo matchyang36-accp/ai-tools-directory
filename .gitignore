@@ -7,3 +7,4 @@
 .dev.vars
 scripts/seed.sql
 next-env.d.ts
+tsconfig.tsbuildinfo

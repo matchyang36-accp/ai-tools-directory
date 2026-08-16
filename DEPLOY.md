@@ -29,12 +29,13 @@ git push origin main
 - `CF_ZONE_ID`：`whichaiuse.com` 对应的 Zone ID。
 - `CF_ANALYTICS_API_TOKEN`：Cloudflare Analytics 只读 API Token，必须选择 **Secret / Encrypt**，不要使用明文变量，也不要写进 Git。
 
-同时在 Cloudflare Zero Trust → Access 中创建 Self-hosted application，仅保护：
+应用内管理员登录还需要在 Pages 项目 **Settings → Variables and Secrets** 中添加三个加密 Secret：
 
-- `whichaiuse.com/admin/*`
-- `whichaiuse.com/api/admin/*`
+- `ADMIN_EMAIL`：允许登录的管理员邮箱。
+- `ADMIN_PASSWORD`：至少 20 位的后台专用随机密码，不要与其他网站共用。
+- `ADMIN_SESSION_SECRET`：至少 32 位的随机签名密钥。
 
-策略只允许管理员邮箱。后台页面和分析接口必须一起保护，避免只锁页面却留下公开 API。
+`/admin/*` 页面与 `/api/admin/*` 分析接口会校验同一个 24 小时安全会话。Secret 不写入源码，也不会进入浏览器静态文件。
 
 > ⚠️ 不要把输出目录用默认的，一定手动改成 `out`。也不要选 Next.js 预设自带的输出目录。
 
@@ -62,5 +63,5 @@ Cloudflare 会自动重新构建部署（几分钟）。公开内容不需要数
 - `next.config.mjs` 设了 `output: "export"`，`npm run build` 把整站导出到 `out/`。
 - 搜索改成浏览器端过滤（`app/search/page.tsx` 直接 import 数据），不再依赖 API 路由。
 - 之前的 D1 / next-on-pages 数据层配置仍未启用（公开内容全在 `data/tools.ts`）。
-- `functions/api/admin/analytics.ts` 只负责服务端读取 Cloudflare Analytics，缺少 Access 身份或环境变量时会尽早失败。
+- `functions/admin/[[path]].ts` 在边缘拦截未登录的后台页面；`functions/api/admin/analytics.ts` 也独立验证会话。身份验证或环境变量缺失时会尽早失败。
   若将来要动态管理海量内容，可再迁回带数据库的架构，但当前纯静态方案最稳、最快、最便宜。

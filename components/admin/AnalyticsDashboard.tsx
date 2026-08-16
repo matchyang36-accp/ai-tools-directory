@@ -49,6 +49,10 @@ export default function AnalyticsDashboard() {
     fetch(`/api/admin/analytics?days=${days}`, { credentials: "same-origin", signal: controller.signal })
       .then(async (response) => {
         const payload = await response.json();
+        if (response.status === 401) {
+          window.location.assign(`/admin-login?next=${encodeURIComponent("/admin/analytics")}`);
+          throw new Error("管理员登录已失效，正在跳转登录页。");
+        }
         if (!response.ok) throw new Error(payload.message || "访问数据加载失败。");
         return payload as AnalyticsData;
       })

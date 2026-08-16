@@ -1,4 +1,6 @@
-interface Env {
+import { hasValidAdminSession, jsonResponse, type AdminAuthEnv } from "../../_lib/admin-auth";
+
+interface Env extends AdminAuthEnv {
   CF_ANALYTICS_API_TOKEN?: string;
   CF_ZONE_ID?: string;
 }
@@ -56,9 +58,8 @@ function json(data: unknown, status = 200) {
 }
 
 export async function onRequestGet(context: PagesContext): Promise<Response> {
-  const accessAssertion = context.request.headers.get("cf-access-jwt-assertion");
-  if (!accessAssertion) {
-    return json({ error: "ADMIN_ACCESS_REQUIRED", message: "管理员身份验证未生效。" }, 401);
+  if (!(await hasValidAdminSession(context.request, context.env))) {
+    return jsonResponse({ error: "ADMIN_ACCESS_REQUIRED", message: "管理员登录已失效，请重新登录。" }, 401);
   }
 
   const apiToken = context.env.CF_ANALYTICS_API_TOKEN;

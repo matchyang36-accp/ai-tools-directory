@@ -23,7 +23,7 @@ export default function AdminDashboard() {
         </Panel>
         <Panel title="下一步待办">
           <ol className="space-y-3 text-sm text-ink-600">
-            <li><strong className="mr-2 text-brand-600">1.</strong>在 Cloudflare Access 中保护 <code>/admin/*</code></li>
+            <li><strong className="mr-2 text-brand-600">1.</strong>管理员页面与分析接口已使用同一套加密会话保护</li>
             <li><strong className="mr-2 text-brand-600">2.</strong>接入 Supabase Auth 与用户表</li>
             <li><strong className="mr-2 text-brand-600">3.</strong>将工具、反馈迁移到可写数据库</li>
             <li><strong className="mr-2 text-brand-600">4.</strong>接入 Cloudflare Web Analytics 数据</li>

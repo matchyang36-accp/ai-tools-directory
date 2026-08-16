@@ -1,5 +1,6 @@
 {
-  // Pure static export — no D1, no Functions, no edge runtime.
+  // Static export plus one isolated Pages Function for the protected admin
+  // analytics proxy. Public pages remain static and do not use an edge runtime.
   // When deploying via Cloudflare Pages (Git integration) the build settings
   // live in the Cloudflare Dashboard, NOT here:
   //   Build command:    npm run build

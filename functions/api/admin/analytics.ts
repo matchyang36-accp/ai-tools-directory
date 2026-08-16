@@ -1,0 +1,124 @@
+interface Env {
+  CF_ANALYTICS_API_TOKEN?: string;
+  CF_ZONE_ID?: string;
+}
+
+interface PagesContext {
+  request: Request;
+  env: Env;
+}
+
+const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
+
+const QUERY = `
+  query AdminAnalytics($zoneTag: string, $filter: ZoneHttpRequestsAdaptiveGroupsFilter_InputObject) {
+    viewer {
+      zones(filter: { zoneTag: $zoneTag }) {
+        summary: httpRequestsAdaptiveGroups(limit: 1, filter: $filter) {
+          count
+          sum { visits }
+        }
+        daily: httpRequestsAdaptiveGroups(limit: 40, orderBy: [date_ASC], filter: $filter) {
+          count
+          sum { visits }
+          dimensions { date }
+        }
+        topPaths: httpRequestsAdaptiveGroups(limit: 10, orderBy: [count_DESC], filter: $filter) {
+          count
+          dimensions { value: clientRequestPath }
+        }
+        topReferrers: httpRequestsAdaptiveGroups(limit: 8, orderBy: [count_DESC], filter: $filter) {
+          count
+          dimensions { value: clientRefererHost }
+        }
+        topCountries: httpRequestsAdaptiveGroups(limit: 8, orderBy: [count_DESC], filter: $filter) {
+          count
+          dimensions { value: clientCountryName }
+        }
+        devices: httpRequestsAdaptiveGroups(limit: 8, orderBy: [count_DESC], filter: $filter) {
+          count
+          dimensions { value: clientDeviceType }
+        }
+      }
+    }
+  }
+`;
+
+function json(data: unknown, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      "content-type": "application/json; charset=utf-8",
+      "cache-control": "private, max-age=300",
+      "x-content-type-options": "nosniff",
+    },
+  });
+}
+
+export async function onRequestGet(context: PagesContext): Promise<Response> {
+  const accessAssertion = context.request.headers.get("cf-access-jwt-assertion");
+  if (!accessAssertion) {
+    return json({ error: "ADMIN_ACCESS_REQUIRED", message: "管理员身份验证未生效。" }, 401);
+  }
+
+  const apiToken = context.env.CF_ANALYTICS_API_TOKEN;
+  const zoneId = context.env.CF_ZONE_ID;
+  if (!apiToken || !zoneId) {
+    return json({ error: "ANALYTICS_NOT_CONFIGURED", message: "Cloudflare Analytics 环境变量尚未配置。" }, 503);
+  }
+
+  const url = new URL(context.request.url);
+  const requestedDays = Number(url.searchParams.get("days") || "7");
+  const days = [1, 7, 30].includes(requestedDays) ? requestedDays : 7;
+  const end = new Date();
+  const start = new Date(end.getTime() - days * 24 * 60 * 60 * 1000);
+
+  try {
+    const response = await fetch(GRAPHQL_ENDPOINT, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${apiToken}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        query: QUERY,
+        variables: {
+          zoneTag: zoneId,
+          filter: {
+            datetime_geq: start.toISOString(),
+            datetime_leq: end.toISOString(),
+            requestSource: "eyeball",
+          },
+        },
+      }),
+    });
+
+    const payload: any = await response.json();
+    if (!response.ok || payload.errors?.length) {
+      console.error("Cloudflare Analytics query failed", {
+        status: response.status,
+        errors: payload.errors,
+      });
+      return json({ error: "ANALYTICS_UPSTREAM_ERROR", message: "Cloudflare Analytics 暂时无法返回数据。" }, 502);
+    }
+
+    const zone = payload.data?.viewer?.zones?.[0];
+    if (!zone) {
+      return json({ error: "ZONE_NOT_FOUND", message: "API Token 无法访问配置的站点区域。" }, 502);
+    }
+
+    return json({
+      rangeDays: days,
+      generatedAt: end.toISOString(),
+      summary: zone.summary?.[0] || { count: 0, sum: { visits: 0 } },
+      daily: zone.daily || [],
+      topPaths: zone.topPaths || [],
+      topReferrers: zone.topReferrers || [],
+      topCountries: zone.topCountries || [],
+      devices: zone.devices || [],
+    });
+  } catch (error) {
+    console.error("Cloudflare Analytics request crashed", error);
+    return json({ error: "ANALYTICS_REQUEST_FAILED", message: "访问分析服务连接失败，请稍后重试。" }, 502);
+  }
+}

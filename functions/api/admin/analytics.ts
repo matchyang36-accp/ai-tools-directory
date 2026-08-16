@@ -13,7 +13,7 @@ interface PagesContext {
 const GRAPHQL_ENDPOINT = "https://api.cloudflare.com/client/v4/graphql";
 
 const QUERY = `
-  query AdminAnalytics($zoneTag: string, $filter: ZoneHttpRequestsAdaptiveGroupsFilter_InputObject) {
+  query AdminAnalytics($zoneTag: string, $filter: filter) {
     viewer {
       zones(filter: { zoneTag: $zoneTag }) {
         summary: httpRequestsAdaptiveGroups(limit: 1, filter: $filter) {

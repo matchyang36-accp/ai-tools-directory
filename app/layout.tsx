@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AdminEntrance from "@/components/AdminEntrance";
 import { SITE } from "@/lib/site";
 
 const CLOUDFLARE_ANALYTICS_TOKEN = "3840b35262494df38d5c3c3a0cf85e08";
@@ -50,6 +51,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <AdminEntrance />
         <script
           type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"

@@ -29,10 +29,6 @@ const QUERY = `
           count
           dimensions { value: clientRequestPath }
         }
-        topReferrers: httpRequestsAdaptiveGroups(limit: 8, orderBy: [count_DESC], filter: $filter) {
-          count
-          dimensions { value: clientRefererHost }
-        }
         topCountries: httpRequestsAdaptiveGroups(limit: 8, orderBy: [count_DESC], filter: $filter) {
           count
           dimensions { value: clientCountryName }
@@ -68,9 +64,7 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
     return json({ error: "ANALYTICS_NOT_CONFIGURED", message: "Cloudflare Analytics 环境变量尚未配置。" }, 503);
   }
 
-  const url = new URL(context.request.url);
-  const requestedDays = Number(url.searchParams.get("days") || "7");
-  const days = [1, 7, 30].includes(requestedDays) ? requestedDays : 7;
+  const days = 1;
   const end = new Date();
   const start = new Date(end.getTime() - days * 24 * 60 * 60 * 1000);
 
@@ -100,7 +94,11 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
         status: response.status,
         errors: payload.errors,
       });
-      return json({ error: "ANALYTICS_UPSTREAM_ERROR", message: "Cloudflare Analytics 暂时无法返回数据。" }, 502);
+      const upstreamMessage = payload.errors?.[0]?.message;
+      return json({
+        error: "ANALYTICS_UPSTREAM_ERROR",
+        message: typeof upstreamMessage === "string" ? `Cloudflare Analytics：${upstreamMessage}` : "Cloudflare Analytics 暂时无法返回数据。",
+      }, 502);
     }
 
     const zone = payload.data?.viewer?.zones?.[0];
@@ -114,7 +112,9 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
       summary: zone.summary?.[0] || { count: 0, sum: { visits: 0 } },
       daily: zone.daily || [],
       topPaths: zone.topPaths || [],
-      topReferrers: zone.topReferrers || [],
+      // The Free zone plan does not expose clientRefererHost through this dataset.
+      // Keep the stable response shape so the UI can degrade without failing.
+      topReferrers: [],
       topCountries: zone.topCountries || [],
       devices: zone.devices || [],
     });

@@ -37,7 +37,7 @@ function Ranking({ rows, emptyLabel }: { rows: Group[]; emptyLabel: string }) {
 }
 
 export default function AnalyticsDashboard() {
-  const [days, setDays] = useState(7);
+  const [days, setDays] = useState(1);
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -70,13 +70,16 @@ export default function AnalyticsDashboard() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex rounded-xl border border-black/10 bg-white p-1">
-          {[1, 7, 30].map((value) => (
+          {[1].map((value) => (
             <button key={value} type="button" onClick={() => setDays(value)} className={`rounded-lg px-4 py-2 text-sm transition ${days === value ? "bg-brand-600 text-white" : "text-ink-600 hover:bg-black/[0.03]"}`}>
-              {value === 1 ? "今天" : `${value} 天`}
+              今天
             </button>
           ))}
         </div>
-        {data && <p className="text-xs text-ink-400">更新于 {new Date(data.generatedAt).toLocaleString("zh-CN")}</p>}
+        <div className="text-right">
+          {data && <p className="text-xs text-ink-400">更新于 {new Date(data.generatedAt).toLocaleString("zh-CN")}</p>}
+          <p className="mt-1 text-xs text-ink-400">Cloudflare 免费套餐当前提供最近 24 小时查询</p>
+        </div>
       </div>
 
       {error && (

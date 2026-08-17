@@ -74,6 +74,10 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
   const userAgent = context.request.headers.get("user-agent") || "";
   if (deviceType(userAgent) === "Bot") return response();
 
+  const requestUrl = new URL(context.request.url);
+  const origin = context.request.headers.get("origin");
+  if (origin && origin !== requestUrl.origin) return response(403);
+
   let body: { path?: unknown };
   try {
     body = await context.request.json();
@@ -89,7 +93,6 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
   const connectingIp = context.request.headers.get("cf-connecting-ip") || "";
   const visitorId = await anonymousVisitorId(connectingIp, userAgent, context.env.VISITOR_HASH_SECRET);
   const now = new Date().toISOString();
-  const requestUrl = new URL(context.request.url);
   const cf = context.request.cf || {};
 
   try {

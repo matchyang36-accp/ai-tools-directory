@@ -1,13 +1,12 @@
 import Link from "next/link";
+import BrandIcon from "@/components/BrandIcon";
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-black/10">
       <div className="mx-auto max-w-6xl px-4 h-14 flex items-center gap-6">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="w-7 h-7 rounded-lg bg-brand-600 text-white flex items-center justify-center text-sm font-medium">
-            M
-          </span>
+          <BrandIcon priority />
           <span className="font-medium text-[15px] text-brand-800">MarketAI</span>
         </Link>
 

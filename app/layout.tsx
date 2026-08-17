@@ -24,6 +24,15 @@ export const metadata: Metadata = {
     "AI copywriting",
     "AI video generator",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "64x64" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
+    ],
+  },
   openGraph: {
     title: "MarketAI — AI tools for marketers, SEOs & small businesses",
     description:

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import BrandIcon from "@/components/BrandIcon";
 
 const navItems = [
   { href: "/admin", icon: "🏠", label: "仪表盘" },
@@ -28,7 +29,10 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     <div className="mx-auto grid min-h-[calc(100vh-8rem)] max-w-7xl gap-6 px-4 py-8 lg:grid-cols-[250px_1fr]">
       <aside className="h-fit rounded-2xl border border-black/10 bg-white p-4 shadow-sm lg:sticky lg:top-24">
         <div className="mb-5 border-b border-black/10 px-2 pb-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600">WhichAIUse</p>
+          <div className="flex items-center gap-2">
+            <BrandIcon className="h-8 w-8" priority />
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600">WhichAIUse</p>
+          </div>
           <h1 className="mt-1 text-lg font-semibold text-ink-900">管理控制台</h1>
           <p className="mt-1 text-xs text-ink-600">应用内加密会话保护</p>
         </div>

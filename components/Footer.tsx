@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandIcon from "@/components/BrandIcon";
 
 export default function Footer() {
   return (
@@ -7,9 +8,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-7 h-7 rounded-lg bg-brand-600 text-white flex items-center justify-center text-sm font-medium">
-                M
-              </span>
+              <BrandIcon />
               <span className="font-medium text-brand-800">MarketAI</span>
             </div>
             <p className="text-[13px] text-ink-600 max-w-sm">

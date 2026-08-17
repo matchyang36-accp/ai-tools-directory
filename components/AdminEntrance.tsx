@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BrandIcon from "@/components/BrandIcon";
 
 export default function AdminEntrance() {
   const pathname = usePathname();
@@ -14,7 +15,7 @@ export default function AdminEntrance() {
       aria-label="Administrator login"
       title="Administrator login"
     >
-      <span aria-hidden="true">🔐</span>
+      <BrandIcon className="h-8 w-8" />
     </Link>
   );
 }

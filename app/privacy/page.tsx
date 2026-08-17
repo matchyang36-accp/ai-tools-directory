@@ -24,6 +24,16 @@ export default function PrivacyPage() {
           data and does not use cookies for this purpose.
         </p>
         <p>
+          We also use cookieless first-party analytics to distinguish anonymous
+          browser sessions. We store a masked IP address, approximate country,
+          region and city supplied by Cloudflare, the first page visited,
+          referring host, device category, and visit timestamps. We do not store
+          the full IP address or the full browser user-agent string. Anonymous
+          identifiers are generated with a secret one-way signature, and visitor
+          records older than 90 days are deleted. This data is used only to
+          operate and improve this website.
+        </p>
+        <p>
           MarketAI links to third-party websites. Those services have their own
           privacy practices, and this policy does not cover information they
           collect after you leave MarketAI.

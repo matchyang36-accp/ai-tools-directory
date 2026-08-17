@@ -1,8 +1,10 @@
 import { hasValidAdminSession, jsonResponse, type AdminAuthEnv } from "../../_lib/admin-auth";
+import type { D1Database } from "../../_lib/d1-types";
 
 interface Env extends AdminAuthEnv {
   CF_ANALYTICS_API_TOKEN?: string;
   CF_ZONE_ID?: string;
+  DB?: D1Database;
 }
 
 interface PagesContext {
@@ -106,6 +108,26 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
       return json({ error: "ZONE_NOT_FOUND", message: "API Token 无法访问配置的站点区域。" }, 502);
     }
 
+    let recentVisitors: unknown[] = [];
+    let visitorTrackingAvailable = Boolean(context.env.DB);
+    if (context.env.DB) {
+      try {
+        const visitorResult = await context.env.DB.prepare(`
+          SELECT visitor_id AS visitorId, ip_masked AS ipMasked, country, region, city,
+                 first_path AS firstPath, referrer_host AS referrerHost,
+                 device_type AS deviceType, first_seen AS firstSeen,
+                 last_seen AS lastSeen, page_views AS pageViews
+          FROM visitor_sessions
+          ORDER BY last_seen DESC
+          LIMIT 50
+        `).all();
+        recentVisitors = visitorResult.results || [];
+      } catch (error) {
+        visitorTrackingAvailable = false;
+        console.error("Recent visitor query failed", error);
+      }
+    }
+
     return json({
       rangeDays: days,
       generatedAt: end.toISOString(),
@@ -117,6 +139,8 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
       topReferrers: [],
       topCountries: zone.topCountries || [],
       devices: zone.devices || [],
+      recentVisitors,
+      visitorTrackingAvailable,
     });
   } catch (error) {
     console.error("Cloudflare Analytics request crashed", error);

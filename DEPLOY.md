@@ -34,6 +34,7 @@ git push origin main
 - `ADMIN_EMAIL`：允许登录的管理员邮箱。
 - `ADMIN_PASSWORD`：至少 20 位的后台专用随机密码，不要与其他网站共用。
 - `ADMIN_SESSION_SECRET`：至少 32 位的随机签名密钥。
+- `VISITOR_HASH_SECRET`：至少 32 位的随机密钥，仅用于生成不可逆匿名访客编号。
 
 `/admin/*` 页面与 `/api/admin/*` 分析接口会校验同一个 24 小时安全会话。Secret 不写入源码，也不会进入浏览器静态文件。
 

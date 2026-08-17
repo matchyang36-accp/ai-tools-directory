@@ -12,6 +12,22 @@ type AnalyticsData = {
   topReferrers: Group[];
   topCountries: Group[];
   devices: Group[];
+  recentVisitors: RecentVisitor[];
+  visitorTrackingAvailable: boolean;
+};
+
+type RecentVisitor = {
+  visitorId: string;
+  ipMasked: string;
+  country: string;
+  region: string;
+  city: string;
+  firstPath: string;
+  referrerHost: string;
+  deviceType: string;
+  firstSeen: string;
+  lastSeen: string;
+  pageViews: number;
 };
 
 function formatNumber(value = 0) {
@@ -34,6 +50,10 @@ function Ranking({ rows, emptyLabel }: { rows: Group[]; emptyLabel: string }) {
       ))}
     </div>
   );
+}
+
+function locationLabel(visitor: RecentVisitor): string {
+  return [visitor.country, visitor.region, visitor.city].filter(Boolean).join(" · ") || "未知地区";
 }
 
 export default function AnalyticsDashboard() {
@@ -113,6 +133,51 @@ export default function AnalyticsDashboard() {
             </div>
           ))}
           {!loading && !data?.daily.length && <p className="m-auto text-sm text-ink-400">当前范围暂无数据</p>}
+        </div>
+      </section>
+
+      <section className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-black/10 px-5 py-4">
+          <div>
+            <h3 className="font-semibold text-ink-900">最近访客</h3>
+            <p className="mt-1 text-xs text-ink-400">最多显示最近 50 个匿名访客；IP 已脱敏，不保存完整地址</p>
+          </div>
+          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">首次进入页面</span>
+        </div>
+        {!loading && data && !data.visitorTrackingAvailable && (
+          <p className="m-5 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">访客明细存储暂不可用，Cloudflare 汇总统计仍正常。</p>
+        )}
+        <div className="overflow-x-auto">
+          <table className="min-w-[920px] w-full text-left text-sm">
+            <thead className="bg-black/[0.025] text-xs text-ink-600">
+              <tr>
+                <th className="px-5 py-3 font-medium">最近访问</th>
+                <th className="px-5 py-3 font-medium">脱敏 IP</th>
+                <th className="px-5 py-3 font-medium">IP 地区</th>
+                <th className="px-5 py-3 font-medium">首次进入页面</th>
+                <th className="px-5 py-3 font-medium">来源</th>
+                <th className="px-5 py-3 font-medium">设备 / 浏览量</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-black/[0.06]">
+              {(data?.recentVisitors || []).map((visitor) => (
+                <tr key={visitor.visitorId} className="align-top hover:bg-black/[0.015]">
+                  <td className="whitespace-nowrap px-5 py-4 text-ink-600" title={`首次：${new Date(visitor.firstSeen).toLocaleString("zh-CN")}`}>
+                    {new Date(visitor.lastSeen).toLocaleString("zh-CN")}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-4 font-mono text-xs text-ink-600">{visitor.ipMasked}</td>
+                  <td className="max-w-52 px-5 py-4 text-ink-600">{locationLabel(visitor)}</td>
+                  <td className="max-w-64 px-5 py-4"><a href={visitor.firstPath} target="_blank" rel="noreferrer" className="break-all font-medium text-brand-600 hover:underline">{visitor.firstPath}</a></td>
+                  <td className="max-w-44 px-5 py-4 text-ink-600">{visitor.referrerHost || "Direct"}</td>
+                  <td className="whitespace-nowrap px-5 py-4 text-ink-600">{visitor.deviceType} · {visitor.pageViews}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {!loading && data?.visitorTrackingAvailable && !data.recentVisitors.length && (
+            <p className="px-5 py-10 text-center text-sm text-ink-400">采集刚刚启用，出现新访客后会显示在这里。</p>
+          )}
+          {loading && <p className="px-5 py-10 text-center text-sm text-ink-400">正在加载最近访客…</p>}
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 
 function safeNextPath(): string {
@@ -49,7 +50,12 @@ export default function AdminLoginForm() {
         />
       </label>
       <label className="block text-sm font-medium text-ink-900">
-        管理员密码
+        <span className="flex items-center justify-between gap-4">
+          管理员密码
+          <Link href="/admin-forgot-password" className="font-normal text-brand-600 hover:text-brand-700">
+            忘记密码？
+          </Link>
+        </span>
         <input
           type="password"
           autoComplete="current-password"

@@ -36,6 +36,14 @@ git push origin main
 - `ADMIN_SESSION_SECRET`：至少 32 位的随机签名密钥。
 - `VISITOR_HASH_SECRET`：至少 32 位的随机密钥，仅用于生成不可逆匿名访客编号。
 
+管理员“忘记密码”邮件还需要：
+
+- `RESEND_API_KEY`：Resend 邮件 API Key，必须保存为加密 Secret。
+- `ADMIN_RESET_FROM`：已在 Resend 验证的发件人，例如 `WhichAIUse <security@whichaiuse.com>`。
+- `SITE_URL`：生产站点地址 `https://whichaiuse.com`，用于生成可信的重置链接。
+
+首次启用前运行 `npx wrangler d1 migrations apply ai-tools-directory --remote`，创建一次性重置令牌和密码覆盖表。重置令牌只保存不可逆哈希、15 分钟过期且只能使用一次；重置成功会让旧管理员会话失效。若邮件配置缺失，原登录功能与环境变量密码仍正常工作，重置接口会明确返回服务未配置，便于定位问题。
+
 `/admin/*` 页面与 `/api/admin/*` 分析接口会校验同一个 24 小时安全会话。Secret 不写入源码，也不会进入浏览器静态文件。
 
 > ⚠️ 不要把输出目录用默认的，一定手动改成 `out`。也不要选 Next.js 预设自带的输出目录。

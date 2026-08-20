@@ -1,6 +1,7 @@
 export interface D1Result<T = unknown> {
   results?: T[];
   success: boolean;
+  meta?: { changes?: number };
 }
 
 export interface D1PreparedStatement {

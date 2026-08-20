@@ -1,7 +1,10 @@
+import type { D1Database } from "./d1-types";
+
 export interface AdminAuthEnv {
   ADMIN_EMAIL?: string;
   ADMIN_PASSWORD?: string;
   ADMIN_SESSION_SECRET?: string;
+  DB?: D1Database;
 }
 
 const COOKIE_NAME = "whichaiuse_admin_session";
@@ -35,6 +38,19 @@ async function hmac(value: string, secret: string): Promise<Uint8Array> {
   return new Uint8Array(await crypto.subtle.sign("HMAC", key, encoder.encode(value)));
 }
 
+async function currentCredential(env: AdminAuthEnv): Promise<{ password_hash: string; version: number } | null> {
+  if (!env.DB) return null;
+  const result = await env.DB.prepare("SELECT password_hash, version FROM admin_credentials WHERE id = 1").all<{
+    password_hash: string;
+    version: number;
+  }>();
+  return result.results?.[0] || null;
+}
+
+export async function passwordHash(env: AdminAuthEnv, password: string): Promise<string> {
+  return toBase64Url(await hmac(`admin-password\n${password}`, env.ADMIN_SESSION_SECRET!));
+}
+
 function constantTimeEqual(left: Uint8Array, right: Uint8Array): boolean {
   if (left.length !== right.length) return false;
   let mismatch = 0;
@@ -64,8 +80,11 @@ export function validateAuthConfig(env: AdminAuthEnv): string | null {
 
 export async function credentialsMatch(env: AdminAuthEnv, email: string, password: string): Promise<boolean> {
   if (validateAuthConfig(env)) return false;
-  const expected = encoder.encode(`${env.ADMIN_EMAIL!.trim().toLowerCase()}\n${env.ADMIN_PASSWORD!}`);
-  const actual = encoder.encode(`${email.trim().toLowerCase()}\n${password}`);
+  const stored = await currentCredential(env);
+  const expectedPassword = stored ? stored.password_hash : await passwordHash(env, env.ADMIN_PASSWORD!);
+  const actualPassword = await passwordHash(env, password);
+  const expected = encoder.encode(`${env.ADMIN_EMAIL!.trim().toLowerCase()}\n${expectedPassword}`);
+  const actual = encoder.encode(`${email.trim().toLowerCase()}\n${actualPassword}`);
   const [expectedHash, actualHash] = await Promise.all([
     crypto.subtle.digest("SHA-256", expected),
     crypto.subtle.digest("SHA-256", actual),
@@ -75,7 +94,8 @@ export async function credentialsMatch(env: AdminAuthEnv, email: string, passwor
 
 export async function createSessionCookie(env: AdminAuthEnv): Promise<string> {
   const now = Math.floor(Date.now() / 1000);
-  const payload = toBase64Url(encoder.encode(JSON.stringify({ email: env.ADMIN_EMAIL, iat: now, exp: now + SESSION_TTL_SECONDS })));
+  const version = (await currentCredential(env))?.version || 0;
+  const payload = toBase64Url(encoder.encode(JSON.stringify({ email: env.ADMIN_EMAIL, version, iat: now, exp: now + SESSION_TTL_SECONDS })));
   const signature = toBase64Url(await hmac(payload, env.ADMIN_SESSION_SECRET!));
   return `${COOKIE_NAME}=${payload}.${signature}; Path=/; Max-Age=${SESSION_TTL_SECONDS}; HttpOnly; Secure; SameSite=Strict`;
 }
@@ -92,8 +112,12 @@ export async function hasValidAdminSession(request: Request, env: AdminAuthEnv):
   const payloadBytes = fromBase64Url(payload);
   if (!payloadBytes) return false;
   try {
-    const data = JSON.parse(new TextDecoder().decode(payloadBytes)) as { email?: string; exp?: number };
-    return data.email?.toLowerCase() === env.ADMIN_EMAIL!.toLowerCase() && typeof data.exp === "number" && data.exp > Date.now() / 1000;
+    const data = JSON.parse(new TextDecoder().decode(payloadBytes)) as { email?: string; version?: number; exp?: number };
+    const version = (await currentCredential(env))?.version || 0;
+    return data.email?.toLowerCase() === env.ADMIN_EMAIL!.toLowerCase()
+      && (data.version || 0) === version
+      && typeof data.exp === "number"
+      && data.exp > Date.now() / 1000;
   } catch {
     return false;
   }

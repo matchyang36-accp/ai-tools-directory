@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { getReviewBySlug, getToolBySlug } from "@/lib/db";
 import { getReviews } from "@/data/tools";
+import InArticleAd from "@/components/ads/InArticleAd";
 
 const SITE_DOMAIN_PATTERN = /(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)/gi;
 const SITE_DOMAIN_EXACT_PATTERN = /^(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)$/i;
@@ -45,6 +46,7 @@ export default async function BlogDetail({
   const review = await getReviewBySlug(params.slug);
   if (!review) notFound();
   const tool = review.toolSlug ? await getToolBySlug(review.toolSlug) : undefined;
+  let paragraphCount = 0;
 
   return (
     <article className="mx-auto max-w-2xl px-4 mt-8">
@@ -72,14 +74,19 @@ export default async function BlogDetail({
                 </h2>
               ) : null}
               <div className="space-y-3">
-                {section.paragraphs.map((paragraph) => (
-                  <p
-                    key={paragraph}
-                    className="text-[14px] text-ink-600 leading-7"
-                  >
-                    {linkHomepageMentions(paragraph)}
-                  </p>
-                ))}
+                {section.paragraphs.map((paragraph, paragraphIndex) => {
+                  paragraphCount += 1;
+                  const showAdAfterParagraph = paragraphCount === 2;
+
+                  return (
+                    <div key={`${section.heading ?? "intro"}-${paragraphIndex}`}>
+                      <p className="text-[14px] text-ink-600 leading-7">
+                        {linkHomepageMentions(paragraph)}
+                      </p>
+                      {showAdAfterParagraph ? <InArticleAd /> : null}
+                    </div>
+                  );
+                })}
               </div>
               {section.bullets?.length ? (
                 <ul className="mt-3 list-disc pl-5 space-y-2 text-[14px] text-ink-600 leading-6">

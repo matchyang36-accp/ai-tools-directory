@@ -710,4 +710,214 @@ export const publishedPosts: Review[] = [
       },
     ],
   },
+  {
+    slug: "batch100-005-article-5-how-to-turn-text-into-video-with-ai-step-by-step",
+    title: "Article #5: How to Turn Text into Video with AI (Step-by-Step)",
+    excerpt: "Meta Description: Turn any text — blog posts, scripts, ideas — into professional videos with AI in 2026. Full step-by-step guide with the best tools.",
+    readMins: 2,
+    date: "2026-08-22",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Turn any text — blog posts, scripts, ideas — into professional videos with AI in 2026. Full step-by-step guide with the best tools.",
+          "Writing a script used to take days. Filming took another week. Now? One paragraph in, full video out. 5 minutes flat.",
+          "Text-to-video AI has quietly become the biggest content creation shift of 2026. YouTubers, marketers, and even solo entrepreneurs are pumping out videos without ever touching a camera. Here's exactly how to do it.",
+        ],
+      },
+      {
+        heading: "Step 1: Pick Your Text-to-Video Tool",
+        paragraphs: [
+          "The top players in 2026:",
+          "Sora (OpenAI) — cinematic realism, best for short creative clips.",
+          "Runway Gen-3 — ideal for storytelling and stylized videos.",
+          "Pika — fastest turnaround, great for social media.",
+          "Synthesia — for talking-head style with AI avatars.",
+          "InVideo AI — full YouTube-style edits with music and captions.",
+          "Not sure which fits? Compare them side-by-side at whichaiuse.com.",
+        ],
+      },
+      {
+        heading: "Step 2: Prep Your Text",
+        paragraphs: [
+          "Don't just paste a blog post. Break it into scene-by-scene blocks:",
+          "Scene 1: Hook (2–3 sec)",
+          "Scene 2: Setup (10 sec)",
+          "Scene 3: Main point (30 sec)",
+          "Scene 4: CTA (5 sec)",
+          "This scene-first structure gets 3x better output.",
+        ],
+      },
+      {
+        heading: "Step 3: Write Visual-First Prompts",
+        paragraphs: [
+          "Instead of: \"Talk about climate change.\"Write: \"Aerial shot of melting glaciers, dramatic lighting, cinematic tone, 4K.\"",
+          "Every sentence must describe a visual, not a concept.",
+        ],
+      },
+      {
+        heading: "Step 4: Generate and Review",
+        paragraphs: [
+          "Most tools render in 30 sec–2 min per clip. Review each scene individually. If a scene looks off, tweak the prompt (add lighting, angle, mood) and regenerate. Don't fix in editing — fix in prompting.",
+        ],
+      },
+      {
+        heading: "Step 5: Add Voiceover",
+        paragraphs: [
+          "Two options:",
+          "AI voice — ElevenLabs, PlayHT (indistinguishable from human now).",
+          "Your voice — record in your phone's Voice Memos and drop it in.",
+        ],
+      },
+      {
+        heading: "Step 6: Add Music & Sound Effects",
+        paragraphs: [
+          "Free AI music tools like Suno or Udio give you copyright-free tracks in seconds. Match the mood — upbeat for tutorials, cinematic for storytelling.",
+        ],
+      },
+      {
+        heading: "Step 7: Auto-Caption Everything",
+        paragraphs: [
+          "85% of social video is watched on mute. Use CapCut, Opus Clip, or Submagic to auto-caption your final video. Bonus: captions boost watch time by 40%.",
+        ],
+      },
+      {
+        heading: "Step 8: Export in the Right Format",
+        paragraphs: [
+          "YouTube: 1920x1080 (16:9)",
+          "TikTok/Reels: 1080x1920 (9:16)",
+          "Instagram feed: 1080x1080 (1:1)",
+        ],
+      },
+      {
+        heading: "Common Mistakes to Avoid",
+        paragraphs: [
+          "Generating full videos in one go — always work scene by scene.",
+          "Ignoring pacing — cut scenes at 3–8 seconds each.",
+          "Overusing AI voice — mix with real voice for authenticity.",
+        ],
+      },
+      {
+        heading: "Real Use Cases",
+        paragraphs: [
+          "YouTubers producing 5 videos/week solo.",
+          "Marketers making ads at 1/10 the cost.",
+          "Teachers turning lesson plans into engaging videos.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "Text-to-video AI hands you a movie studio for $30/month. Learn to prompt visually, work scene by scene, and you'll outproduce agencies charging $5,000.",
+          "Explore every text-to-video tool worth your time at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "batch100-006-article-6-how-to-use-ai-to-write-youtube-scripts-that-actually-convert",
+    title: "Article #6: How to Use AI to Write YouTube Scripts That Actually Convert",
+    excerpt: "Meta Description: Write YouTube scripts with AI that hook viewers, keep them watching, and drive real conversions. Prompts, tools, and structure inside.",
+    readMins: 2,
+    date: "2026-08-22",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Write YouTube scripts with AI that hook viewers, keep them watching, and drive real conversions. Prompts, tools, and structure inside.",
+          "A great YouTube script isn't written — it's engineered. And AI is the perfect engineer.",
+          "If your videos are getting views but no subscribers, no clicks, no sales — it's not your camera. It's your script. Here's how to use AI to write scripts that make people watch to the end and take action.",
+        ],
+      },
+      {
+        heading: "Step 1: Start with the Hook, Not the Intro",
+        paragraphs: [
+          "The first 8 seconds decide everything. Ask ChatGPT:",
+          "\"Write 10 hook variations for a YouTube video titled '[YOUR TITLE].' Each hook must create curiosity in under 15 words.\"",
+          "Pick the strongest. Rewrite it in your voice.",
+        ],
+      },
+      {
+        heading: "Step 2: Follow the 4-Part Script Formula",
+        paragraphs: [
+          "Every high-retention YouTube video follows this structure:",
+          "Hook (0–15 sec) — Curiosity spike",
+          "Setup (15–45 sec) — Why this matters",
+          "Payoff (45 sec – end) — Deliver the value",
+          "CTA (last 20 sec) — Subscribe, click, buy",
+          "Feed this structure to AI and it will fill each section.",
+        ],
+      },
+      {
+        heading: "Step 3: Ask AI to Write in Spoken Language",
+        paragraphs: [
+          "Written English fails on video. Prompt AI with:",
+          "\"Rewrite this in conversational, spoken English. Add contractions, short sentences, and one rhetorical question every 30 seconds.\"",
+        ],
+      },
+      {
+        heading: "Step 4: Add Pattern Interrupts",
+        paragraphs: [
+          "Every 30–60 seconds, break the pattern. Ask AI to insert:",
+          "A quick question",
+          "A shocking stat",
+          "A joke or metaphor",
+          "A cliffhanger tease",
+          "Retention jumps 20–40%.",
+        ],
+      },
+      {
+        heading: "Step 5: Design a Strong CTA",
+        paragraphs: [
+          "Weak: \"Please like and subscribe.\"Strong: \"If this saved you an hour today, hit subscribe — the next video shows you how to save 10 more.\"",
+        ],
+      },
+      {
+        heading: "Step 6: Time Your Script",
+        paragraphs: [
+          "Rule of thumb: 150 words = 1 minute of speaking. Plan your script length to match your target video length.",
+        ],
+      },
+      {
+        heading: "Step 7: Read It Out Loud Before Recording",
+        paragraphs: [
+          "If a sentence trips your tongue, rewrite it. AI doesn't catch this — you do.",
+        ],
+      },
+      {
+        heading: "Best AI Tools for YouTube Scripts",
+        paragraphs: [
+          "ChatGPT — general drafting",
+          "Claude — long-form structure",
+          "Jasper — hook-heavy formats",
+          "VidIQ AI — SEO-optimized scripts",
+          "Find the perfect script AI for your niche at whichaiuse.com.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        paragraphs: [
+          "Copy-pasting AI output — always humanize.",
+          "Writing to impress — write to communicate.",
+          "Ignoring retention — script for the audience, not for you.",
+        ],
+      },
+      {
+        heading: "Bonus: Repurpose Every Script",
+        paragraphs: [
+          "Turn one script into:",
+          "3 Shorts",
+          "10 tweets",
+          "1 blog post",
+          "1 email newsletter",
+          "One script, five channels, one afternoon.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "YouTube growth in 2026 is a scripting game. Learn the formula, use AI as your co-writer, and post consistently. Six months in, you won't recognize your channel.",
+          "Ready to build your full YouTube AI stack? Browse the top tools at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
 ];

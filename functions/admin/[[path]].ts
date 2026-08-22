@@ -17,6 +17,7 @@ export async function onRequest(context: PagesContext): Promise<Response> {
 
   const requestedUrl = new URL(context.request.url);
   const loginUrl = new URL("/admin-login", requestedUrl.origin);
-  loginUrl.searchParams.set("next", `${requestedUrl.pathname}${requestedUrl.search}`);
+  const isInternalNextRequest = requestedUrl.pathname.endsWith(".txt") || requestedUrl.searchParams.has("_rsc");
+  loginUrl.searchParams.set("next", isInternalNextRequest ? "/admin/" : `${requestedUrl.pathname}${requestedUrl.search}`);
   return Response.redirect(loginUrl.toString(), 302);
 }

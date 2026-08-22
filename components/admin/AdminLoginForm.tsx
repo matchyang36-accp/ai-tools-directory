@@ -5,7 +5,11 @@ import { FormEvent, useState } from "react";
 
 function safeNextPath(): string {
   const value = new URLSearchParams(window.location.search).get("next");
-  return value?.startsWith("/admin") && !value.startsWith("//") ? value : "/admin";
+  if (!value?.startsWith("/admin") || value.startsWith("//")) return "/admin/";
+
+  const destination = new URL(value, window.location.origin);
+  const isInternalNextRequest = destination.pathname.endsWith(".txt") || destination.searchParams.has("_rsc");
+  return isInternalNextRequest ? "/admin/" : `${destination.pathname}${destination.search}${destination.hash}`;
 }
 
 export default function AdminLoginForm() {

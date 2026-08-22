@@ -1,7 +1,27 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 import { getReviewBySlug, getToolBySlug } from "@/lib/db";
 import { getReviews } from "@/data/tools";
+
+const SITE_DOMAIN_PATTERN = /(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)/gi;
+const SITE_DOMAIN_EXACT_PATTERN = /^(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)$/i;
+
+function linkHomepageMentions(text: string): ReactNode {
+  return text.split(SITE_DOMAIN_PATTERN).map((part, index) =>
+    SITE_DOMAIN_EXACT_PATTERN.test(part) ? (
+      <Link
+        key={`${part}-${index}`}
+        href="/"
+        className="text-brand-600 underline decoration-brand-600/40 underline-offset-2 hover:text-brand-800"
+      >
+        {part}
+      </Link>
+    ) : (
+      part
+    ),
+  );
+}
 
 export function generateStaticParams() {
   return getReviews().map((r) => ({ slug: r.slug }));
@@ -32,14 +52,14 @@ export default async function BlogDetail({
         <Link href="/blog" className="hover:text-brand-600">
           Blog
         </Link>{" "}
-        / {review.title}
+        / {linkHomepageMentions(review.title)}
       </nav>
-      <h1 className="text-[22px] font-medium text-ink-900">{review.title}</h1>
+      <h1 className="text-[22px] font-medium text-ink-900">{linkHomepageMentions(review.title)}</h1>
       <p className="text-[12px] text-ink-400 mt-1">
         {review.date} · {review.readMins} min read
       </p>
       <p className="text-[15px] text-ink-600 leading-relaxed mt-4">
-        {review.excerpt}
+        {linkHomepageMentions(review.excerpt)}
       </p>
 
       {review.sections ? (
@@ -48,7 +68,7 @@ export default async function BlogDetail({
             <section key={`${section.heading ?? "intro"}-${index}`}>
               {section.heading ? (
                 <h2 className="text-[18px] font-medium text-ink-900 mb-3">
-                  {section.heading}
+                  {linkHomepageMentions(section.heading)}
                 </h2>
               ) : null}
               <div className="space-y-3">
@@ -57,14 +77,14 @@ export default async function BlogDetail({
                     key={paragraph}
                     className="text-[14px] text-ink-600 leading-7"
                   >
-                    {paragraph}
+                    {linkHomepageMentions(paragraph)}
                   </p>
                 ))}
               </div>
               {section.bullets?.length ? (
                 <ul className="mt-3 list-disc pl-5 space-y-2 text-[14px] text-ink-600 leading-6">
                   {section.bullets.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item}>{linkHomepageMentions(item)}</li>
                   ))}
                 </ul>
               ) : null}

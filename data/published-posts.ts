@@ -1139,4 +1139,177 @@ export const publishedPosts: Review[] = [
       },
     ],
   },
+  {
+    slug: "batch100-009-article-9-how-to-use-ai-to-summarize-any-youtube-video-in-seconds",
+    title: "Article #9: How to Use AI to Summarize Any YouTube Video in Seconds",
+    excerpt: "Meta Description: Summarize any YouTube video in seconds using AI. Save hours, extract key insights, and never watch a 2-hour podcast again.",
+    readMins: 2,
+    date: "2026-08-24",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Summarize any YouTube video in seconds using AI. Save hours, extract key insights, and never watch a 2-hour podcast again.",
+          "A 2-hour podcast. A 45-minute tutorial. A 90-minute keynote. Who has the time? AI does.",
+          "The average knowledge worker in 2026 watches 8 hours of video content a week just to \"stay updated.\" That's a full workday — gone. AI summarizers give you 90% of the value in 3 minutes. Here's how to use them like a pro.",
+        ],
+      },
+      {
+        heading: "Step 1: Pick Your Summarizer",
+        paragraphs: [
+          "The 2026 leaders:",
+          "Eightify — Chrome extension, one-click summaries.",
+          "Notta AI — full transcripts + summaries.",
+          "YouTube's built-in summary — free but shallow.",
+          "Perplexity — paste a YouTube URL, ask any question.",
+          "Full comparison at whichaiuse.com.",
+        ],
+      },
+      {
+        heading: "Step 2: Copy the URL, Paste It In",
+        paragraphs: [
+          "That's it. Most tools work in under 10 seconds. Some give you:",
+          "TL;DR (3 sentences)",
+          "Chapter-by-chapter breakdown",
+          "Key quotes with timestamps",
+          "Actionable takeaways",
+        ],
+      },
+      {
+        heading: "Step 3: Ask Follow-Up Questions",
+        paragraphs: [
+          "The real power: conversational recall. Ask:",
+          "\"What did the guest say about pricing?\"",
+          "\"Summarize the last 10 minutes only.\"",
+          "\"Give me the 3 hottest quotes for a tweet.\"",
+        ],
+      },
+      {
+        heading: "Step 4: Export for Later",
+        paragraphs: [
+          "Save summaries to Notion, Obsidian, or Google Docs. Build a personal knowledge base that compounds every week.",
+        ],
+      },
+      {
+        heading: "Step 5: Batch Your Video Diet",
+        paragraphs: [
+          "Instead of watching one video at a time, queue 10 summaries at once. Skim, star the important ones, watch only those in full.",
+        ],
+      },
+      {
+        heading: "Pro Use Cases",
+        paragraphs: [
+          "Founders — competitive research at 10x speed.",
+          "Students — turn lectures into study notes.",
+          "Marketers — extract hooks from top-performing videos.",
+          "Writers — mine podcasts for article ideas.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        paragraphs: [
+          "Trusting summaries blindly — always verify key claims.",
+          "Ignoring the emotional layer — AI misses tone and sarcasm.",
+          "Skipping visual content — summaries can't \"see\" demos.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "Your time is your only non-renewable asset. AI summarization gives you hours back — every single week. Use them.",
+          "Find every video AI worth using at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "batch100-010-article-10-how-to-build-a-website-with-ai-in-under-30-minutes",
+    title: "Article #10: How to Build a Website with AI in Under 30 Minutes",
+    excerpt: "Meta Description: Build a full website with AI in under 30 minutes — no code, no designer. Step-by-step guide with the best tools for 2026.",
+    readMins: 2,
+    date: "2026-08-24",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Build a full website with AI in under 30 minutes — no code, no designer. Step-by-step guide with the best tools for 2026.",
+          "Remember when a website meant 3 months, $5,000, and 47 emails to a developer? Yeah — that era is dead.",
+          "In 2026, AI website builders spit out beautiful, functional sites in less time than it takes to eat lunch. Here's the exact 30-minute playbook.",
+        ],
+      },
+      {
+        heading: "Step 1: Pick Your AI Website Builder (2 min)",
+        paragraphs: [
+          "Top tools:",
+          "Framer AI — best design quality.",
+          "Wix AI — best for beginners.",
+          "Durable — literally 30-second sites.",
+          "Webflow AI — pro-level control.",
+          "10Web — AI + WordPress.",
+          "Full breakdown at whichaiuse.com.",
+        ],
+      },
+      {
+        heading: "Step 2: Feed It Your Brief (5 min)",
+        paragraphs: [
+          "Prompt example:",
+          "\"Build a modern portfolio site for a wedding photographer named Sarah. Warm color palette, cinematic feel, sections for portfolio, about, testimonials, contact.\"",
+          "The more specific, the better the output.",
+        ],
+      },
+      {
+        heading: "Step 3: Review the First Draft (5 min)",
+        paragraphs: [
+          "AI usually nails 70% first try. Check:",
+          "Layout and structure",
+          "Copy quality",
+          "Image placement",
+          "Navigation flow",
+        ],
+      },
+      {
+        heading: "Step 4: Refine with Natural Language (10 min)",
+        paragraphs: [
+          "Just tell the AI what to change:",
+          "\"Make the hero section darker.\"",
+          "\"Add a testimonial from Jane.\"",
+          "\"Replace stock photos with black-and-white.\"",
+        ],
+      },
+      {
+        heading: "Step 5: Connect Your Domain (3 min)",
+        paragraphs: [
+          "Buy at Namecheap or use one from the builder. Point DNS. Done.",
+        ],
+      },
+      {
+        heading: "Step 6: Add Essentials (5 min)",
+        paragraphs: [
+          "Contact form (built in)",
+          "Google Analytics",
+          "Basic SEO (title, meta description)",
+          "Favicon and social preview",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        paragraphs: [
+          "Skipping mobile check — always preview on phone.",
+          "Using AI stock images — swap for real photos.",
+          "Ignoring page speed — compress images.",
+        ],
+      },
+      {
+        heading: "Real Results",
+        paragraphs: [
+          "Freelancers now spin up client sites for $2,000 in a single afternoon. Founders launch MVPs before lunch. The velocity is insane.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "Websites are commodity now. What matters is what you put on them. Start today — you'll be live before dinner.",
+          "Find the perfect builder for your project at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
 ];

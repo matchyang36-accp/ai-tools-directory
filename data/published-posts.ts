@@ -1312,4 +1312,204 @@ export const publishedPosts: Review[] = [
       },
     ],
   },
+  {
+    slug: "batch100-011-article-11-how-to-use-chatgpt-for-excel-formulas-made-easy",
+    title: "Article #11: How to Use ChatGPT for Excel: Formulas Made Easy",
+    excerpt: "Meta Description: Master Excel formulas with ChatGPT in minutes. Prompts, examples, and workflows to automate spreadsheets — even if you hate math.",
+    readMins: 2,
+    date: "2026-08-26",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Master Excel formulas with ChatGPT in minutes. Prompts, examples, and workflows to automate spreadsheets — even if you hate math.",
+          "Excel used to be the reason accountants stayed late. ChatGPT is the reason they leave at 5.",
+          "If you've ever stared at Excel wondering \"why won't this @#$% formula work\" — this guide is your rescue plan. Here's exactly how to make ChatGPT your personal Excel wizard.",
+        ],
+      },
+      {
+        heading: "Step 1: Describe What You Want in Plain English",
+        paragraphs: [
+          "Don't type formulas. Type problems.",
+          "Bad prompt: \"Write a VLOOKUP.\"\nGood prompt: \"I have a list of employees in column A and salaries in column B. In sheet 2, I want to look up each employee and return their salary.\"",
+          "ChatGPT hands you the exact formula.",
+        ],
+      },
+      {
+        heading: "Step 2: Copy, Paste, Verify",
+        paragraphs: [
+          "Always test on a small dataset first. AI occasionally hallucinates cell references.",
+        ],
+      },
+      {
+        heading: "Step 3: Ask for Explanations",
+        paragraphs: [
+          "Prompt:",
+          "\"Explain this formula step by step so I understand what each part does.\"",
+          "You'll actually learn Excel while getting the answer.",
+        ],
+      },
+      {
+        heading: "Step 4: Debug Broken Formulas",
+        paragraphs: [
+          "Paste your formula + the error message. Ask:",
+          "\"Why is this returning #N/A and how do I fix it?\"",
+          "90% of Excel headaches solved in 30 seconds.",
+        ],
+      },
+      {
+        heading: "Step 5: Use for Advanced Formulas",
+        paragraphs: [
+          "ChatGPT handles:",
+          "INDEX/MATCH",
+          "SUMIFS / COUNTIFS",
+          "Nested IFs",
+          "XLOOKUP",
+          "Array formulas",
+          "Regex (in newer Excel)",
+        ],
+      },
+      {
+        heading: "Step 6: Ask for Macros & VBA",
+        paragraphs: [
+          "Prompt:",
+          "\"Write a VBA macro that copies rows where column C = 'Yes' into a new sheet.\"",
+          "Boom — automation without a CS degree.",
+        ],
+      },
+      {
+        heading: "Step 7: Data Analysis Prompts",
+        paragraphs: [
+          "\"Give me a pivot table setup for this data.\"",
+          "\"What formula finds duplicates across two columns?\"",
+          "\"Build a formula that ranks top 5 sales reps this quarter.\"",
+        ],
+      },
+      {
+        heading: "Step 8: Formatting Tips",
+        paragraphs: [
+          "\"Write conditional formatting rules to highlight overdue invoices.\"",
+          "\"Suggest a clean chart type for monthly revenue data.\"",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        paragraphs: [
+          "Not sharing enough context — always describe your data structure.",
+          "Blindly trusting formulas — always test.",
+          "Ignoring version differences — Excel 365 ≠ Excel 2016.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "Excel doesn't have to be scary. With ChatGPT, you're a formula ninja in a week. Ship faster, leave earlier, look smarter.",
+          "More productivity AI at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "batch100-012-article-12-how-to-remove-watermarks-from-images-using-ai-legally",
+    title: "Article #12: How to Remove Watermarks from Images Using AI (Legally)",
+    excerpt: "Meta Description: Remove watermarks from your own images using AI in seconds. Best tools, step-by-step process, and legal guidelines for 2026.",
+    readMins: 2,
+    date: "2026-08-26",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Remove watermarks from your own images using AI in seconds. Best tools, step-by-step process, and legal guidelines for 2026.",
+          "Your own logo. Your own photo. Just wrong placement. AI fixes it in one click.",
+          "Watermark removal AI has quietly become one of the most-used tools by e-commerce sellers, designers, and content creators. Used ethically (on your own images), it's a game-changer. Here's how.",
+        ],
+      },
+      {
+        heading: "⚠️ Quick Legal Note",
+        paragraphs: [
+          "Only remove watermarks from images you own or have rights to. Removing watermarks from copyrighted material is illegal.",
+        ],
+      },
+      {
+        heading: "Step 1: Pick the Right Tool",
+        paragraphs: [
+          "Top AI watermark removers:",
+          "Cleanup.pictures — free, fast, browser-based.",
+          "Watermarkremover.io — one-click, batch supported.",
+          "HitPaw — desktop app, high quality.",
+          "Fotor AI — solid results with UI polish.",
+        ],
+      },
+      {
+        heading: "Step 2: Upload Your Image",
+        paragraphs: [
+          "Drag and drop. Most tools handle JPG, PNG, WebP.",
+        ],
+      },
+      {
+        heading: "Step 3: Mark the Watermark Area",
+        paragraphs: [
+          "Use the brush tool to paint over the watermark. Be generous — cover the full mark plus 5–10 pixels around it.",
+        ],
+      },
+      {
+        heading: "Step 4: Let AI Do the Work",
+        paragraphs: [
+          "The AI analyzes surrounding pixels and reconstructs the background. Complex backgrounds (faces, textures) take longer.",
+        ],
+      },
+      {
+        heading: "Step 5: Review the Output",
+        paragraphs: [
+          "Zoom in. Check for:",
+          "Ghost artifacts",
+          "Blurry patches",
+          "Color mismatches",
+        ],
+      },
+      {
+        heading: "Step 6: Fine-Tune If Needed",
+        paragraphs: [
+          "Most tools let you re-brush stubborn spots. 2–3 passes usually nail it.",
+        ],
+      },
+      {
+        heading: "Step 7: Export in the Right Format",
+        paragraphs: [
+          "PNG — preserves transparency.",
+          "JPG — smaller file for web.",
+          "WebP — modern web standard.",
+        ],
+      },
+      {
+        heading: "Pro Tips for Perfect Results",
+        paragraphs: [
+          "Higher resolution = better AI output.",
+          "Watermarks on flat backgrounds (sky, wall) work best.",
+          "Text watermarks are easier than logo watermarks.",
+        ],
+      },
+      {
+        heading: "Real Use Cases",
+        paragraphs: [
+          "E-commerce sellers cleaning up product photos.",
+          "Photographers removing their own old watermarks for reprints.",
+          "Designers repurposing licensed stock.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        paragraphs: [
+          "Removing marks from copyrighted images (don't).",
+          "Using low-res source images.",
+          "Skipping the manual touch-up.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "AI watermark removal is legit magic — used ethically, it saves hours of Photoshop work. Just remember: your images, your rules. Someone else's? Hands off.",
+          "More image AI reviewed at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
 ];

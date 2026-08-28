@@ -1512,4 +1512,220 @@ export const publishedPosts: Review[] = [
       },
     ],
   },
+  {
+    slug: "batch100-013-article-13-how-to-create-faceless-youtube-videos-with-ai-tools",
+    title: "Article #13: How to Create Faceless YouTube Videos with AI Tools",
+    excerpt: "Meta Description: Build a faceless YouTube channel using only AI tools. Scripts, voice, visuals, editing — the complete 2026 blueprint.",
+    readMins: 2,
+    date: "2026-08-28",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Build a faceless YouTube channel using only AI tools. Scripts, voice, visuals, editing — the complete 2026 blueprint.",
+          "No face. No camera. No shame. Just AI, ideas, and a bank account that keeps growing.",
+          "Faceless YouTube channels are exploding in 2026. Some hit 100K subs in 6 months. Some pull $10K/month on autopilot. Here's the full AI-powered blueprint.",
+        ],
+      },
+      {
+        heading: "Step 1: Pick a Niche That Prints",
+        paragraphs: [
+          "Best-performing faceless niches:",
+          "Personal finance",
+          "Motivation / self-help",
+          "History / documentary",
+          "Tech reviews",
+          "Health & wellness",
+          "True crime",
+          "AI news (very hot in 2026)",
+        ],
+      },
+      {
+        heading: "Step 2: Script with AI",
+        paragraphs: [
+          "Use ChatGPT or Claude. Prompt:",
+          "\"Write a 6-minute YouTube script on [topic], structured with hook, 3 key points, and CTA. Conversational tone.\"",
+        ],
+      },
+      {
+        heading: "Step 3: Generate Voiceover",
+        paragraphs: [
+          "Top voice AIs:",
+          "ElevenLabs — most human.",
+          "PlayHT — great for long videos.",
+          "Speechelo — cheap and cheerful.",
+        ],
+      },
+      {
+        heading: "Step 4: Create Visuals",
+        paragraphs: [
+          "Options:",
+          "Stock footage — Pexels, Pixabay (free).",
+          "AI images — Midjourney, Leonardo.",
+          "AI video — Runway, Sora, Pika.",
+          "Screen recording — for tutorial channels.",
+        ],
+      },
+      {
+        heading: "Step 5: Edit Fast with AI",
+        paragraphs: [
+          "CapCut — free, AI auto-cut.",
+          "Descript — text-based video editing.",
+          "Opus Clip — auto-generates shorts.",
+        ],
+      },
+      {
+        heading: "Step 6: Design Killer Thumbnails",
+        paragraphs: [
+          "Use Canva AI or Photoshop generative fill. Rules:",
+          "Big text (3–5 words max)",
+          "High contrast",
+          "Human face or bold emotion",
+          "Curiosity gap",
+        ],
+      },
+      {
+        heading: "Step 7: Upload & Optimize",
+        paragraphs: [
+          "Title (60 chars, keyword-rich)",
+          "Description (200 words, keywords in first 3 lines)",
+          "Tags (10–15)",
+          "Custom thumbnail",
+          "End screens & cards",
+        ],
+      },
+      {
+        heading: "Step 8: Scale to a Channel",
+        paragraphs: [
+          "Post 2–3x/week for 90 days. Track retention. Double down on what works.",
+        ],
+      },
+      {
+        heading: "Monetization Beyond AdSense",
+        paragraphs: [
+          "Affiliate marketing (huge)",
+          "Digital products",
+          "Sponsorships",
+          "Newsletter/community",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        paragraphs: [
+          "Chasing trends without a niche.",
+          "Cheap voiceover (viewers can tell).",
+          "Weak thumbnails.",
+          "Giving up before video #30.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "Faceless YouTube is one of the great AI-era income plays. The barrier is patience, not talent. Start today, ship 30 videos, then decide.",
+          "Full AI creator stack at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "batch100-014-article-14-how-to-use-ai-to-write-a-book-in-7-days",
+    title: "Article #14: How to Use AI to Write a Book in 7 Days",
+    excerpt: "Meta Description: Write a full nonfiction book in 7 days using AI. Real workflow, real prompts, real results — from outline to Amazon-ready manuscript.",
+    readMins: 2,
+    date: "2026-08-28",
+    sections: [
+      {
+        paragraphs: [
+          "Meta Description: Write a full nonfiction book in 7 days using AI. Real workflow, real prompts, real results — from outline to Amazon-ready manuscript.",
+          "\"I'll write a book someday.\" Someday is 7 days from now. AI made sure of it.",
+          "Nonfiction authors are pumping out books in a week using AI as a co-author. Not garbage books — actually useful, well-structured ones. Here's the exact 7-day system.",
+        ],
+      },
+      {
+        heading: "Day 1: Nail the Topic & Angle",
+        paragraphs: [
+          "Ask ChatGPT:",
+          "\"Give me 20 nonfiction book ideas for [audience] that solve a specific painful problem.\"",
+          "Pick one. Sharpen the angle. Write a one-sentence promise.",
+        ],
+      },
+      {
+        heading: "Day 2: Build the Outline",
+        paragraphs: [
+          "Prompt:",
+          "\"Create a 10-chapter outline for a book titled '[TITLE].' Each chapter must solve one problem, with 3 subsections.\"",
+          "Refine until every chapter earns its place.",
+        ],
+      },
+      {
+        heading: "Day 3: Draft Chapters 1–4",
+        paragraphs: [
+          "Feed the AI one chapter at a time:",
+          "\"Write Chapter 3 in a conversational, first-person tone. Include 2 stories, 1 framework, and actionable steps.\"",
+          "Aim for 2,000–3,000 words per chapter.",
+        ],
+      },
+      {
+        heading: "Day 4: Draft Chapters 5–8",
+        paragraphs: [
+          "Same rhythm. Batch write. Don't edit yet.",
+        ],
+      },
+      {
+        heading: "Day 5: Draft Chapters 9–10 + Intro/Conclusion",
+        paragraphs: [
+          "Save the intro for last — you'll write a better one after seeing the whole book.",
+        ],
+      },
+      {
+        heading: "Day 6: Humanize & Edit",
+        paragraphs: [
+          "Add your personal stories",
+          "Cut AI clichés (\"in today's fast-paced world\")",
+          "Break long paragraphs",
+          "Add real examples and data",
+          "Ensure your voice comes through",
+        ],
+      },
+      {
+        heading: "Day 7: Format & Publish",
+        paragraphs: [
+          "Format in Kindle Create or Atticus.",
+          "Cover design: Canva AI or hire on Fiverr ($50).",
+          "Upload to KDP.",
+          "Set price ($4.99–$9.99 sweet spot).",
+        ],
+      },
+      {
+        heading: "Recommended AI Stack",
+        paragraphs: [
+          "Claude — long-form drafting (best).",
+          "ChatGPT — outlines and editing.",
+          "Grammarly — proofreading.",
+          "ProWritingAid — style consistency.",
+          "Full author tool list at whichaiuse.com.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        paragraphs: [
+          "Skipping outline — book collapses in Chapter 4.",
+          "Not editing AI voice out — readers can smell it.",
+          "Weak covers — biggest sales killer.",
+        ],
+      },
+      {
+        heading: "Real Results",
+        paragraphs: [
+          "Authors are hitting Amazon bestseller in dozens of subcategories with 7-day books. Not a shortcut to fame — but a legit way to build authority and passive income.",
+        ],
+      },
+      {
+        heading: "Final Word",
+        paragraphs: [
+          "You have a book in you. AI just handed you the fastest way out. Start Day 1 tomorrow morning.",
+          "More writing AI at whichaiuse.com.",
+        ],
+      },
+    ],
+  },
 ];

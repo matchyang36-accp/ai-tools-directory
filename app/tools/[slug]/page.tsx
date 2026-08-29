@@ -27,31 +27,44 @@ export default async function ToolPage({
   if (!tool) notFound();
   const cat = await getCategoryBySlug(tool.category);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    name: `${tool.name} review`,
-    url: absoluteUrl(`/tools/${tool.slug}`),
-    itemReviewed: {
-      "@type": "SoftwareApplication",
-      name: tool.name,
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-      offers: { "@type": "Offer", price: tool.pricing, priceCurrency: "USD" },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: tool.rating,
-        bestRating: 5,
-        ratingCount: 1,
-      },
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: tool.rating,
-      bestRating: 5,
-    },
-    author: { "@type": "Organization", name: "MarketAI" },
+  const softwareApplication = {
+    "@type": "SoftwareApplication",
+    name: tool.name,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    ...(tool.rating > 0
+      ? { offers: { "@type": "Offer", price: tool.pricing, priceCurrency: "USD" } }
+      : {}),
+    ...(tool.rating > 0
+      ? {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: tool.rating,
+            bestRating: 5,
+            ratingCount: 1,
+          },
+        }
+      : {}),
   };
+  const jsonLd = tool.rating > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        name: `${tool.name} review`,
+        url: absoluteUrl(`/tools/${tool.slug}`),
+        itemReviewed: softwareApplication,
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: tool.rating,
+          bestRating: 5,
+        },
+        author: { "@type": "Organization", name: "MarketAI" },
+      }
+    : {
+        "@context": "https://schema.org",
+        ...softwareApplication,
+        url: absoluteUrl(`/tools/${tool.slug}`),
+      };
 
   return (
     <div className="mx-auto max-w-3xl px-4 mt-8">
@@ -91,10 +104,10 @@ export default async function ToolPage({
             <span className="text-ink-400">Pricing: </span>
             <span className="text-ink-900 font-medium">{tool.pricing}</span>
           </div>
-          <div>
+          {tool.rating > 0 && <div>
             <span className="text-ink-400">Rating: </span>
             <span className="text-ink-900 font-medium">{tool.rating} / 5</span>
-          </div>
+          </div>}
           <div>
             <span className="text-ink-400">Best for: </span>
             <span className="text-ink-900">{tool.bestFor}</span>

@@ -5,7 +5,7 @@ import { getCategories } from "@/lib/db";
 export const metadata = {
   title: "All categories",
   description:
-    "Browse AI tools by category — copywriting, SEO, ads, social, email, design, video, chatbots and productivity.",
+    "Browse 50 current AI tools and established alternatives by category, from AI assistants and coding to SEO, video and automation.",
   alternates: { canonical: "/categories" },
 };
 
@@ -15,7 +15,7 @@ export default async function CategoriesPage() {
     <div className="mx-auto max-w-6xl px-4 mt-8">
       <h1 className="text-[20px] font-medium text-ink-900 mb-1">Categories</h1>
       <p className="text-[13px] text-ink-600 mb-6">
-        Pick a category to see hand-picked AI tools with reviews and pricing.
+        Start with the current editorial picks. Established alternatives remain available in every category.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {categories.map((c) => (

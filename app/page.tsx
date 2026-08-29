@@ -8,7 +8,7 @@ import {
   getFeaturedTools,
   getComparisons,
   getReviews,
-  getTools,
+  getPrimaryTools,
 } from "@/lib/db";
 
 export const metadata = {
@@ -16,12 +16,12 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const [categories, featured, comparisons, reviews, tools] = await Promise.all([
+  const [categories, featured, comparisons, reviews, primaryTools] = await Promise.all([
     getCategories(),
     getFeaturedTools(),
     getComparisons(),
     getReviews(),
-    getTools(),
+    getPrimaryTools(),
   ]);
 
   return (
@@ -42,7 +42,7 @@ export default async function HomePage() {
           <input
             type="search"
             name="q"
-            placeholder={`Search ${tools.length} curated AI tools`}
+            placeholder={`Search ${primaryTools.length} current AI tools`}
             className="w-full max-w-[420px] h-[40px] px-4 rounded-full border border-black/15 text-[13px] outline-none focus:border-brand-400"
           />
         </form>
@@ -65,13 +65,21 @@ export default async function HomePage() {
       {/* Editor's picks */}
       <section className="mt-8">
         <h2 className="text-[15px] font-medium text-ink-900 mb-3">
-          Editor&apos;s picks
+          2026 editor&apos;s picks
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {featured.map((t) => (
             <ToolCard key={t.slug} tool={t} />
           ))}
         </div>
+      </section>
+
+      <section className="mt-8 rounded-xl border border-brand-200 bg-brand-50 px-5 py-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h2 className="text-[15px] font-medium text-ink-900">50 current AI tools, organized for action</h2>
+          <p className="mt-1 text-[13px] text-ink-600">We keep established alternatives available, but prioritize the tools shaping today&apos;s workflows.</p>
+        </div>
+        <Link href="/categories" className="shrink-0 text-[13px] font-medium text-brand-600 hover:underline">Explore the market map →</Link>
       </section>
 
       {/* Categories */}

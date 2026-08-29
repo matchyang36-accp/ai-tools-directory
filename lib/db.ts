@@ -106,6 +106,14 @@ export async function getFeaturedTools(): Promise<Tool[]> {
   return results.map(rowToTool);
 }
 
+export async function getPrimaryTools(): Promise<Tool[]> {
+  const allTools = await getTools();
+  const bySlug = new Map(allTools.map((tool) => [tool.slug, tool]));
+  return local.primaryToolSlugs
+    .map((slug) => bySlug.get(slug))
+    .filter((tool): tool is Tool => Boolean(tool));
+}
+
 export async function getComparisons(): Promise<Comparison[]> {
   const db = await getDB();
   if (!db) return local.getComparisons();

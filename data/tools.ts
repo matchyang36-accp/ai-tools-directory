@@ -1,4 +1,9 @@
 import { publishedPosts } from "@/data/published-posts";
+import {
+  current2026Categories,
+  current2026PrimarySlugs,
+  current2026Tools,
+} from "@/data/current-ai-tools";
 
 // Seed data layer. Swap this module for a D1 query layer later — the getter
 // functions (getTools, getToolBySlug, etc.) are the only contract the pages use.
@@ -110,6 +115,7 @@ export const categories: Category[] = [
     description:
       "AI meeting notes, task automation and planning tools that give small teams superpowers.",
   },
+  ...current2026Categories,
 ];
 
 export const tools: Tool[] = [
@@ -201,11 +207,11 @@ export const tools: Tool[] = [
   },
   {
     slug: "grammarlygo",
-    name: "GrammarlyGO",
+    name: "Grammarly",
     category: "copywriting",
     tagline: "AI writing inside your everyday apps",
     description:
-      "GrammarlyGO brings contextual AI drafting and rewriting to the Grammarly you already use across docs, email and the web.",
+      "Grammarly brings contextual AI drafting and rewriting to the writing workflows you already use across docs, email and the web.",
     pricing: "Free + from $12/mo",
     rating: 4.2,
     pros: ["Ubiquitous", "Tone + clarity", "Trusted brand"],
@@ -932,7 +938,34 @@ export const tools: Tool[] = [
     website: "https://mem.ai",
     bestFor: "Knowledge workers",
   },
+  ...current2026Tools,
 ];
+
+// The homepage promotes this deliberately maintained editorial set. Older
+// profiles remain reachable so existing URLs and search equity are preserved.
+export const primaryToolSlugs = [
+  "midjourney",
+  "adobe-firefly",
+  "canva",
+  "runway",
+  "heygen",
+  "synthesia",
+  "jasper",
+  "writesonic",
+  "notion-ai",
+  "grammarlygo",
+  "surfer-seo",
+  "clearscope",
+  "adcreative-ai",
+  "buffer",
+  "metricool",
+  "intercom-fin",
+  "tidio",
+  "manychat",
+  "motion",
+  "otter",
+  ...current2026PrimarySlugs,
+] as const;
 
 const legacyReviews: Review[] = [
   {
@@ -1004,7 +1037,18 @@ export function getToolBySlug(slug: string): Tool | undefined {
 }
 
 export function getFeaturedTools(): Tool[] {
-  return tools.filter((t) => t.featured);
+  return getPrimaryTools().filter((t) => t.featured);
+}
+
+export function getPrimaryTools(): Tool[] {
+  const bySlug = new Map(tools.map((tool) => [tool.slug, tool]));
+  return primaryToolSlugs
+    .map((slug) => bySlug.get(slug))
+    .filter((tool): tool is Tool => Boolean(tool));
+}
+
+export function isPrimaryTool(slug: string): boolean {
+  return primaryToolSlugs.includes(slug as (typeof primaryToolSlugs)[number]);
 }
 
 export function getComparisons(): Comparison[] {

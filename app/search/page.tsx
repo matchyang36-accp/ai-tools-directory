@@ -32,7 +32,7 @@ export default function SearchPage() {
         autoFocus
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search AI tools (e.g. seo, video, jasper)"
+        placeholder="Search current tools and established alternatives"
         className="mt-4 w-full h-[42px] px-4 rounded-lg border border-black/15 text-[14px] outline-none focus:border-brand-400"
       />
 

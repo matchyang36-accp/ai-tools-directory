@@ -6,7 +6,7 @@ import {
   getToolsByCategory,
   getCategoryCount,
 } from "@/lib/db";
-import { getCategories } from "@/data/tools";
+import { getCategories, isPrimaryTool } from "@/data/tools";
 
 export function generateStaticParams() {
   const cats = getCategories().map((c) => ({ slug: c.slug }));
@@ -61,6 +61,8 @@ export default async function CategoryPage({
     getToolsByCategory(params.slug),
     getCategoryCount(params.slug),
   ]);
+  const currentTools = tools.filter((tool) => isPrimaryTool(tool.slug));
+  const establishedTools = tools.filter((tool) => !isPrimaryTool(tool.slug));
 
   return (
     <div className="mx-auto max-w-6xl px-4 mt-8">
@@ -75,11 +77,23 @@ export default async function CategoryPage({
         {cat.description} ({count} tools)
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {tools.map((t) => (
+      {currentTools.length > 0 && <>
+        <h2 className="text-[15px] font-medium text-ink-900 mb-3">Current picks</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {currentTools.map((t) => (
           <ToolCard key={t.slug} tool={t} />
         ))}
       </div>
+      </>}
+      {establishedTools.length > 0 && <section className="mt-8">
+        <h2 className="text-[15px] font-medium text-ink-900 mb-1">Established alternatives</h2>
+        <p className="text-[13px] text-ink-600 mb-3">Still available for comparison; not in the current top-50 editorial set.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {establishedTools.map((t) => (
+          <ToolCard key={t.slug} tool={t} />
+        ))}
+        </div>
+      </section>}
     </div>
   );
 }

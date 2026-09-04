@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrandIcon from "@/components/BrandIcon";
+import { SITE } from "@/lib/site";
 
 export default function Header() {
   return (
@@ -7,7 +8,7 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-4 h-14 flex items-center gap-6">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <BrandIcon priority />
-          <span className="font-medium text-[15px] text-brand-800">MarketAI</span>
+          <span className="font-medium text-[15px] text-brand-800">{SITE.name}</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-5 text-[13px] text-ink-600">

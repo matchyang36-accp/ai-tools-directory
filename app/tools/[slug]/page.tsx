@@ -28,49 +28,19 @@ export default async function ToolPage({
   const cat = await getCategoryBySlug(tool.category);
 
   const softwareApplication = {
+    "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: tool.name,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    ...(tool.rating > 0
-      ? { offers: { "@type": "Offer", price: tool.pricing, priceCurrency: "USD" } }
-      : {}),
-    ...(tool.rating > 0
-      ? {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: tool.rating,
-            bestRating: 5,
-            ratingCount: 1,
-          },
-        }
-      : {}),
+    url: absoluteUrl(`/tools/${tool.slug}`),
   };
-  const jsonLd = tool.rating > 0
-    ? {
-        "@context": "https://schema.org",
-        "@type": "Review",
-        name: `${tool.name} review`,
-        url: absoluteUrl(`/tools/${tool.slug}`),
-        itemReviewed: softwareApplication,
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: tool.rating,
-          bestRating: 5,
-        },
-        author: { "@type": "Organization", name: "MarketAI" },
-      }
-    : {
-        "@context": "https://schema.org",
-        ...softwareApplication,
-        url: absoluteUrl(`/tools/${tool.slug}`),
-      };
 
   return (
     <div className="mx-auto max-w-3xl px-4 mt-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplication) }}
       />
 
       <nav className="text-[12px] text-ink-400 mb-3">
@@ -104,10 +74,6 @@ export default async function ToolPage({
             <span className="text-ink-400">Pricing: </span>
             <span className="text-ink-900 font-medium">{tool.pricing}</span>
           </div>
-          {tool.rating > 0 && <div>
-            <span className="text-ink-400">Rating: </span>
-            <span className="text-ink-900 font-medium">{tool.rating} / 5</span>
-          </div>}
           <div>
             <span className="text-ink-400">Best for: </span>
             <span className="text-ink-900">{tool.bestFor}</span>

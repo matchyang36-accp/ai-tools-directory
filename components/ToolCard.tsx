@@ -14,7 +14,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
         </div>
       </div>
       <p className="text-[12px] text-ink-400 mb-3">
-        {tool.rating > 0 ? `Rating ${tool.rating} / 5` : "Editorial profile · verify plan details"}
+        Editorial profile · verify plan details
       </p>
       <Link
         href={`/tools/${tool.slug}`}

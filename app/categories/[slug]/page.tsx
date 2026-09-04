@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 import ToolCard from "@/components/ToolCard";
 import {
   getCategoryBySlug,
+  getTools,
   getToolsByCategory,
   getCategoryCount,
 } from "@/lib/db";
 import { getCategories, isPrimaryTool } from "@/data/tools";
+import { hasFreePlan } from "@/lib/content-quality";
 
 export function generateStaticParams() {
   const cats = getCategories().map((c) => ({ slug: c.slug }));
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (params.slug === "free") {
     return {
       title: "Free AI tools",
-      description: "No-cost AI tools for marketing, SEO and small business.",
+      description: "AI tools with a free plan for marketing, SEO and small business workflows.",
       alternates: { canonical: "/categories/free" },
     };
   }
@@ -37,13 +39,22 @@ export default async function CategoryPage({
   params: { slug: string };
 }) {
   if (params.slug === "free") {
+    const freePlanTools = (await getTools()).filter((tool) =>
+      hasFreePlan(tool.pricing),
+    );
+
     return (
       <div className="mx-auto max-w-6xl px-4 mt-8">
         <h1 className="text-[20px] font-medium text-ink-900">Free AI tools</h1>
         <p className="text-[13px] text-ink-600 mt-1 mb-6">
-          A curated list of no-cost AI tools is on the way. Most tools above
-          also offer a free plan — open any tool for details.
+          {freePlanTools.length} tools in our directory currently list a free
+          plan. Always confirm limits and terms on the tool&apos;s official site.
         </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {freePlanTools.map((tool) => (
+            <ToolCard key={tool.slug} tool={tool} />
+          ))}
+        </div>
         <Link
           href="/categories"
           className="text-[13px] text-brand-600 hover:underline"

@@ -9,14 +9,14 @@ export default function DisclosurePage() {
         Affiliate disclosure
       </h1>
       <p className="text-[14px] text-ink-600 leading-relaxed mt-3">
-        MarketAI participates in affiliate programs with some of the tools we
+        WhichAIUse participates in affiliate programs with some of the tools we
         list. This means we may earn a commission — at no extra cost to you — if
         you click a &ldquo;Visit&rdquo; link and purchase a plan.
       </p>
       <p className="text-[14px] text-ink-600 leading-relaxed mt-3">
-        Affiliate relationships never influence our ratings or the tools we
-        choose to review. Our editorial process is independent, and we only list
-        tools we would recommend to a friend.
+        Affiliate relationships do not determine a tool&apos;s placement in this
+        directory. We disclose commercial relationships so readers can make an
+        informed choice before visiting a third-party product site.
       </p>
       <Link
         href="/"

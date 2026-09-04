@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AdminEntrance from "@/components/AdminEntrance";
 import VisitorTracker from "@/components/VisitorTracker";
-import { SITE } from "@/lib/site";
+import { absoluteUrl, SITE } from "@/lib/site";
 
 const CLOUDFLARE_ANALYTICS_TOKEN = "3840b35262494df38d5c3c3a0cf85e08";
 
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
     default:
-      "MarketAI — AI tools for marketers, SEOs & small businesses",
-    template: "%s | MarketAI",
+      "WhichAIUse — AI tools for marketing, SEO & small business",
+    template: "%s | WhichAIUse",
   },
   description:
     SITE.description,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "MarketAI — AI tools for marketers, SEOs & small businesses",
+    title: "WhichAIUse — AI tools for marketing, SEO & small business",
     description:
       "Hands-on reviews, honest comparisons, and free alternatives to the best AI tools for marketing.",
     type: "website",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "MarketAI — AI tools for marketers, SEOs & small businesses",
+    title: "WhichAIUse — AI tools for marketing, SEO & small business",
     description: SITE.description,
   },
   robots: { index: true, follow: true },
@@ -55,6 +55,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const siteJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE.name,
+      url: SITE.url,
+      description: SITE.description,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+      logo: absoluteUrl("/icon-512.png"),
+    },
+  ];
+
   return (
     <html lang="en">
       <body>
@@ -63,6 +80,10 @@ export default function RootLayout({
         <Footer />
         <AdminEntrance />
         <VisitorTracker />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+        />
         <script
           type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"

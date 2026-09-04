@@ -29,10 +29,10 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="bg-white rounded-xl border border-black/10 mt-6 px-6 py-10 text-center">
         <h1 className="text-[22px] font-medium text-ink-900">
-          Find the right AI tool for your marketing
+          Find the right AI tool for your next task
         </h1>
         <p className="text-[13px] text-ink-600 mt-2">
-          Hands-on reviews, honest comparisons, and free alternatives
+          Compare practical AI tools for marketing, content, sales and operations
         </p>
         <form
           action="/search"
@@ -59,6 +59,27 @@ export default async function HomePage() {
           >
             Free tools
           </Link>
+        </div>
+      </section>
+
+      <section className="mt-4 rounded-xl border border-black/10 bg-white px-5 py-4">
+        <h2 className="text-[15px] font-medium text-ink-900">Start with what you need to do</h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[
+            ["Write & rank", "/categories/copywriting"],
+            ["Build with AI", "/categories/ai-coding"],
+            ["Create visuals", "/categories/image-design"],
+            ["Automate work", "/categories/automation-audio"],
+            ["Reach prospects", "/categories/email-outreach"],
+          ].map(([label, href]) => (
+            <Link
+              key={href}
+              href={href}
+              className="rounded-full border border-brand-200 bg-brand-50 px-3 py-1.5 text-[13px] font-medium text-brand-800 hover:bg-brand-100"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       </section>
 

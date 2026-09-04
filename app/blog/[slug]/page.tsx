@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import { getReviewBySlug, getToolBySlug } from "@/lib/db";
 import { getReviews } from "@/data/tools";
 import InArticleAd from "@/components/ads/InArticleAd";
+import { isUnreviewedBatchPost } from "@/lib/content-quality";
+import type { Metadata } from "next";
 
 const SITE_DOMAIN_PATTERN = /(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)/gi;
 const SITE_DOMAIN_EXACT_PATTERN = /^(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)$/i;
@@ -28,13 +30,16 @@ export function generateStaticParams() {
   return getReviews().map((r) => ({ slug: r.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const r = await getReviewBySlug(params.slug);
   if (!r) return { title: "Not found" };
   return {
     title: r.title,
     description: r.excerpt,
     alternates: { canonical: `/blog/${r.slug}` },
+    ...(isUnreviewedBatchPost(r.slug)
+      ? { robots: { index: false, follow: true } }
+      : {}),
   };
 }
 

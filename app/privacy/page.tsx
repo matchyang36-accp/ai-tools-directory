@@ -8,7 +8,7 @@ export default function PrivacyPage() {
       <h1 className="text-[20px] font-medium text-ink-900">Privacy</h1>
       <div className="text-[14px] text-ink-600 leading-relaxed mt-3 space-y-4">
         <p>
-          MarketAI does not currently offer user accounts, accept payments, or
+          WhichAIUse does not currently offer user accounts, accept payments, or
           collect newsletter subscriptions. We do not ask you to submit personal
           information directly on this website.
         </p>
@@ -34,9 +34,9 @@ export default function PrivacyPage() {
           operate and improve this website.
         </p>
         <p>
-          MarketAI links to third-party websites. Those services have their own
+          WhichAIUse links to third-party websites. Those services have their own
           privacy practices, and this policy does not cover information they
-          collect after you leave MarketAI.
+          collect after you leave WhichAIUse.
         </p>
         <p>
           This policy will be updated before advertising, accounts, payments, or

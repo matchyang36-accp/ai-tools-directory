@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrandIcon from "@/components/BrandIcon";
+import { SITE } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <BrandIcon />
-              <span className="font-medium text-brand-800">MarketAI</span>
+              <span className="font-medium text-brand-800">{SITE.name}</span>
             </div>
             <p className="text-[13px] text-ink-600 max-w-sm">
               AI tools for marketers, SEOs and small businesses — hands-on
@@ -39,7 +40,7 @@ export default function Footer() {
           affect our reviews.
         </p>
         <p className="mt-2 text-[12px] text-ink-400">
-          MarketAI — AI tools for marketers, SEOs and small businesses.
+          {SITE.name} — AI tools for marketers, SEOs and small businesses.
         </p>
       </div>
     </footer>

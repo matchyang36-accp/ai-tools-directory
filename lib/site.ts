@@ -18,10 +18,10 @@ function getSiteUrl(): string {
 }
 
 export const SITE = {
-  name: "MarketAI",
+  name: "WhichAIUse",
   url: getSiteUrl(),
   description:
-    "Hands-on reviews, honest comparisons, and free alternatives to AI tools for marketing, SEO and small business.",
+    "A practical directory of AI tools for marketing, SEO and small business workflows.",
   repositoryUrl: "https://github.com/matchyang36-accp/ai-tools-directory",
 } as const;
 

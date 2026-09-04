@@ -83,18 +83,17 @@ export default async function CompareDetail({
           <div>{a.name}</div>
           <div>{b.name}</div>
         </div>
-        <StatRow label="Rating" a={`${a.rating}/5`} b={`${b.rating}/5`} />
         <StatRow label="Pricing" a={a.pricing} b={b.pricing} />
-        <StatRow label="Best for" a={a.bestFor} b={b.bestFor} />
-        <StatRow label="Top pro" a={a.pros[0] ?? "—"} b={b.pros[0] ?? "—"} />
-        <StatRow label="Main con" a={a.cons[0] ?? "—"} b={b.cons[0] ?? "—"} />
+        <StatRow label="Suggested use case" a={a.bestFor} b={b.bestFor} />
+        <StatRow label="Potential strength" a={a.pros[0] ?? "—"} b={b.pros[0] ?? "—"} />
+        <StatRow label="Potential limitation" a={a.cons[0] ?? "—"} b={b.cons[0] ?? "—"} />
       </div>
 
       <p className="text-[13px] text-ink-600 mt-6">
-        Verdict: pick <span className="font-medium text-ink-900">{a.name}</span> if{" "}
-        {a.bestFor.toLowerCase()}; choose{" "}
-        <span className="font-medium text-ink-900">{b.name}</span> if{" "}
-        {b.bestFor.toLowerCase()}. Both are editor-tested.
+        Use this as a starting point, then verify the current pricing, product
+        limits, and terms on each provider&apos;s official site before choosing.
+        Tool fit depends on your workflow and requirements; this page does not
+        present lab scores or performance guarantees.
       </p>
     </div>
   );

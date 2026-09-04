@@ -4,6 +4,7 @@ import { getToolBySlug, getCategoryBySlug } from "@/lib/db";
 import { getTools } from "@/data/tools";
 import { absoluteUrl } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
+import OutboundToolLink from "@/components/OutboundToolLink";
 
 export function generateStaticParams() {
   return getTools().map((t) => ({ slug: t.slug }));
@@ -97,14 +98,15 @@ export default async function ToolPage({
           </div>
         </div>
 
-        <a
+        <OutboundToolLink
           href={tool.website}
+          toolSlug={tool.slug}
           rel="sponsored nofollow"
           target="_blank"
           className="mt-5 inline-flex h-[36px] px-6 rounded-lg bg-brand-600 text-white text-[13px] font-medium items-center hover:bg-brand-800"
         >
           Visit {tool.name} ↗
-        </a>
+        </OutboundToolLink>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">

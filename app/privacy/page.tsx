@@ -34,6 +34,12 @@ export default function PrivacyPage() {
           operate and improve this website.
         </p>
         <p>
+          When you choose a &ldquo;Visit&rdquo; link, we record a daily aggregate
+          count for the tool and the page where the link appeared. This click
+          metric does not contain an IP address, cookie, visitor identifier,
+          browser user-agent, or the destination URL.
+        </p>
+        <p>
           WhichAIUse links to third-party websites. Those services have their own
           privacy practices, and this policy does not cover information they
           collect after you leave WhichAIUse.

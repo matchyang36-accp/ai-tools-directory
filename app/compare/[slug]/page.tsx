@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getComparisonBySlug, getToolBySlug } from "@/lib/db";
 import { getComparisons } from "@/data/tools";
+import OutboundToolLink from "@/components/OutboundToolLink";
 
 export function generateStaticParams() {
   return getComparisons().map((c) => ({ slug: c.slug }));
@@ -51,26 +52,28 @@ export default async function CompareDetail({
         <div className="bg-white rounded-lg border border-black/10 p-3 text-center">
           <p className="font-medium text-[14px] text-ink-900">{a.name}</p>
           <p className="text-[12px] text-ink-400">{a.pricing}</p>
-          <a
+          <OutboundToolLink
             href={a.website}
+            toolSlug={a.slug}
             rel="sponsored nofollow"
             target="_blank"
             className="mt-2 inline-block text-[12px] text-brand-600 hover:underline"
           >
             Visit ↗
-          </a>
+          </OutboundToolLink>
         </div>
         <div className="bg-white rounded-lg border border-black/10 p-3 text-center">
           <p className="font-medium text-[14px] text-ink-900">{b.name}</p>
           <p className="text-[12px] text-ink-400">{b.pricing}</p>
-          <a
+          <OutboundToolLink
             href={b.website}
+            toolSlug={b.slug}
             rel="sponsored nofollow"
             target="_blank"
             className="mt-2 inline-block text-[12px] text-brand-600 hover:underline"
           >
             Visit ↗
-          </a>
+          </OutboundToolLink>
         </div>
       </div>
 

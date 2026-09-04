@@ -109,7 +109,9 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
     }
 
     let recentVisitors: unknown[] = [];
+    let topOutbound: unknown[] = [];
     let visitorTrackingAvailable = Boolean(context.env.DB);
+    let outboundTrackingAvailable = Boolean(context.env.DB);
     if (context.env.DB) {
       try {
         const visitorResult = await context.env.DB.prepare(`
@@ -126,6 +128,21 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
         visitorTrackingAvailable = false;
         console.error("Recent visitor query failed", error);
       }
+
+      try {
+        const outboundResult = await context.env.DB.prepare(`
+          SELECT tool_slug AS toolSlug, SUM(clicks) AS clicks
+          FROM outbound_click_daily
+          WHERE day >= date('now', '-29 days')
+          GROUP BY tool_slug
+          ORDER BY clicks DESC, tool_slug ASC
+          LIMIT 8
+        `).all();
+        topOutbound = outboundResult.results || [];
+      } catch (error) {
+        outboundTrackingAvailable = false;
+        console.error("Outbound click query failed", error);
+      }
     }
 
     return json({
@@ -141,6 +158,8 @@ export async function onRequestGet(context: PagesContext): Promise<Response> {
       devices: zone.devices || [],
       recentVisitors,
       visitorTrackingAvailable,
+      topOutbound,
+      outboundTrackingAvailable,
     });
   } catch (error) {
     console.error("Cloudflare Analytics request crashed", error);

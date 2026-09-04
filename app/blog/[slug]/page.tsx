@@ -8,6 +8,7 @@ import { isUnreviewedBatchPost } from "@/lib/content-quality";
 import type { Metadata } from "next";
 import { absoluteUrl, SITE } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
+import OutboundToolLink from "@/components/OutboundToolLink";
 
 const SITE_DOMAIN_PATTERN = /(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)/gi;
 const SITE_DOMAIN_EXACT_PATTERN = /^(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)$/i;
@@ -164,14 +165,15 @@ export default async function BlogDetail({
             <p className="font-medium text-[15px] text-ink-900">{tool.name}</p>
             <p className="text-[13px] text-ink-600">{tool.tagline}</p>
           </div>
-          <a
+          <OutboundToolLink
             href={tool.website}
+            toolSlug={tool.slug}
             rel="sponsored nofollow"
             target="_blank"
             className="h-[36px] px-5 rounded-lg bg-brand-600 text-white text-[13px] font-medium flex items-center hover:bg-brand-800"
           >
             Visit ↗
-          </a>
+          </OutboundToolLink>
         </div>
       )}
 

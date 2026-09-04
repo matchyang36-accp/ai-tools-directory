@@ -14,7 +14,11 @@ type AnalyticsData = {
   devices: Group[];
   recentVisitors: RecentVisitor[];
   visitorTrackingAvailable: boolean;
+  topOutbound: OutboundClick[];
+  outboundTrackingAvailable: boolean;
 };
+
+type OutboundClick = { toolSlug: string; clicks: number };
 
 type RecentVisitor = {
   visitorId: string;
@@ -179,6 +183,28 @@ export default function AnalyticsDashboard() {
           )}
           {loading && <p className="px-5 py-10 text-center text-sm text-ink-400">正在加载最近访客…</p>}
         </div>
+      </section>
+
+      <section className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 className="font-semibold text-ink-900">工具官网点击</h3>
+            <p className="mt-1 text-xs text-ink-400">最近 30 天的“Visit”点击汇总；不保存访客身份或 IP。</p>
+          </div>
+          <span className="rounded-full bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand-700">转化信号</span>
+        </div>
+        {!loading && !data?.outboundTrackingAvailable && (
+          <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">点击统计暂不可用；工具外链不会受到影响。</p>
+        )}
+        {data?.outboundTrackingAvailable && (
+          <div className="mt-5">
+            <Ranking
+              rows={data.topOutbound.map((item) => ({ count: Number(item.clicks), dimensions: { value: item.toolSlug } }))}
+              emptyLabel="尚无官网点击。统计会从下一次工具访问开始累计。"
+            />
+          </div>
+        )}
+        {loading && <p className="mt-5 py-4 text-center text-sm text-ink-400">正在加载点击数据…</p>}
       </section>
 
       <div className="grid gap-6 xl:grid-cols-2">

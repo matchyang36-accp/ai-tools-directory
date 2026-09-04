@@ -66,8 +66,8 @@ function safeReferrer(value: string | null, requestUrl: URL): string {
 }
 
 export async function onRequestPost(context: PagesContext): Promise<Response> {
-  if (!context.env.DB || !context.env.VISITOR_HASH_SECRET || context.env.VISITOR_HASH_SECRET.length < 32) {
-    console.error("Visitor tracking skipped: DB binding or hash secret is missing");
+  if (!context.env.DB) {
+    console.error("Analytics event skipped: DB binding is missing");
     return response(503);
   }
 
@@ -78,11 +78,50 @@ export async function onRequestPost(context: PagesContext): Promise<Response> {
   const origin = context.request.headers.get("origin");
   if (origin && origin !== requestUrl.origin) return response(403);
 
-  let body: { path?: unknown };
+  let body: { event?: unknown; toolSlug?: unknown; sourcePath?: unknown; path?: unknown };
   try {
     body = await context.request.json();
   } catch {
     return response(400);
+  }
+
+  if (body.event === "outbound_click") {
+    const toolSlug = typeof body.toolSlug === "string" && /^[a-z0-9-]{1,80}$/.test(body.toolSlug)
+      ? body.toolSlug
+      : null;
+    const sourcePath = typeof body.sourcePath === "string"
+      && body.sourcePath.startsWith("/")
+      && body.sourcePath.length <= 300
+      && !body.sourcePath.startsWith("/admin")
+      && !body.sourcePath.includes("\\")
+      ? body.sourcePath
+      : null;
+    if (!toolSlug || !sourcePath) return response(400);
+
+    try {
+      const knownTool = await context.env.DB.prepare(
+        "SELECT 1 FROM tools WHERE slug = ? LIMIT 1",
+      ).bind(toolSlug).all();
+      if (!knownTool.results?.length) return response(400);
+
+      const now = new Date().toISOString();
+      await context.env.DB.prepare(`
+        INSERT INTO outbound_click_daily (day, tool_slug, source_path, clicks, last_clicked_at)
+        VALUES (?, ?, ?, 1, ?)
+        ON CONFLICT(day, tool_slug, source_path) DO UPDATE SET
+          clicks = outbound_click_daily.clicks + 1,
+          last_clicked_at = excluded.last_clicked_at
+      `).bind(now.slice(0, 10), toolSlug, sourcePath, now).run();
+    } catch (error) {
+      console.error("Outbound click tracking write failed", error);
+    }
+
+    return response();
+  }
+
+  if (!context.env.VISITOR_HASH_SECRET || context.env.VISITOR_HASH_SECRET.length < 32) {
+    console.error("Visitor tracking skipped: hash secret is missing");
+    return response(503);
   }
 
   const firstPath = typeof body.path === "string" && body.path.startsWith("/") && body.path.length <= 300

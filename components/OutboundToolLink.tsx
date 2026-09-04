@@ -10,8 +10,8 @@ type OutboundToolLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href
 };
 
 function recordOutboundClick(toolSlug: string, sourcePath: string) {
-  const body = JSON.stringify({ toolSlug, sourcePath });
-  const url = "/api/tool-click";
+  const url = "/api/visit";
+  const body = JSON.stringify({ event: "outbound_click", toolSlug, sourcePath });
 
   // Beacon is deliberately best-effort. The destination link must never wait
   // for analytics, so a blocked or unavailable endpoint cannot break a visit.

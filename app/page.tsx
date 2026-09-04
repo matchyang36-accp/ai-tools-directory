@@ -10,6 +10,7 @@ import {
   getReviews,
   getPrimaryTools,
 } from "@/lib/db";
+import { isUnreviewedBatchPost } from "@/lib/content-quality";
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -23,6 +24,10 @@ export default async function HomePage() {
     getReviews(),
     getPrimaryTools(),
   ]);
+
+  const editorialReviews = reviews.filter(
+    (review) => !isUnreviewedBatchPost(review.slug),
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-4">
@@ -133,7 +138,7 @@ export default async function HomePage() {
           Latest reviews
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {reviews.map((r) => (
+          {editorialReviews.map((r) => (
             <ReviewCard key={r.slug} review={r} />
           ))}
         </div>

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import AdminEntrance from "@/components/AdminEntrance";
 import VisitorTracker from "@/components/VisitorTracker";
 import { absoluteUrl, SITE } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 const CLOUDFLARE_ANALYTICS_TOKEN = "3840b35262494df38d5c3c3a0cf85e08";
 
@@ -82,7 +83,7 @@ export default function RootLayout({
         <VisitorTracker />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(siteJsonLd) }}
         />
         <script
           type="module"

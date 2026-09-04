@@ -30,6 +30,9 @@ export default function Footer() {
             <Link href="/affiliate-disclosure" className="hover:text-brand-600">
               Affiliate disclosure
             </Link>
+            <Link href="/editorial-policy" className="hover:text-brand-600">
+              Editorial policy
+            </Link>
             <Link href="/privacy" className="hover:text-brand-600">
               Privacy
             </Link>

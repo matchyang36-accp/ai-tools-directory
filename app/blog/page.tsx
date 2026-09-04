@@ -1,5 +1,6 @@
 import ReviewCard from "@/components/ReviewCard";
 import { getReviews } from "@/lib/db";
+import { isUnreviewedBatchPost } from "@/lib/content-quality";
 
 export const metadata = {
   title: "Blog & reviews",
@@ -9,12 +10,14 @@ export const metadata = {
 };
 
 export default async function BlogIndex() {
-  const reviews = await getReviews();
+  const reviews = (await getReviews()).filter(
+    (review) => !isUnreviewedBatchPost(review.slug),
+  );
   return (
     <div className="mx-auto max-w-3xl px-4 mt-8">
       <h1 className="text-[20px] font-medium text-ink-900">Blog &amp; reviews</h1>
       <p className="text-[13px] text-ink-600 mt-1 mb-6">
-        Honest, hands-on takes on the tools that matter.
+        Editorial guides and product profiles for practical AI workflows.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {reviews.map((r) => (

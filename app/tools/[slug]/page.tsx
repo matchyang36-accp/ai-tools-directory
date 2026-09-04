@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getToolBySlug, getCategoryBySlug } from "@/lib/db";
 import { getTools } from "@/data/tools";
 import { absoluteUrl } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 export function generateStaticParams() {
   return getTools().map((t) => ({ slug: t.slug }));
@@ -33,14 +34,30 @@ export default async function ToolPage({
     name: tool.name,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
+    description: tool.description,
+    sameAs: tool.website,
     url: absoluteUrl(`/tools/${tool.slug}`),
+  };
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Categories", item: absoluteUrl("/categories") },
+      { "@type": "ListItem", position: 3, name: cat?.name ?? "Tools", item: absoluteUrl(`/categories/${cat?.slug ?? ""}`) },
+      { "@type": "ListItem", position: 4, name: tool.name, item: absoluteUrl(`/tools/${tool.slug}`) },
+    ],
   };
 
   return (
     <div className="mx-auto max-w-3xl px-4 mt-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplication) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd(softwareApplication) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
       />
 
       <nav className="text-[12px] text-ink-400 mb-3">

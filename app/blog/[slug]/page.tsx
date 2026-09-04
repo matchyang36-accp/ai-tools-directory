@@ -6,6 +6,8 @@ import { getReviews } from "@/data/tools";
 import InArticleAd from "@/components/ads/InArticleAd";
 import { isUnreviewedBatchPost } from "@/lib/content-quality";
 import type { Metadata } from "next";
+import { absoluteUrl, SITE } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 const SITE_DOMAIN_PATTERN = /(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)/gi;
 const SITE_DOMAIN_EXACT_PATTERN = /^(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)$/i;
@@ -52,9 +54,40 @@ export default async function BlogDetail({
   if (!review) notFound();
   const tool = review.toolSlug ? await getToolBySlug(review.toolSlug) : undefined;
   let paragraphCount = 0;
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Blog", item: absoluteUrl("/blog") },
+      { "@type": "ListItem", position: 3, name: review.title, item: absoluteUrl(`/blog/${review.slug}`) },
+    ],
+  };
+  const article = isUnreviewedBatchPost(review.slug)
+    ? null
+    : {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: review.title,
+        description: review.excerpt,
+        datePublished: review.date,
+        mainEntityOfPage: absoluteUrl(`/blog/${review.slug}`),
+        author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+        publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+      };
 
   return (
     <article className="mx-auto max-w-2xl px-4 mt-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
+      />
+      {article ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd(article) }}
+        />
+      ) : null}
       <nav className="text-[12px] text-ink-400 mb-3">
         <Link href="/blog" className="hover:text-brand-600">
           Blog

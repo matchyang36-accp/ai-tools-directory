@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getComparisonBySlug, getToolBySlug } from "@/lib/db";
 import { getComparisons } from "@/data/tools";
 import OutboundToolLink from "@/components/OutboundToolLink";
+import { absoluteUrl } from "@/lib/site";
+import { jsonLd } from "@/lib/json-ld";
 
 export function generateStaticParams() {
   return getComparisons().map((c) => ({ slug: c.slug }));
@@ -11,7 +13,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const c = await getComparisonBySlug(params.slug);
   if (!c) return { title: "Comparison not found" };
-  return { title: c.title, description: `Compare ${c.title} side by side.` };
+  return {
+    title: c.title,
+    description: `Compare ${c.title} side by side.`,
+    alternates: { canonical: `/compare/${c.slug}` },
+  };
 }
 
 function StatRow({ label, a, b }: { label: string; a: string; b: string }) {
@@ -37,8 +43,22 @@ export default async function CompareDetail({
   ]);
   if (!a || !b) notFound();
 
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") },
+      { "@type": "ListItem", position: 2, name: "Comparisons", item: absoluteUrl("/compare") },
+      { "@type": "ListItem", position: 3, name: c.title, item: absoluteUrl(`/compare/${c.slug}`) },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-3xl px-4 mt-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
+      />
       <nav className="text-[12px] text-ink-400 mb-3">
         <Link href="/compare" className="hover:text-brand-600">
           Comparisons

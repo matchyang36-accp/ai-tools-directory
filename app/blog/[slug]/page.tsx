@@ -159,6 +159,31 @@ export default async function BlogDetail({
         </p>
       )}
 
+      {review.sourceLinks?.length ? (
+        <section className="mt-8 border-t border-black/10 pt-6">
+          <h2 className="text-[16px] font-medium text-ink-900">
+            Official sources to verify
+          </h2>
+          <p className="mt-2 text-[13px] leading-6 text-ink-600">
+            Product capabilities, integrations and plan details can change. Confirm the current terms and workflow on the provider&apos;s official site before purchasing or connecting business data.
+          </p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-[13px] text-brand-700">
+            {review.sourceLinks.map((source) => (
+              <li key={source.href}>
+                <a
+                  href={source.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  {source.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {tool && (
         <div className="mt-6 bg-white rounded-xl border border-black/10 p-5 flex items-center justify-between">
           <div>

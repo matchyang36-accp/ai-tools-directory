@@ -42,6 +42,10 @@ export interface Review {
     paragraphs: string[];
     bullets?: string[];
   }>;
+  sourceLinks?: Array<{
+    label: string;
+    href: string;
+  }>;
 }
 
 export interface Comparison {

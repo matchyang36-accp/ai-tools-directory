@@ -1,6 +1,6 @@
 import ReviewCard from "@/components/ReviewCard";
 import { getReviews } from "@/lib/db";
-import { isUnreviewedBatchPost } from "@/lib/content-quality";
+import { isIndexableReview } from "@/lib/content-quality";
 
 export const metadata = {
   title: "Blog & reviews",
@@ -10,9 +10,7 @@ export const metadata = {
 };
 
 export default async function BlogIndex() {
-  const reviews = (await getReviews()).filter(
-    (review) => !isUnreviewedBatchPost(review.slug),
-  );
+  const reviews = (await getReviews()).filter(isIndexableReview);
   return (
     <div className="mx-auto max-w-3xl px-4 mt-8">
       <h1 className="text-[20px] font-medium text-ink-900">Blog &amp; reviews</h1>

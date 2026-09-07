@@ -970,9 +970,9 @@ export const primaryToolSlugs = [
 const legacyReviews: Review[] = [
   {
     slug: "best-ai-seo-tools-2026",
-    title: "Best AI SEO tools in 2026 (tested & ranked)",
+    title: "Best AI SEO tools to consider in 2026",
     excerpt:
-      "We put 9 AI SEO platforms through real content briefs. Here's which actually move rankings — and which just look good in demos.",
+      "A concise overview of AI SEO platforms, their common workflows, and the details to verify before choosing one.",
     readMins: 5,
     toolSlug: "surfer-seo",
     date: "2026-08-01",
@@ -981,14 +981,14 @@ const legacyReviews: Review[] = [
     slug: "free-jasper-alternatives",
     title: "6 free Jasper alternatives worth trying",
     excerpt:
-      "Jasper is great but not cheap. These six AI writers deliver real value on a free or near-free plan.",
+      "A concise starting point for comparing AI writing alternatives that may offer a free plan or trial.",
     readMins: 6,
     toolSlug: "jasper",
     date: "2026-07-28",
   },
   {
     slug: "heygen-vs-synthesia",
-    title: "HeyGen vs Synthesia: which avatar video tool wins?",
+    title: "HeyGen vs Synthesia: choosing an avatar video tool",
     excerpt:
       "Both turn scripts into spokesperson videos. We compare avatars, languages, pricing and ease of use head-to-head.",
     readMins: 7,
@@ -997,7 +997,7 @@ const legacyReviews: Review[] = [
   },
   {
     slug: "ai-tools-for-small-business",
-    title: "12 AI tools every small business should pilot",
+    title: "12 AI tools small businesses can evaluate",
     excerpt:
       "A practical starter stack — support, content, social and admin — that a team of one can run on a shoestring.",
     readMins: 8,

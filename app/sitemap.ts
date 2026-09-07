@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getTools, getCategories, getComparisons, getReviews } from "@/data/tools";
 import { absoluteUrl } from "@/lib/site";
-import { isUnreviewedBatchPost } from "@/lib/content-quality";
+import { isIndexableReview } from "@/lib/content-quality";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(`/compare/${c.slug}`),
   }));
 
-  const reviews = getReviews().filter((r) => !isUnreviewedBatchPost(r.slug)).map((r) => ({
+  const reviews = getReviews().filter(isIndexableReview).map((r) => ({
     url: absoluteUrl(`/blog/${r.slug}`),
     lastModified: r.date,
   }));

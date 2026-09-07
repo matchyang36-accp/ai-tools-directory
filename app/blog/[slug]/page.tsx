@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { getReviewBySlug, getToolBySlug } from "@/lib/db";
 import { getReviews } from "@/data/tools";
 import InArticleAd from "@/components/ads/InArticleAd";
-import { isUnreviewedBatchPost } from "@/lib/content-quality";
+import { isIndexableReview } from "@/lib/content-quality";
 import type { Metadata } from "next";
 import { absoluteUrl, SITE } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: r.title,
     description: r.excerpt,
     alternates: { canonical: `/blog/${r.slug}` },
-    ...(isUnreviewedBatchPost(r.slug)
+    ...(!isIndexableReview(r)
       ? { robots: { index: false, follow: true } }
       : {}),
   };
@@ -64,7 +64,7 @@ export default async function BlogDetail({
       { "@type": "ListItem", position: 3, name: review.title, item: absoluteUrl(`/blog/${review.slug}`) },
     ],
   };
-  const article = isUnreviewedBatchPost(review.slug)
+  const article = !isIndexableReview(review)
     ? null
     : {
         "@context": "https://schema.org",

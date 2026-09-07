@@ -10,7 +10,7 @@ import {
   getReviews,
   getPrimaryTools,
 } from "@/lib/db";
-import { isUnreviewedBatchPost } from "@/lib/content-quality";
+import { isIndexableReview } from "@/lib/content-quality";
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -25,9 +25,7 @@ export default async function HomePage() {
     getPrimaryTools(),
   ]);
 
-  const editorialReviews = reviews.filter(
-    (review) => !isUnreviewedBatchPost(review.slug),
-  );
+  const editorialReviews = reviews.filter(isIndexableReview);
 
   return (
     <div className="mx-auto max-w-6xl px-4">

@@ -8,6 +8,18 @@ export function isUnreviewedBatchPost(slug: string): boolean {
 }
 
 /**
+ * A post can remain available at its existing URL without being offered as an
+ * indexed editorial review. This protects search quality while a short legacy
+ * profile is waiting for a sourced, full-length update.
+ */
+export function isIndexableReview(review: {
+  slug: string;
+  sections?: unknown[];
+}): boolean {
+  return !isUnreviewedBatchPost(review.slug) && Boolean(review.sections?.length);
+}
+
+/**
  * Pricing changes often. A tool is shown on the free-plan page only when its
  * current profile explicitly says that a free option exists.
  */

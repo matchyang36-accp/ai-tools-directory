@@ -212,7 +212,7 @@ export const tools: Tool[] = [
     tagline: "AI writing inside your everyday apps",
     description:
       "Grammarly brings contextual AI drafting and rewriting to the writing workflows you already use across docs, email and the web.",
-    pricing: "Free + from $12/mo",
+    pricing: "Free and paid plans (verify current pricing)",
     rating: 4.2,
     pros: ["Ubiquitous", "Tone + clarity", "Trusted brand"],
     cons: ["Less creative", "Premium for volume"],

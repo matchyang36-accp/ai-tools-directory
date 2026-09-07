@@ -5,6 +5,7 @@ import { getTools } from "@/data/tools";
 import { absoluteUrl } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
 import OutboundToolLink from "@/components/OutboundToolLink";
+import { toolGuides } from "@/data/tool-guides";
 
 export function generateStaticParams() {
   return getTools().map((t) => ({ slug: t.slug }));
@@ -13,9 +14,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const t = await getToolBySlug(params.slug);
   if (!t) return { title: "Tool not found" };
+  const guide = toolGuides[t.slug];
   return {
-    title: `${t.name} review`,
-    description: t.description,
+    title: guide?.metaTitle ?? `${t.name} review`,
+    description: guide?.metaDescription ?? t.description,
     alternates: { canonical: `/tools/${t.slug}` },
   };
 }
@@ -28,6 +30,8 @@ export default async function ToolPage({
   const tool = await getToolBySlug(params.slug);
   if (!tool) notFound();
   const cat = await getCategoryBySlug(tool.category);
+  const guide = toolGuides[tool.slug];
+  const pageTitle = guide?.displayTitle ?? tool.name;
 
   const softwareApplication = {
     "@context": "https://schema.org",
@@ -39,6 +43,17 @@ export default async function ToolPage({
     sameAs: tool.website,
     url: absoluteUrl(`/tools/${tool.slug}`),
   };
+  const faqSchema = guide
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: guide.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }
+    : null;
   const breadcrumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -60,6 +75,12 @@ export default async function ToolPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
       />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
+        />
+      ) : null}
 
       <nav className="text-[12px] text-ink-400 mb-3">
         <Link href="/categories" className="hover:text-brand-600">
@@ -69,7 +90,7 @@ export default async function ToolPage({
         <Link href={`/categories/${cat?.slug}`} className="hover:text-brand-600">
           {cat?.name}
         </Link>{" "}
-        / {tool.name}
+        / {pageTitle}
       </nav>
 
       <div className="bg-white rounded-xl border border-black/10 p-6">
@@ -78,7 +99,7 @@ export default async function ToolPage({
             {tool.name.charAt(0)}
           </div>
           <div>
-            <h1 className="text-[20px] font-medium text-ink-900">{tool.name}</h1>
+            <h1 className="text-[20px] font-medium text-ink-900">{pageTitle}</h1>
             <p className="text-[13px] text-ink-600">{tool.tagline}</p>
           </div>
         </div>
@@ -127,6 +148,76 @@ export default async function ToolPage({
           </ul>
         </div>
       </div>
+
+      {guide ? (
+        <article className="mt-10 space-y-8">
+          <section className="rounded-xl border border-brand-200 bg-brand-50 p-5">
+            <h2 className="text-[18px] font-medium text-ink-900">
+              What to know before using Grammarly AI and Go
+            </h2>
+            <p className="mt-3 text-[14px] leading-7 text-ink-700">
+              {guide.summary}
+            </p>
+          </section>
+
+          {guide.sections.map((section) => (
+            <section key={section.heading}>
+              <h2 className="text-[18px] font-medium text-ink-900">
+                {section.heading}
+              </h2>
+              <div className="mt-3 space-y-3 text-[14px] leading-7 text-ink-700">
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              {section.bullets?.length ? (
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-[14px] leading-7 text-ink-700">
+                  {section.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </section>
+          ))}
+
+          <section>
+            <h2 className="text-[18px] font-medium text-ink-900">
+              Frequently asked questions
+            </h2>
+            <div className="mt-3 space-y-4">
+              {guide.faqs.map((faq) => (
+                <div key={faq.question} className="rounded-lg border border-black/10 bg-white p-4">
+                  <h3 className="text-[14px] font-medium text-ink-900">{faq.question}</h3>
+                  <p className="mt-2 text-[14px] leading-7 text-ink-700">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="border-t border-black/10 pt-6">
+            <h2 className="text-[16px] font-medium text-ink-900">
+              Official sources to verify
+            </h2>
+            <p className="mt-2 text-[13px] leading-6 text-ink-600">
+              Features, plans and availability can change. The guidance above was checked against these official sources in September 2026; confirm the current terms before purchasing or entering sensitive information.
+            </p>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-[13px] text-brand-700">
+              {guide.sources.map((source) => (
+                <li key={source.href}>
+                  <a
+                    href={source.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {source.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </article>
+      ) : null}
     </div>
   );
 }

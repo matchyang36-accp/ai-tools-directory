@@ -17,6 +17,93 @@ export interface ToolGuide {
  * tool-card contract remains stable as individual high-intent pages expand.
  */
 export const toolGuides: Record<string, ToolGuide> = {
+  reclaim: {
+    displayTitle: "Reclaim: AI calendar planning and time protection guide",
+    metaTitle: "Reclaim: AI calendar planning and time protection guide",
+    metaDescription:
+      "Evaluate Reclaim's AI calendar workflow, version differences, focus time, scheduling rules and a safe trial process before connecting your work calendar.",
+    summary:
+      "Reclaim is an AI calendar assistant for people who need to balance meetings, focus time, recurring routines and tasks that change during the week. The important question is not whether an AI calendar can fill every empty slot. It is whether its scheduling rules protect the work that matters without making your calendar harder for you and your teammates to understand.",
+    sections: [
+      {
+        heading: "What Reclaim is designed to do",
+        paragraphs: [
+          "Reclaim's current documentation describes an AI calendar assistant that helps users plan, protect and adapt their time. Its workflow includes a planner, an AI assistant and background agents for focus time, habits, buffers and recurring meetings. It can also connect calendar and task tools so a busy knowledge worker can see work commitments together instead of manually rearranging a week whenever a meeting changes.",
+          "The useful benefit is controlled flexibility. Instead of treating every calendar block as equally fixed, you set priorities, preferred hours and rules for flexible work. Reclaim can then suggest or make changes around those preferences. The tool cannot create more time, so the quality of the result depends on realistic working hours, clear priorities and a calendar that reflects your actual commitments.",
+        ],
+      },
+      {
+        heading: "Why the Reclaim 1.0 and 2.0 difference matters",
+        paragraphs: [
+          "Reclaim's official help center currently documents both 1.0 and 2.0 workflows. In 1.0, smart events such as Habits, Tasks and Smart Meetings can be scheduled and rescheduled on the calendar according to priority, availability and due-date rules. This is the behavior many older Reclaim articles and reviews describe.",
+          "In 2.0, the product introduces a Planner, Preview Mode, an in-app AI assistant and background agents. Its Tasks documentation specifically says that the newer task workflow centers on AI-assisted prioritization: it recommends work that is relevant now or at risk during protected focus time, rather than creating a calendar event for every task. Confirm the version shown in your own Reclaim profile before relying on a tutorial or buying decision.",
+        ],
+      },
+      {
+        heading: "Who should consider it—and who should be cautious",
+        paragraphs: [
+          "Reclaim can be a practical fit for knowledge workers and teams with calendars that are constantly pulled between meetings, deep work, deadlines and recurring operational routines. It is especially worth testing when manual calendar rearranging is a genuine recurring problem, not merely an occasional inconvenience.",
+          "Be cautious if your calendar contains client commitments, regulated data, complex on-call coverage or meetings that must never move without an owner's approval. Automatic scheduling can affect other people. Begin with low-risk focus blocks, buffers or personal routines; only then consider recurring team workflows after the rules and notifications are understood.",
+        ],
+      },
+      {
+        heading: "A safe one-week trial",
+        paragraphs: [
+          "Start with one calendar and choose a small, reversible use case: protect a few weekly focus hours, create one recurring habit or add buffers around meetings. Define working, meeting and personal hours before turning on automation. If your version offers Preview Mode, inspect suggested changes before applying them; this is like checking a draft itinerary before the calendar sends invitations or affects availability.",
+          "At the end of the week, review both the calendar and the human experience. Did protected work happen? Were important events moved unexpectedly? Did coworkers understand availability? Keep only the rules that reduced manual coordination. If a rule causes confusion, pause it, adjust the time window or priority, and trial again rather than adding more automation on top of a bad setup.",
+        ],
+        bullets: [
+          "Verify which Reclaim version, calendar connections and task integrations are available to your account.",
+          "Set explicit working hours, scheduling windows, priorities and rules for events that must not move.",
+          "Use a reversible test first; do not connect a shared or client-critical calendar as the initial experiment.",
+          "Check permissions, privacy controls and current plan limits before adding sensitive work data or expanding to a team.",
+          "Measure fewer manual reschedules and fewer unwanted moves, not a generic productivity promise.",
+        ],
+      },
+      {
+        heading: "What to verify before a team rollout",
+        paragraphs: [
+          "Before connecting several people, write a small calendar policy: which event types are flexible, who owns scheduling rules, what happens when a client meeting conflicts with focus time and how a person can pause automation. This creates a clear human fallback when the schedule does not match reality.",
+          "Also review current integrations, time-zone behavior, notification settings, admin controls, privacy terms and the plan details for your expected team size. Feature availability and product versions can change. A successful personal trial is evidence that the workflow might fit, not proof that a team-wide rollout will work without governance.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Does Reclaim automatically schedule every task on my calendar?",
+        answer:
+          "It depends on the version and configuration. Reclaim's 1.0 documentation describes calendar scheduling for Tasks, while its 2.0 Tasks documentation describes AI-assisted prioritization during protected focus time instead of an individual calendar event for every task. Check your current app version before configuring a workflow.",
+      },
+      {
+        question: "Can Reclaim move important meetings without my review?",
+        answer:
+          "Scheduling behavior depends on the priorities, locks and rules you configure. Start with flexible personal blocks, define non-movable events clearly and use preview or review controls when they are available. Do not treat automation as a substitute for calendar ownership.",
+      },
+      {
+        question: "Which calendars and task tools can Reclaim connect to?",
+        answer:
+          "Reclaim's current 2.0 overview lists calendar and task integrations including Google Calendar, Outlook, Todoist, ClickUp, Jira, Asana, Linear and Slack. Confirm current availability, permissions and version support on Reclaim's official documentation before connecting your account.",
+      },
+    ],
+    sources: [
+      {
+        label: "Reclaim 2.0 overview",
+        href: "https://help.reclaim.ai/en/articles/14846468-reclaim-ai-2-0-overview",
+      },
+      {
+        label: "Reclaim 2.0 Tasks overview",
+        href: "https://help.reclaim.ai/en/articles/16558552-reclaim-2-0-tasks-overview",
+      },
+      {
+        label: "Reclaim 1.0 feature overview",
+        href: "https://help.reclaim.ai/en/articles/6210740-features-in-reclaim",
+      },
+      {
+        label: "How Reclaim manages schedules automatically",
+        href: "https://help.reclaim.ai/en/articles/6207587-how-reclaim-manages-your-schedule-automatically",
+      },
+    ],
+  },
   grammarlygo: {
     displayTitle: "GrammarlyGO: current Grammarly AI and Go overview",
     metaTitle: "GrammarlyGO: current Grammarly AI and Go overview",

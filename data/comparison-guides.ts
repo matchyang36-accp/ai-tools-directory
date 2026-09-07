@@ -98,4 +98,89 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
       },
     ],
   },
+  "midjourney-vs-leonardo": {
+    metaTitle: "Leonardo AI vs Midjourney: creative workflow comparison",
+    metaDescription:
+      "Compare Leonardo AI and Midjourney by image-creation workflow, reference controls, editing needs and the details to verify before choosing.",
+    summary:
+      "Leonardo AI and Midjourney both turn prompts and reference images into visual work. The most useful comparison is not a universal image-quality score. It is whether the product gives your team the right balance of creative exploration, reference control, editing and handoff for a real project.",
+    sections: [
+      {
+        heading: "The short answer",
+        paragraphs: [
+          "Both tools can start from a text prompt and let a creator iterate on generated images. A good trial uses the same brief, aspect ratio and reference material in each product. Compare whether the final workflow helps a designer make purposeful choices, not only whether one first-generation image looks more dramatic than another.",
+          "Midjourney may be a practical fit for creators who want to explore a visual direction, work with personalization or moodboards, and then refine a selected image in its web editor. Leonardo AI may be a practical fit for a workflow that needs prompt or image input, selectable models and dimensions, plus creative tools such as AI Canvas, image-to-image and Blueprints. The right choice depends on the final asset, required control and review process.",
+        ],
+      },
+      {
+        heading: "What they have in common",
+        paragraphs: [
+          "Both products are designed for iterative visual creation. A creator can start with an idea, generate options, retain useful directions and refine them with further instructions or image references. This makes both relevant for concepting, campaign exploration and visual prototypes.",
+          "Neither tool removes the need for a creative brief, brand review or rights review. Generated output can vary from run to run, and the safest workflow is to keep approved references, document the intended use of each asset and review output before it is published or used in a customer-facing campaign.",
+        ],
+      },
+      {
+        heading: "Where the creative workflows differ",
+        paragraphs: [
+          "Midjourney's current web documentation describes a Create page, image and style references, Personalization profiles and moodboards. Its Editor can work with Midjourney creations and uploaded images, with tools for changing a canvas, masking an area, adding layers and submitting an edit. This is useful when the creative process moves from broad exploration into deliberate iteration on a selected visual direction.",
+          "Leonardo AI's current product and help materials describe prompt or image input, the ability to choose a model, dimensions and styles, plus tools such as AI Canvas, image-to-image and Blueprints. The help center also describes using reference images and adjusting image-guidance strength. This is useful when a team wants to evaluate several creative controls inside one generation workflow.",
+        ],
+      },
+      {
+        heading: "Use this decision checklist",
+        paragraphs: [
+          "Use a real project brief rather than an abstract prompt. Keep the image goal, target channel, reference assets and approval criteria identical during the comparison.",
+        ],
+        bullets: [
+          "Do you need broad visual exploration, or repeatable control over a product, character or brand element?",
+          "Will the creator work mainly from text, or must they use supplied image and style references?",
+          "What editing is required after the first generation: composition changes, object changes, layers, aspect ratio or export?",
+          "Can the team review output for brand suitability, factual accuracy and rights before any public use?",
+          "Do the current plan, privacy settings, credit limits and commercial-use terms fit the expected volume?",
+        ],
+      },
+      {
+        heading: "A fair way to trial both products",
+        paragraphs: [
+          "Prepare one brief with a specific audience, channel and visual outcome. For example, use one product image, a short brand direction and the exact aspect ratio needed for a campaign placement. Generate several options in both products, then save the prompts and references used so the team can reproduce the experiment later.",
+          "Review the results with the person responsible for final approval. Score the workflow against practical questions: how quickly a useful direction emerged, whether the reference material stayed relevant, how much manual editing was required and whether the output can be safely used under the current product terms. Do not treat a single preferred image as proof that one tool is better for every use case.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Which tool is better for visual quality?",
+        answer:
+          "There is no universal winner. Prompt quality, references, model settings, the target style and human review all affect the result. Test the same brief in both products before deciding for your workflow.",
+      },
+      {
+        question: "Can I use my own images as references?",
+        answer:
+          "Both products describe workflows that accept image references or uploads. Review their current documentation and terms, and make sure you have the right to use any reference image before uploading it.",
+      },
+      {
+        question: "What should a team verify before purchasing?",
+        answer:
+          "Check the current plan limits, privacy settings, available editing features, integrations, export options and commercial-use terms. These details can change and should be verified on each provider's official site.",
+      },
+    ],
+    sources: [
+      {
+        label: "Midjourney Editor documentation",
+        href: "https://docs.midjourney.com/hc/en-us/articles/32764383466893-Editor",
+      },
+      {
+        label: "Midjourney getting started guide",
+        href: "https://docs.midjourney.com/hc/en-us/articles/33329261836941-Getting-Started-Guide",
+      },
+      {
+        label: "Leonardo AI image generator",
+        href: "https://www.leonardo.ai/ai-image-generator",
+      },
+      {
+        label: "Leonardo AI image-generation guide",
+        href: "https://intercom.help/leonardo-ai/en/articles/8942360-how-to-generate-images-with-leonardo-ai",
+      },
+    ],
+  },
 };

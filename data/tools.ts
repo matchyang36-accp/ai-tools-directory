@@ -1011,7 +1011,7 @@ export const comparisons: Comparison[] = [
   { slug: "surfer-seo-vs-clearscope", title: "Surfer SEO vs Clearscope", a: "surfer-seo", b: "clearscope" },
   { slug: "jasper-vs-copy-ai", title: "Jasper vs Copy.ai", a: "jasper", b: "copy-ai" },
   { slug: "heygen-vs-synthesia", title: "HeyGen vs Synthesia", a: "heygen", b: "synthesia" },
-  { slug: "midjourney-vs-leonardo", title: "Midjourney vs Leonardo.Ai", a: "midjourney", b: "leonardo-ai" },
+  { slug: "midjourney-vs-leonardo", title: "Leonardo AI vs Midjourney", a: "leonardo-ai", b: "midjourney" },
   { slug: "instantly-vs-lemlist", title: "Instantly vs Lemlist", a: "instantly", b: "lemlist" },
 ];
 

@@ -5,6 +5,7 @@ import { getComparisons } from "@/data/tools";
 import OutboundToolLink from "@/components/OutboundToolLink";
 import { absoluteUrl } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
+import { comparisonGuides } from "@/data/comparison-guides";
 
 export function generateStaticParams() {
   return getComparisons().map((c) => ({ slug: c.slug }));
@@ -13,9 +14,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const c = await getComparisonBySlug(params.slug);
   if (!c) return { title: "Comparison not found" };
+  const guide = comparisonGuides[c.slug];
   return {
-    title: c.title,
-    description: `Compare ${c.title} side by side.`,
+    title: guide?.metaTitle ?? c.title,
+    description: guide?.metaDescription ?? `Compare ${c.title} side by side.`,
     alternates: { canonical: `/compare/${c.slug}` },
   };
 }
@@ -42,6 +44,7 @@ export default async function CompareDetail({
     getToolBySlug(c.b),
   ]);
   if (!a || !b) notFound();
+  const guide = comparisonGuides[c.slug];
 
   const breadcrumbs = {
     "@context": "https://schema.org",
@@ -115,6 +118,67 @@ export default async function CompareDetail({
         Tool fit depends on your workflow and requirements; this page does not
         present lab scores or performance guarantees.
       </p>
+
+      {guide ? (
+        <section className="mt-10 space-y-8">
+          <div className="rounded-xl border border-brand-200 bg-brand-50 p-5">
+            <h2 className="text-[18px] font-medium text-ink-900">
+              How to choose between {a.name} and {b.name}
+            </h2>
+            <p className="mt-3 text-[14px] leading-7 text-ink-700">
+              {guide.summary}
+            </p>
+          </div>
+
+          {guide.sections.map((section) => (
+            <section key={section.heading}>
+              <h2 className="text-[18px] font-medium text-ink-900">
+                {section.heading}
+              </h2>
+              <div className="mt-3 space-y-3 text-[14px] leading-7 text-ink-700">
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              {section.bullets?.length ? (
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-[14px] leading-7 text-ink-700">
+                  {section.bullets.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </section>
+          ))}
+
+          <section>
+            <h2 className="text-[18px] font-medium text-ink-900">Frequently asked questions</h2>
+            <div className="mt-3 space-y-4">
+              {guide.faqs.map((faq) => (
+                <div key={faq.question} className="rounded-lg border border-black/10 bg-white p-4">
+                  <h3 className="text-[14px] font-medium text-ink-900">{faq.question}</h3>
+                  <p className="mt-2 text-[14px] leading-7 text-ink-700">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="border-t border-black/10 pt-6">
+            <h2 className="text-[16px] font-medium text-ink-900">Official sources to verify</h2>
+            <p className="mt-2 text-[13px] leading-6 text-ink-600">
+              Product capabilities and plans change. The workflow notes above were checked against these official sources in September 2026; confirm current terms before purchasing.
+            </p>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-[13px] text-brand-700">
+              {guide.sources.map((source) => (
+                <li key={source.href}>
+                  <a href={source.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {source.label} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </section>
+      ) : null}
     </div>
   );
 }

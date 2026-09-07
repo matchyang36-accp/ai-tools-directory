@@ -663,11 +663,11 @@ export const tools: Tool[] = [
     category: "video",
     tagline: "AI avatar videos from text",
     description:
-      "HeyGen turns scripts into polished spokesperson videos with realistic avatars and instant translation to 40+ languages.",
-    pricing: "Free + from $29/mo",
+      "HeyGen creates avatar videos from scripts and supports video-translation workflows.",
+    pricing: "Free and paid plans",
     rating: 4.7,
-    pros: ["Realistic avatars", "Video translation", "Easy"],
-    cons: ["Avatar limits", "Credits"],
+    pros: ["Avatar video workflow", "Video translation", "Template-based creation"],
+    cons: ["Human review required", "Plan and usage limits"],
     website: "https://www.heygen.com",
     featured: true,
     bestFor: "Marketing & L&D teams",
@@ -678,13 +678,13 @@ export const tools: Tool[] = [
     category: "video",
     tagline: "Enterprise AI video platform",
     description:
-      "Synthesia is the enterprise standard for avatar videos, with 160+ avatars, templates and security compliance.",
-    pricing: "From $29/mo",
+      "Synthesia creates AI avatar videos for business communication, training and internal knowledge workflows.",
+    pricing: "Free and paid plans",
     rating: 4.5,
-    pros: ["Enterprise-ready", "Many avatars", "Templates"],
-    cons: ["Higher tiers pricey", "Less creative freedom"],
+    pros: ["Business video workflows", "Templates", "Team controls"],
+    cons: ["Human review required", "Plan and usage limits"],
     website: "https://www.synthesia.io",
-    bestFor: "Large companies",
+    bestFor: "Business training and communication teams",
   },
   {
     slug: "pictory",
@@ -1014,7 +1014,7 @@ export const reviews: Review[] = [...publishedPosts, ...legacyReviews];
 export const comparisons: Comparison[] = [
   { slug: "surfer-seo-vs-clearscope", title: "Surfer SEO vs Clearscope", a: "surfer-seo", b: "clearscope" },
   { slug: "jasper-vs-copy-ai", title: "Jasper vs Copy.ai", a: "jasper", b: "copy-ai" },
-  { slug: "heygen-vs-synthesia", title: "HeyGen vs Synthesia", a: "heygen", b: "synthesia" },
+  { slug: "heygen-vs-synthesia", title: "AI Avatars for Business: HeyGen vs Synthesia", a: "heygen", b: "synthesia" },
   { slug: "midjourney-vs-leonardo", title: "Leonardo AI vs Midjourney", a: "leonardo-ai", b: "midjourney" },
   { slug: "instantly-vs-lemlist", title: "Instantly vs Lemlist", a: "instantly", b: "lemlist" },
 ];

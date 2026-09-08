@@ -159,6 +159,23 @@ export default async function BlogDetail({
         </p>
       )}
 
+      {review.relatedLinks?.length ? (
+        <section className="mt-8 rounded-xl border border-black/10 bg-white p-5">
+          <h2 className="text-[16px] font-medium text-ink-900">
+            Continue your research
+          </h2>
+          <ul className="mt-3 space-y-2 text-[14px] text-brand-700">
+            {review.relatedLinks.map((related) => (
+              <li key={related.href}>
+                <Link href={related.href} className="hover:underline">
+                  {related.label} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {review.sourceLinks?.length ? (
         <section className="mt-8 border-t border-black/10 pt-6">
           <h2 className="text-[16px] font-medium text-ink-900">

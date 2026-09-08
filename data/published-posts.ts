@@ -82,6 +82,12 @@ export const publishedPosts: Review[] = [
         href: "https://www.remove.bg/api",
       },
     ],
+    relatedLinks: [
+      { label: "Review Photoroom for batch ecommerce images", href: "/tools/photoroom" },
+      { label: "Review Adobe Express for cutouts and design", href: "/tools/adobe-express" },
+      { label: "Review Canva for reusable product-image layouts", href: "/tools/canva" },
+      { label: "Explore image and design tools", href: "/categories/image-design" },
+    ],
   },
   {
     slug: "ai-writing-tools-small-business-stack",

@@ -46,6 +46,10 @@ export interface Review {
     label: string;
     href: string;
   }>;
+  relatedLinks?: Array<{
+    label: string;
+    href: string;
+  }>;
 }
 
 export interface Comparison {
@@ -562,14 +566,14 @@ export const tools: Tool[] = [
     category: "image-design",
     tagline: "Design anything, easily",
     description:
-      "Canva's Magic Studio brings AI image generation, resize, edit and brand kits into the design tool millions use daily.",
-    pricing: "Free + from $13/mo",
-    rating: 4.6,
+      "Canva combines background removal, templates, brand tools and multi-format design in one web and mobile workspace.",
+    pricing: "Free / paid plans",
+    rating: 0,
     pros: ["Ubiquitous", "Magic Studio AI", "Templates galore"],
-    cons: ["Not pro-grade", "Storage caps"],
+    cons: ["Premium feature limits", "Complex cutouts need review"],
     website: "https://www.canva.com",
     featured: true,
-    bestFor: "Everyone",
+    bestFor: "Teams reusing product images across branded layouts",
   },
   {
     slug: "designs-ai",

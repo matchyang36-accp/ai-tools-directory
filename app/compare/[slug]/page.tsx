@@ -84,6 +84,12 @@ export default async function CompareDetail({
           >
             Visit ↗
           </OutboundToolLink>
+          <Link
+            href={`/tools/${a.slug}`}
+            className="mt-2 block text-[12px] text-brand-700 hover:underline"
+          >
+            Read {a.name} guide →
+          </Link>
         </div>
         <div className="bg-white rounded-lg border border-black/10 p-3 text-center">
           <p className="font-medium text-[14px] text-ink-900">{b.name}</p>
@@ -97,6 +103,12 @@ export default async function CompareDetail({
           >
             Visit ↗
           </OutboundToolLink>
+          <Link
+            href={`/tools/${b.slug}`}
+            className="mt-2 block text-[12px] text-brand-700 hover:underline"
+          >
+            Read {b.name} guide →
+          </Link>
         </div>
       </div>
 

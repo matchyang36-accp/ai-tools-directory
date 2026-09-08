@@ -153,7 +153,7 @@ export default async function ToolPage({
         <article className="mt-10 space-y-8">
           <section className="rounded-xl border border-brand-200 bg-brand-50 p-5">
             <h2 className="text-[18px] font-medium text-ink-900">
-              What to know before using Grammarly AI and Go
+              What to know before using {tool.name}
             </h2>
             <p className="mt-3 text-[14px] leading-7 text-ink-700">
               {guide.summary}
@@ -179,6 +179,23 @@ export default async function ToolPage({
               ) : null}
             </section>
           ))}
+
+          {guide.relatedLinks?.length ? (
+            <section className="rounded-xl border border-black/10 bg-white p-5">
+              <h2 className="text-[16px] font-medium text-ink-900">
+                Continue your research
+              </h2>
+              <ul className="mt-3 space-y-2 text-[14px] text-brand-700">
+                {guide.relatedLinks.map((related) => (
+                  <li key={related.href}>
+                    <Link href={related.href} className="hover:underline">
+                      {related.label} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
           <section>
             <h2 className="text-[18px] font-medium text-ink-900">

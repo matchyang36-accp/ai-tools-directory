@@ -180,12 +180,20 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
         href: "https://help.heygen.com/en/articles/12089286-create-your-first-digital-twin-video-avatar-with-avatar-iv",
       },
       {
+        label: "HeyGen plans and pricing",
+        href: "https://www.heygen.com/pricing",
+      },
+      {
         label: "Synthesia: what the platform supports",
         href: "https://help.synthesia.io/en/articles/9994493-what-is-synthesia",
       },
       {
         label: "Synthesia: personal-avatar creation and consent",
         href: "https://help.synthesia.io/en/articles/9453224-how-do-i-create-my-personal-avatar-from-a-video",
+      },
+      {
+        label: "Synthesia plans and pricing",
+        href: "https://www.synthesia.io/pricing",
       },
     ],
   },

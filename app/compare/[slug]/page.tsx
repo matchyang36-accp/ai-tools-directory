@@ -45,6 +45,17 @@ export default async function CompareDetail({
   ]);
   if (!a || !b) notFound();
   const guide = comparisonGuides[c.slug];
+  const faqSchema = guide
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: guide.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        })),
+      }
+    : null;
 
   const breadcrumbs = {
     "@context": "https://schema.org",
@@ -62,6 +73,12 @@ export default async function CompareDetail({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
       />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd(faqSchema) }}
+        />
+      ) : null}
       <nav className="text-[12px] text-ink-400 mb-3">
         <Link href="/compare" className="hover:text-brand-600">
           Comparisons

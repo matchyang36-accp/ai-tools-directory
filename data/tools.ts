@@ -669,7 +669,7 @@ export const tools: Tool[] = [
     description:
       "HeyGen creates avatar videos from scripts and supports video-translation workflows.",
     pricing: "Free and paid plans",
-    rating: 4.7,
+    rating: 0,
     pros: ["Avatar video workflow", "Video translation", "Template-based creation"],
     cons: ["Human review required", "Plan and usage limits"],
     website: "https://www.heygen.com",
@@ -684,7 +684,7 @@ export const tools: Tool[] = [
     description:
       "Synthesia creates AI avatar videos for business communication, training and internal knowledge workflows.",
     pricing: "Free and paid plans",
-    rating: 4.5,
+    rating: 0,
     pros: ["Business video workflows", "Templates", "Team controls"],
     cons: ["Human review required", "Plan and usage limits"],
     website: "https://www.synthesia.io",

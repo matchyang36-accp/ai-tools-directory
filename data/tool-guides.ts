@@ -675,4 +675,220 @@ export const toolGuides: Record<string, ToolGuide> = {
       { label: "Explore image and design tools", href: "/categories/image-design" },
     ],
   },
+  heygen: {
+    displayTitle: "HeyGen Review: Avatar Video and Translation Workflow",
+    metaTitle: "HeyGen Review: Avatar Video and Translation Guide",
+    metaDescription:
+      "Evaluate HeyGen for avatar videos, video translation, Digital Twins, brand workflows, plan limits and a safe business pilot.",
+    summary:
+      "HeyGen combines script-to-avatar video creation with video translation and brand-oriented production tools. It can suit marketing, enablement and localization teams, but the real decision depends on script review, translation control, likeness consent, credits and the approval process around every published video.",
+    sections: [
+      {
+        heading: "What HeyGen is designed to do",
+        paragraphs: [
+          "HeyGen's current product and pricing materials describe a browser-based studio for building videos with stock or custom avatars, voices, scripts, templates and supporting media. A creator can start with a short script, choose a presenter and assemble a scene-based video without organizing a conventional camera shoot. That makes it relevant for repeatable explainers, product education, campaign variations and internal messages where the information matters more than live performance.",
+          "The platform also has a separate localization workflow. HeyGen's help center documents uploading or selecting a video, identifying its source language and creating translated versions with generated audio and lip-sync options. This is not a one-click substitute for localization review. Product names, pronunciations, cultural context, captions and visible on-screen text still need a reviewer who understands the target language and the intended audience.",
+        ],
+      },
+      {
+        heading: "Avatar creation requires consent and ownership rules",
+        paragraphs: [
+          "A stock avatar and a custom Digital Twin carry different responsibilities. A stock avatar is provided for use under the platform's terms. A Digital Twin is based on a real person's appearance and may also involve their voice. HeyGen's current creation guide includes a consent step intended to confirm that the person understands and agrees to creation of the avatar.",
+          "A business should go further than completing the product prompt. Record who approved the avatar, its permitted channels, languages and subjects, who may generate videos with it and when access must be removed. Keep source footage and consent records protected. Do not use an employee, customer or public figure's likeness or voice without the necessary authorization, and require renewed review when the planned use changes materially.",
+        ],
+      },
+      {
+        heading: "Translation is a review workflow, not only a feature",
+        paragraphs: [
+          "Begin with one approved source video and one target language. Check the source transcript before translation so a recognition error does not spread into every version. Then review terminology, proper names, numbers, dates, calls to action and captions. Watch the complete render because timing and lip synchronization can alter the perceived emphasis even when the translated words are acceptable.",
+          "Create a glossary for brand names, technical terms and phrases that must remain unchanged. Assign a native or professionally qualified reviewer for customer-facing material. If the tool or plan permits translation-script editing, document corrections so the team can reuse them. Scale to more languages only after the first version passes the same accuracy, brand and disclosure checks as the original.",
+        ],
+      },
+      {
+        heading: "Plans, credits and team controls to verify",
+        paragraphs: [
+          "HeyGen currently lists a Free plan and paid Creator, Pro, Business and Enterprise paths. The live pricing table separates credits, maximum video duration, export resolution, avatar and voice access, translation controls, collaboration and security features. Some features consume different amounts of credit, so a headline plan price does not reveal the cost of the workflow your team will actually run.",
+          "Estimate expected source minutes, translated languages, regeneration frequency and number of collaborators before choosing. A solo user may only need an individual workspace; a team may need comments, roles, centralized assets, authentication or billing controls. Verify every required capability in the live plan table and account because access can differ by tier, purchase date, region or feature rollout.",
+        ],
+      },
+      {
+        heading: "A practical seven-day HeyGen pilot",
+        paragraphs: [
+          "Use one 60- to 90-second script that your team genuinely needs. Define the audience, learning or marketing objective and required call to action before opening the editor. Produce one source-language version with an appropriate stock avatar first. If a custom avatar is essential, complete consent and access rules before recording source footage. Add only the brand elements required for the final channel.",
+          "After the source video is approved, translate it into one priority language and ask a qualified reviewer to mark every correction. Track script preparation, regeneration, translation review, caption fixes, export and final approval. Compare that total effort with the current production method. Do not treat a polished sample or an AI-generated estimate as evidence of saved time until the team has measured its own repeatable process.",
+        ],
+        bullets: [
+          "Use an approved script and retain its source and revision owner.",
+          "Confirm consent and permitted use before creating a custom avatar or voice.",
+          "Review translated words, pronunciation, captions and on-screen text separately.",
+          "Check current credits, export, duration and collaboration limits in the live plan.",
+          "Keep a manual video or presenter workflow available for sensitive messages.",
+        ],
+      },
+      {
+        heading: "Who should consider HeyGen—and who may not need it",
+        paragraphs: [
+          "HeyGen is a practical candidate for creators and teams that need repeated avatar-led video, campaign variations or a structured video-translation workflow. It is easier to justify when the organization already has approved scripts, a localization reviewer and enough recurring output to benefit from templates and brand assets.",
+          "A live presenter may be more appropriate for leadership communication, personal stories, high-stakes safety material or any message where authenticity and direct accountability are central. Synthesia is worth comparing when formal training, guest review, governed enterprise workspaces or LMS delivery dominate the use case. Choose the smallest tool and plan that can complete the real approval loop.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I test HeyGen without paying?",
+        answer:
+          "HeyGen's current pricing page lists a Free plan with limited creation and feature access. Check the live allowance before testing because video length, credits, avatars and export options can change.",
+      },
+      {
+        question: "Does HeyGen automatically make a translated video accurate?",
+        answer:
+          "No. Translation and lip-sync features still require review of terminology, names, pronunciation, captions, visible text and the completed render by someone qualified for the target language.",
+      },
+      {
+        question: "Can a company make a HeyGen avatar of an employee?",
+        answer:
+          "Only after obtaining appropriate informed consent and defining who can use the avatar, for which channels and purposes, and how access or future use can be stopped. Follow the provider's current consent process and applicable organizational or legal requirements.",
+      },
+      {
+        question: "What should I compare with Synthesia?",
+        answer:
+          "Compare script creation, translation review, avatar consent, brand controls, collaboration, output channels, accessibility, security and the full cost of the expected video volume. Use the same approved pilot in both products.",
+      },
+    ],
+    sources: [
+      {
+        label: "HeyGen plans and pricing",
+        href: "https://www.heygen.com/pricing",
+      },
+      {
+        label: "HeyGen video translation guide",
+        href: "https://help.heygen.com/en/articles/10029081-how-to-get-started-with-video-translation",
+      },
+      {
+        label: "HeyGen Digital Twin creation and consent",
+        href: "https://help.heygen.com/en/articles/12089286-create-your-first-digital-twin-video-avatar-with-avatar-iv",
+      },
+      {
+        label: "HeyGen Brand System guide",
+        href: "https://help.heygen.com/en/articles/9889198-how-to-create-a-brand-system",
+      },
+    ],
+    relatedLinks: [
+      { label: "Compare HeyGen with Synthesia", href: "/compare/heygen-vs-synthesia" },
+      { label: "Read the Synthesia business-video guide", href: "/tools/synthesia" },
+      { label: "Explore AI video tools", href: "/categories/video" },
+    ],
+  },
+  synthesia: {
+    displayTitle: "Synthesia Review: Business Training and Avatar Video Workflow",
+    metaTitle: "Synthesia Review: Business Avatar Video Guide",
+    metaDescription:
+      "Evaluate Synthesia for training videos, avatars, localization, guest review, brand controls, LMS delivery and a practical business pilot.",
+    summary:
+      "Synthesia is positioned as an AI video communications platform for repeatable business content such as training, onboarding, enablement and internal communication. Its value depends less on a single avatar demo and more on how scripts, reviewers, brand rules, localization and delivery fit together across the organization.",
+    sections: [
+      {
+        heading: "What Synthesia is designed to do",
+        paragraphs: [
+          "Synthesia's current help center describes creating a video from a script, prompt, presentation, document or link and combining avatars, voices, visuals and interactive elements. This makes it suitable for turning approved knowledge into a repeatable video format. Common business uses include onboarding, training, process explanations, product education and internal updates.",
+          "The platform also covers localization, dubbing, sharing and enterprise workspace controls. Those functions matter when the same content must be reviewed, translated and maintained over time. They do not make source material correct automatically. A subject-matter expert must approve the script, and a change to policy, safety guidance or product facts should trigger an update to every affected video and language version.",
+        ],
+      },
+      {
+        heading: "Design the script and scene workflow before choosing avatars",
+        paragraphs: [
+          "Start with a learning or communication objective that can be tested: what should the viewer know or do after watching? Break the script into short scenes, keep one idea in each scene and pair visuals with the spoken explanation. Synthesia's Assistant can create or refine a draft from a prompt and supporting files on eligible plans, but the source owner should compare the generated script with the approved material before any video is produced.",
+          "Avatar selection comes after the content structure. Choose a presenter and voice appropriate to the audience, but avoid treating perceived realism as the main quality measure. Clear wording, correct pacing, readable captions, accessible contrast and useful supporting visuals often have more business value than subtle facial differences. Review the full render on the devices and delivery channel the audience will use.",
+        ],
+      },
+      {
+        heading: "Collaboration, brand control and delivery vary by plan",
+        paragraphs: [
+          "Synthesia documents guest invitations that can support viewing and commenting on individual videos, while broader workspace collaboration and administrative controls depend on the plan. Its Brand Kit documentation currently places formal kits in the Enterprise tier, although users on other plans can still apply some visual choices manually. Confirm the exact permissions and guest limits required by writers, subject experts and final approvers.",
+          "Delivery can include a share link, webpage embed and, on eligible plans, password, SSO or SCORM options for learning systems. Do not assume every plan includes every route. If an LMS is central, test one exported package in the real LMS and confirm completion tracking, multilingual behavior and update ownership. A feature listed on a pricing page is not fully validated until the receiving system handles it correctly.",
+        ],
+      },
+      {
+        heading: "Consent, dubbing and localization controls",
+        paragraphs: [
+          "Synthesia's personal-avatar instructions require a consent recording from the same person represented by the avatar. The organization should also document permitted topics, audiences, languages, access and retention. Protect source recordings and voice data, and remove creator access promptly when a role changes. A personal avatar should never become a shared company asset without explicit governance.",
+          "For dubbing, review the source transcript before spending credits or generating multiple languages. Synthesia's current dubbing documentation notes that spoken audio translation does not automatically translate text already shown inside the video. Therefore captions, slides, labels and calls to action need a separate localization pass. Have a qualified reviewer check the final video, not only the transcript, because timing and visuals affect meaning.",
+        ],
+      },
+      {
+        heading: "A fair Synthesia business pilot",
+        paragraphs: [
+          "Choose one real training or onboarding module of roughly one to three minutes. Use approved source material, identify the subject-matter owner and define the publishing destination. Build the video, invite the actual reviewer, resolve comments and publish to the intended test channel. If localization matters, add one target language only after the source version is approved.",
+          "Measure preparation, editing, review, regeneration, localization and delivery work. Record corrections caused by the tool separately from improvements to the original script. Check that another team member can update the content later without rebuilding it. This exposes the maintenance cost that a one-off demo hides and helps determine whether Starter, Creator, Enterprise or another workflow is appropriate.",
+        ],
+        bullets: [
+          "Define a measurable viewer objective and keep an approved source document.",
+          "Test comments and reviewer permissions with the people who will really approve content.",
+          "Confirm brand, security, SCORM, embed and language needs against the current plan.",
+          "Review captions, on-screen text and accessibility on the final delivery surface.",
+          "Document consent and access rules before creating any personal avatar or voice.",
+        ],
+      },
+      {
+        heading: "Who should consider Synthesia—and when to use another format",
+        paragraphs: [
+          "Synthesia is a practical candidate for learning, enablement, HR and communications teams that need structured, maintainable business video across repeated topics or regions. It is easiest to justify when several people participate in script ownership, review, localization and distribution, and when the organization can define governance before scaling.",
+          "A simple screen recording may be faster for a rapidly changing interface, and a live presenter may be better for personal leadership or sensitive communication. HeyGen is worth comparing when creator-led marketing or video translation is the primary workflow. Do not force every document into avatar video; choose video only when motion, narration or repeated multilingual delivery helps the audience complete the task.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can Synthesia create a video from a document or presentation?",
+        answer:
+          "Synthesia currently documents starting from scripts, prompts, presentations, documents and links, including an Assistant workflow on eligible plans. The generated draft still needs comparison with the approved source.",
+      },
+      {
+        question: "Does Synthesia have a free plan?",
+        answer:
+          "Its current pricing information lists a Basic free plan and paid Starter, Creator and Enterprise paths. Video minutes, credits, avatars, downloads, guests and business controls differ, so verify the live table before choosing.",
+      },
+      {
+        question: "Can reviewers comment without a full editor license?",
+        answer:
+          "Synthesia documents guest review and commenting for shared videos, with plan-specific limits and permissions. Test the exact invitation flow with the intended approver before assuming it fits a larger workflow.",
+      },
+      {
+        question: "Does AI dubbing translate text shown inside the video?",
+        answer:
+          "Not automatically. Synthesia's current dubbing guide says spoken audio is translated, while burned-in captions, titles and graphics require a separate localization step.",
+      },
+    ],
+    sources: [
+      {
+        label: "Synthesia platform overview",
+        href: "https://help.synthesia.io/en/articles/9994493-what-is-synthesia",
+      },
+      {
+        label: "Synthesia plans and pricing",
+        href: "https://www.synthesia.io/pricing",
+      },
+      {
+        label: "Synthesia Assistant workflow",
+        href: "https://help.synthesia.io/en/articles/13759605-how-do-i-create-a-video-using-assistant",
+      },
+      {
+        label: "Synthesia guest review workflow",
+        href: "https://help.synthesia.io/en/articles/8354845-how-do-i-invite-a-guest-to-my-synthesia-video",
+      },
+      {
+        label: "Synthesia personal-avatar consent",
+        href: "https://help.synthesia.io/en/articles/9453224-how-do-i-create-my-personal-avatar-from-a-video",
+      },
+      {
+        label: "Synthesia dubbing workflow",
+        href: "https://help.synthesia.io/en/articles/10054222-how-do-i-dub-a-video",
+      },
+    ],
+    relatedLinks: [
+      { label: "Compare Synthesia with HeyGen", href: "/compare/heygen-vs-synthesia" },
+      { label: "Read the HeyGen avatar and translation guide", href: "/tools/heygen" },
+      { label: "Explore AI video tools", href: "/categories/video" },
+    ],
+  },
 };

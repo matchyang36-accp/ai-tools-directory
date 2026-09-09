@@ -18,6 +18,135 @@ export interface ToolGuide {
  * tool-card contract remains stable as individual high-intent pages expand.
  */
 export const toolGuides: Record<string, ToolGuide> = {
+  jasper: {
+    displayTitle: "Jasper Guide: Brand Voice and Marketing Workflows",
+    metaTitle: "Jasper Review: Brand Voice and Marketing Team Fit",
+    metaDescription: "Evaluate Jasper for brand voice, campaign production and team workflows. Includes a practical pilot, limitations and official sources.",
+    summary: "Consider Jasper when several people produce marketing assets and repeatedly correct the same brand inconsistencies. This documentation-based guide offers an evaluation process, not a hands-on benchmark or a promise of better campaign results.",
+    sections: [
+      { heading: "What Jasper offers marketing teams", paragraphs: [
+        "Jasper presents its platform around marketing agents, content pipelines and shared brand context. Its Brand Voice and Knowledge features give teams a way to supply tone examples and reference material. These are useful capabilities to evaluate when an ordinary chat prompt becomes difficult to maintain across people and campaigns.",
+        "The practical buying question is whether shared context reduces your review burden. A fluent draft still needs someone to verify the offer, audience, product claims and final call to action. Platform features are not evidence that a campaign will convert."
+      ] },
+      { heading: "Prepare brand context before generating copy", paragraphs: [
+        "For a pilot, assemble two approved examples, a short style checklist and a dated product fact sheet. Separate tone instructions from factual constraints: sounding friendly is a preference, while describing an unavailable feature is an error. Name an owner for maintaining the source material.",
+        "Use only material your team is permitted to upload. Remove customer details and confidential campaign plans from a first evaluation. Ask the account administrator to confirm access and retention requirements before introducing sensitive internal documents."
+      ] },
+      { heading: "Example: one offer across three channels", paragraphs: [
+        "Suppose a small software business is announcing an appointment reminder feature. Start with an approved brief describing who it helps, how it works and what it does not do. Ask for a landing-page section, an announcement email and two social posts based on that same brief. This is a proposed evaluation task, not a test we have performed.",
+        "Review the assets together. Does each retain the same eligibility conditions and offer? Does the email explain the next action without adding invented urgency? Count factual corrections separately from stylistic edits. Keep the original brief and each approved output so later revisions can be compared."
+      ] },
+      { heading: "Who should shortlist Jasper", paragraphs: [
+        "An agency or marketing department with repeated campaign work may find a shared brand workflow worth testing. A solo operator publishing occasional updates should first measure the limits of their current drafting tool and reusable brief. More configuration can cost more time than it saves at low volume.",
+        "Compare Jasper with Copy.ai when the bottleneck includes a repeatable process across several steps. Compare with Writesonic when the immediate job is researching and editing search-focused articles. These are editorial starting points; evaluate the actual features included in the plan available to you."
+      ] },
+      { heading: "Plan and pilot checklist", paragraphs: [
+        "Request current terms for seats, brand context, workflow access and usage before subscribing. Avoid evaluating on generation speed alone: calculate the total time from approved brief to approved asset, including setup and corrections. A reasonable pilot ends with a keep-or-cancel decision based on your own work."
+      ], bullets: ["Use the same brief and reviewer for each candidate.", "Record source accuracy, brand edits and approval time.", "Check export options and how shared materials can be removed.", "Confirm billing period, cancellation terms and any usage restrictions directly with Jasper."] }
+    ],
+    faqs: [
+      { question: "Does Jasper Brand Voice verify product facts?", answer: "Brand voice concerns tone and style. Treat every product claim as requiring a separate check against approved source material, even when the copy sounds correct." },
+      { question: "Does a small business need Jasper?", answer: "Not necessarily. Test it when repeated brand corrections or collaboration are measurable problems. Occasional writing may be handled with a reusable brief and an existing assistant." },
+      { question: "How should I compare Jasper and Copy.ai?", answer: "Use one campaign brief to compare the quality of reviewed assets, then evaluate any repeatable workflow separately. Count setup, corrections and maintenance as part of the cost." }
+    ],
+    sources: [
+      { label: "Jasper platform", href: "https://www.jasper.ai/" },
+      { label: "Jasper Brand Voice", href: "https://www.jasper.ai/brand-voice" },
+      { label: "Jasper Knowledge", href: "https://www.jasper.ai/knowledge-base" }
+    ],
+    relatedLinks: [
+      { label: "Jasper vs Copy.ai", href: "/compare/jasper-vs-copy-ai" },
+      { label: "Copy.ai workflow guide", href: "/tools/copy-ai" },
+      { label: "Writesonic article workflow guide", href: "/tools/writesonic" },
+      { label: "Build a lean small-business writing stack", href: "/blog/ai-writing-tools-small-business-stack" },
+      { label: "Choose AI writing tools by task", href: "/categories/copywriting" }
+    ]
+  },
+  "copy-ai": {
+    displayTitle: "Copy.ai Guide: GTM Workflows and Content Review",
+    metaTitle: "Copy.ai Review: GTM Workflows and Team Fit",
+    metaDescription: "Evaluate Copy.ai for repeatable sales and marketing workflows, brand context and team handoffs. See a pilot checklist and official sources.",
+    summary: "Shortlist Copy.ai when the recurring problem is a sequence of sales or marketing tasks with clear inputs and outputs. This guide is based on official documentation and editorial analysis, not a hands-on performance test.",
+    sections: [
+      { heading: "From drafting to a repeatable GTM process", paragraphs: [
+        "Copy.ai positions itself as a go-to-market AI platform. Its documentation describes Chat for individual tasks, Brand Voice for style, Infobase for reference material and Workflows that connect actions. Teamspaces organize collaboration and access. Feature availability should be checked for your account before designing a process around it.",
+        "That positioning matters for a buyer searching for an AI copywriter. If all you need is an occasional headline, workflow setup may be unnecessary. If the same brief repeatedly passes through research, drafting and review, evaluate the sequence as a whole."
+      ] },
+      { heading: "Map the workflow before buying software", paragraphs: [
+        "Write down the input, desired output, reviewer and failure condition for each step. For example, an approved product brief could become a campaign summary and then a first email draft. Stop before sending: an editor should check the audience, claims and offer. This example describes a proposed pilot, not a built-in template or verified integration.",
+        "Start with a small set of non-sensitive examples. Include a brief with a missing fact and one with contradictory instructions. A useful process should surface the ambiguity for review rather than generate plausible details that hide the problem."
+      ] },
+      { heading: "Brand context and team handoffs", paragraphs: [
+        "Test tone and reference material separately. An approved voice example helps you judge style; a dated product sheet lets you check whether an output preserves facts. Ask the reviewer to label each correction so prompt changes target the actual failure instead of making every instruction longer.",
+        "Before connecting production systems, establish who can edit the workflow and who approves its output. Retain a manual path for time-sensitive work when a provider or integration fails. If a run is retried, your surrounding process should prevent duplicate customer messages or records; verify this behavior rather than assuming the platform handles it for you."
+      ] },
+      { heading: "When Copy.ai may be too much", paragraphs: [
+        "A process without a stable owner, consistent input or review standard is hard to automate well. First simplify the manual steps. A general assistant and a shared document may be enough for a founder whose writing needs change every week.",
+        "If your main challenge is keeping campaign assets on brand, compare Jasper. If it is producing a sourced article draft with editorial checks, examine Writesonic. Choose by the work your team repeats, not by the number of templates advertised."
+      ] },
+      { heading: "Cost a reviewed result, not just a run", paragraphs: [
+        "Ask Copy.ai which workflow usage, seats, integrations and access controls are included in the current offer. Use a sample workflow to estimate the setup time, review effort and cost of reruns. Do not assume an advertised entry plan covers the workflow you want.",
+        "Decide in advance what would justify continuing: fewer repeated corrections, a clearer handoff or less manual preparation for the same approved output. Reject a pilot that merely produces more drafts while increasing the editor's queue."
+      ] }
+    ],
+    faqs: [
+      { question: "Is Copy.ai only a short-form copy generator?", answer: "Its official positioning includes go-to-market workflows as well as drafting. Confirm the features available in your account and evaluate one real process before scaling it." },
+      { question: "Can a workflow publish without review?", answer: "Design your pilot to end with a draft and human approval. Check any connected action before enabling it; successful generation is not approval to publish or contact a customer." },
+      { question: "What should I test before automating more work?", answer: "Try missing inputs, conflicting facts and a rerun. Confirm that your process flags uncertain outputs and avoids duplicate downstream actions." }
+    ],
+    sources: [
+      { label: "Copy.ai GTM platform", href: "https://www.copy.ai/" },
+      { label: "Copy.ai platform documentation", href: "https://support.fullcast.com/copy-ai/docs/platform-overview" }
+    ],
+    relatedLinks: [
+      { label: "Jasper vs Copy.ai", href: "/compare/jasper-vs-copy-ai" },
+      { label: "Jasper marketing workflow guide", href: "/tools/jasper" },
+      { label: "Writesonic article workflow guide", href: "/tools/writesonic" },
+      { label: "Build a lean small-business writing stack", href: "/blog/ai-writing-tools-small-business-stack" },
+      { label: "Choose AI writing tools by task", href: "/categories/copywriting" }
+    ]
+  },
+  writesonic: {
+    displayTitle: "Writesonic Guide: Article Drafting and Editorial Review",
+    metaTitle: "Writesonic Review: Article Workflow and SEO Content Fit",
+    metaDescription: "Assess Writesonic for article drafting, citations and internal links. Use a source-checking workflow and compare fit with Jasper and Copy.ai.",
+    summary: "Consider Writesonic when your recurring task is developing search-focused articles and your team can own the research and final edit. This documentation-based guide explains how to evaluate that workflow without treating generated text as verified evidence.",
+    sections: [
+      { heading: "What to evaluate in the Article Writer", paragraphs: [
+        "Writesonic's Article Writer documentation describes options for tone, source citations, internal links, FAQs and calls to action. The documentation covers multiple writer versions and notes that access depends on the plan. Confirm the version and capabilities available in the account you will actually use.",
+        "These features can organize article production, but an included citation is not proof that the cited page supports a sentence. Judge the usefulness of the final article after opening its sources and reviewing the argument, rather than accepting an SEO-ready label."
+      ] },
+      { heading: "Start from a question your business can answer", paragraphs: [
+        "Pick one customer question with a clear decision behind it. For example, a scheduling business might explain how to choose appointment reminder settings. Gather approved product documentation and examples before generating an outline. Specify the audience and what the reader should be able to do after reading.",
+        "Review the outline before expanding it. Remove sections that repeat the same answer or depend on claims you cannot support. Add the constraints, tradeoffs and original examples that distinguish your experience from a generic overview."
+      ] },
+      { heading: "Audit sources and links sentence by sentence", paragraphs: [
+        "For each factual claim, open the underlying source and confirm that it supports the wording, scope and date. Rewrite or remove unsupported statements. Never invent a customer quote, usage statistic or experiment to make the draft appear more credible.",
+        "Review internal links as navigation for readers. A useful link might lead from the article to a specific feature guide or comparison. Reject irrelevant links and verify that the destination exists. Keep the review separate from any content score: a score cannot establish factual accuracy or guarantee rankings."
+      ] },
+      { heading: "A small pilot with a clear stopping point", paragraphs: [
+        "Use one new article brief and one existing page that needs revision. Record the time spent researching, generating, checking sources and editing. Save the previous version of the existing page so the editor can compare the changes and undo weak additions.",
+        "Evaluate workflow quality immediately, then assess search performance separately after publication and crawling. Do not attribute a short-term ranking movement to the tool alone. Avoid bulk publication until a repeatable editorial review has been demonstrated."
+      ] },
+      { heading: "Fit, alternatives and purchasing questions", paragraphs: [
+        "Writesonic is worth shortlisting for a content editor who needs a structured article workflow. It may be unnecessary for occasional rewriting, or for a team whose real bottleneck is product expertise and distribution. Compare Jasper for shared marketing brand context and Copy.ai for a repeated process across tasks.",
+        "Before purchasing, confirm article allowances, revision usage, supported languages, collaboration and export options. Ask which features belong to the quoted plan. Compare total reviewed output and editing effort with your existing process, not the maximum number of drafts a plan permits."
+      ] }
+    ],
+    faqs: [
+      { question: "Are Writesonic articles automatically fact-checked?", answer: "Treat them as drafts requiring editorial verification. Open each cited source, verify product details and remove unsupported claims before publishing." },
+      { question: "Will Writesonic guarantee Google rankings?", answer: "No. Evaluate whether it helps you produce a useful, accurate page. Search performance also depends on competition, authority, technical quality and the reader's intent." },
+      { question: "How should a small business start?", answer: "Pilot one article with approved sources and a named reviewer. Compare the complete time to publication against your existing workflow before increasing volume." }
+    ],
+    sources: [{ label: "Writesonic AI Article Writer documentation", href: "https://docs.writesonic.com/docs/ai-article-writer" }],
+    relatedLinks: [
+      { label: "Jasper marketing workflow guide", href: "/tools/jasper" },
+      { label: "Copy.ai workflow guide", href: "/tools/copy-ai" },
+      { label: "Jasper vs Copy.ai", href: "/compare/jasper-vs-copy-ai" },
+      { label: "Build a lean small-business writing stack", href: "/blog/ai-writing-tools-small-business-stack" },
+      { label: "Choose AI writing tools by task", href: "/categories/copywriting" }
+    ]
+  },
   "surfer-seo": {
     displayTitle: "Surfer SEO Review: Content Editor, Audit and Workflow Guide",
     metaTitle: "Surfer SEO Review: Content Editor and Audit Guide",

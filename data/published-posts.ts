@@ -91,6 +91,13 @@ export const publishedPosts: Review[] = [
   },
   {
     slug: "ai-writing-tools-small-business-stack",
+    relatedLinks: [
+      { label: "Jasper brand voice and marketing guide", href: "/tools/jasper" },
+      { label: "Copy.ai GTM workflow guide", href: "/tools/copy-ai" },
+      { label: "Writesonic article and editorial guide", href: "/tools/writesonic" },
+      { label: "Compare Jasper and Copy.ai", href: "/compare/jasper-vs-copy-ai" },
+      { label: "Choose AI writing tools by task", href: "/categories/copywriting" },
+    ],
     title: "6 AI Writing Tools for Small Businesses: How to Choose a Lean Stack",
     excerpt: "Match popular AI writing tools to real business tasks without replacing fact-checking, brand judgment, or human editing.",
     readMins: 8,

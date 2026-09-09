@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ToolCard from "@/components/ToolCard";
+import CopywritingGuide from "@/components/CopywritingGuide";
 import {
   getCategoryBySlug,
   getTools,
@@ -27,8 +28,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const cat = await getCategoryBySlug(params.slug);
   if (!cat) return { title: "Category not found" };
   return {
-    title: `${cat.name} AI tools`,
-    description: cat.description,
+    title: cat.slug === "copywriting" ? "AI Writing Tools: Choose by Task and Workflow" : `${cat.name} AI tools`,
+    description: cat.slug === "copywriting" ? "Choose AI writing tools for campaign copy, GTM workflows and sourced articles. Compare Jasper, Copy.ai and Writesonic with a practical pilot checklist." : cat.description,
     alternates: { canonical: `/categories/${cat.slug}` },
   };
 }
@@ -88,6 +89,7 @@ export default async function CategoryPage({
         {cat.description} ({count} tools)
       </p>
 
+      {cat.slug === "copywriting" ? <CopywritingGuide /> : null}
       {currentTools.length > 0 && <>
         <h2 className="text-[15px] font-medium text-ink-900 mb-3">Current picks</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

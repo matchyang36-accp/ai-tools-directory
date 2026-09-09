@@ -9,6 +9,7 @@ export interface ComparisonGuide {
   }>;
   faqs: Array<{ question: string; answer: string }>;
   sources: Array<{ label: string; href: string }>;
+  relatedLinks?: Array<{ label: string; href: string }>;
 }
 
 /**
@@ -17,6 +18,50 @@ export interface ComparisonGuide {
  * data contract used by the rest of the directory.
  */
 export const comparisonGuides: Record<string, ComparisonGuide> = {
+  "jasper-vs-copy-ai": {
+    metaTitle: "Jasper vs Copy.ai: Marketing Content or GTM Workflows?",
+    metaDescription: "Compare Jasper and Copy.ai by brand context, campaign production, repeatable workflows and review effort. Includes a practical selection checklist.",
+    summary: "Start with Jasper when consistent campaign assets are the main problem to solve; start with Copy.ai when a repeated sequence of go-to-market tasks is the problem. Both have overlapping capabilities, so use this editorial distinction to choose a pilot, not as a rigid feature boundary.",
+    sections: [
+      { heading: "The decision starts with the recurring job", paragraphs: [
+        "Jasper presents a marketing platform built around agents, content pipelines and brand context. Copy.ai emphasizes go-to-market workflows alongside drafting tools. This comparison is based on official documentation, not a hands-on test or a claim that either product produces better prose.",
+        "If a team repeatedly rewrites campaign assets to match its brand, test how well shared context survives across formats. If the team repeatedly moves information between research, summaries and drafts, test that sequence and its review points. Neither starting point excludes the other platform."
+      ] },
+      { heading: "Brand consistency: test facts separately from tone", paragraphs: [
+        "Jasper offers Brand Voice and Knowledge; Copy.ai documents Brand Voice and Infobase. Both give you context-related capabilities to evaluate. Supplying material does not establish that every output will use it correctly.",
+        "Give each candidate an approved product brief, two style examples and explicit exclusions. Request an email and landing-page section. Have the same editor mark factual errors, missing conditions and tone changes separately. A polished voice should never hide an invented claim."
+      ] },
+      { heading: "Workflow fit: include setup and exceptions", paragraphs: [
+        "Copy.ai describes workflows as connected actions where one output can feed the next. Jasper describes content pipelines for repeatable marketing work. Ask each vendor to demonstrate the sequence you need in the plan you are considering, including human review and export.",
+        "Try a missing input and a rerun before connecting customer-facing systems. Your process needs an owner, a manual fallback and a way to avoid duplicate downstream actions. Include the cost of maintaining instructions and checking failures in the comparison."
+      ] },
+      { heading: "A practical side-by-side evaluation", paragraphs: [
+        "For a proposed pilot, use a single approved product announcement. First compare reviewed assets from the same brief. Then evaluate a short repeatable sequence, ending at a draft awaiting approval. Keep these two results separate so a strong writing sample does not conceal a difficult workflow.",
+        "Use your current process as a baseline. Record preparation time, editing time, unsupported claims and whether the final assets retain the same offer. A tool earns its place when it solves a recurring problem at an acceptable total cost; producing more variations alone is not sufficient."
+      ], bullets: ["Which steps are included in the actual plan or quote?", "Can the reviewer inspect the source context and revise the output?", "Who owns access, maintenance and approval?", "What happens when a run fails or must be repeated?", "Can you export approved work and leave without rebuilding the entire process?"] },
+      { heading: "When to choose neither", paragraphs: [
+        "For occasional small-business writing, a reusable brief and an existing assistant may be enough. Do not buy two overlapping platforms before you can identify the missing capability. If the job is primarily a sourced search article, include Writesonic in a separate article-workflow evaluation.",
+        "Check current seat limits, usage allowances, billing period and cancellation terms directly with each provider. This guide does not rank plans by old starting prices or assume that a trial includes every workflow feature."
+      ] }
+    ],
+    faqs: [
+      { question: "Is Jasper better than Copy.ai for every marketing team?", answer: "No. Evaluate the recurring work, available plan and review effort. Shared brand context and connected workflows overlap across the products, so compare a real assignment." },
+      { question: "Does Copy.ai support brand voice?", answer: "Its documentation includes Brand Voice and Infobase. Test whether the resulting drafts preserve your tone and approved facts instead of assuming brand controls are exclusive to Jasper." },
+      { question: "Should a small business subscribe to both?", answer: "Start with one pilot and your existing process as a baseline. Add another subscription only when a distinct recurring need remains unmet." }
+    ],
+    sources: [
+      { label: "Jasper platform", href: "https://www.jasper.ai/" },
+      { label: "Jasper Brand Voice", href: "https://www.jasper.ai/brand-voice" },
+      { label: "Jasper Knowledge", href: "https://www.jasper.ai/knowledge-base" },
+      { label: "Copy.ai platform", href: "https://www.copy.ai/" },
+      { label: "Copy.ai platform documentation", href: "https://support.fullcast.com/copy-ai/docs/platform-overview" }
+    ],
+    relatedLinks: [
+      { label: "Writesonic article workflow guide", href: "/tools/writesonic" },
+      { label: "Build a lean small-business writing stack", href: "/blog/ai-writing-tools-small-business-stack" },
+      { label: "Choose AI writing tools by task", href: "/categories/copywriting" }
+    ]
+  },
   "surfer-seo-vs-clearscope": {
     metaTitle: "Surfer SEO vs Clearscope: workflow comparison",
     metaDescription:

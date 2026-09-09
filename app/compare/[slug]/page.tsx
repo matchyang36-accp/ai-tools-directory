@@ -191,6 +191,16 @@ export default async function CompareDetail({
             </div>
           </section>
 
+          {guide.relatedLinks?.length ? (
+            <nav aria-label="Related writing guides" className="space-y-2">
+              <h2 className="text-[16px] font-medium text-ink-900">Related guides</h2>
+              <ul className="list-disc pl-5 text-[14px] leading-7 text-brand-700">
+                {guide.relatedLinks.map((link) => (
+                  <li key={link.href}><Link href={link.href} className="hover:underline">{link.label}</Link></li>
+                ))}
+              </ul>
+            </nav>
+          ) : null}
           <section className="border-t border-black/10 pt-6">
             <h2 className="text-[16px] font-medium text-ink-900">Official sources to verify</h2>
             <p className="mt-2 text-[13px] leading-6 text-ink-600">

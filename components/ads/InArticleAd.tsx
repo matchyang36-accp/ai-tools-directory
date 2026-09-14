@@ -4,7 +4,7 @@ import Script from "next/script";
 import { useRef } from "react";
 
 const ADSENSE_CLIENT = "ca-pub-9105586882004544";
-const IN_ARTICLE_SLOT = "5021891765";
+const IN_ARTICLE_SLOT = "1040438240";
 
 declare global {
   interface Window {

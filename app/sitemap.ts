@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getTools, getCategories, getComparisons, getReviews } from "@/data/tools";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrlWithTrailingSlash } from "@/lib/site";
 import { isIndexableReview } from "@/lib/content-quality";
 
 export const dynamic = "force-static";
@@ -18,22 +18,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/affiliate-disclosure",
     "/editorial-policy",
     "/privacy",
-  ].map((p) => ({ url: absoluteUrl(p || "/") }));
+  ].map((p) => ({ url: absoluteUrlWithTrailingSlash(p || "/") }));
 
   const tools = getTools().map((t) => ({
-    url: absoluteUrl(`/tools/${t.slug}`),
+    url: absoluteUrlWithTrailingSlash(`/tools/${t.slug}`),
   }));
 
   const categories = getCategories().map((c) => ({
-    url: absoluteUrl(`/categories/${c.slug}`),
+    url: absoluteUrlWithTrailingSlash(`/categories/${c.slug}`),
   }));
 
   const comparisons = getComparisons().map((c) => ({
-    url: absoluteUrl(`/compare/${c.slug}`),
+    url: absoluteUrlWithTrailingSlash(`/compare/${c.slug}`),
   }));
 
   const reviews = getReviews().filter(isIndexableReview).map((r) => ({
-    url: absoluteUrl(`/blog/${r.slug}`),
+    url: absoluteUrlWithTrailingSlash(`/blog/${r.slug}`),
     lastModified: r.date,
   }));
 

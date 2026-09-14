@@ -71,7 +71,7 @@ export default async function HomePage() {
           {[
             ["Write & rank", "/categories/copywriting"],
             ["Build with AI", "/categories/ai-coding"],
-            ["Create visuals", "/categories/image-design"],
+            ["Create product images", "/categories/image-design"],
             ["Automate work", "/categories/automation-audio"],
             ["Reach prospects", "/categories/email-outreach"],
           ].map(([label, href]) => (

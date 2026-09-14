@@ -20,7 +20,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
         href={`/tools/${tool.slug}`}
         className="mt-auto h-[28px] px-4 rounded-full bg-brand-600 text-white text-[12px] font-medium flex items-center justify-center hover:bg-brand-800"
       >
-        Visit
+        Review {tool.name}
       </Link>
     </div>
   );

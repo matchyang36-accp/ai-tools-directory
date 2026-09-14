@@ -97,10 +97,10 @@ export const categories: Category[] = [
   },
   {
     slug: "image-design",
-    name: "Image & Design",
-    tagline: "Design assets without a designer",
+    name: "AI Image & Ecommerce",
+    tagline: "Create product photos, cutouts and campaign visuals",
     description:
-      "AI image generators and design tools for logos, thumbnails, product shots and brand kits.",
+      "AI image and ecommerce design tools for product photos, background removal, generated scenes, listing graphics and brand-ready campaign assets.",
   },
   {
     slug: "video",
@@ -1020,6 +1020,7 @@ export const comparisons: Comparison[] = [
   { slug: "jasper-vs-copy-ai", title: "Jasper vs Copy.ai", a: "jasper", b: "copy-ai" },
   { slug: "heygen-vs-synthesia", title: "AI Avatars for Business: HeyGen vs Synthesia", a: "heygen", b: "synthesia" },
   { slug: "midjourney-vs-leonardo", title: "Leonardo AI vs Midjourney", a: "leonardo-ai", b: "midjourney" },
+  { slug: "canva-vs-photoroom", title: "Canva vs Photoroom for Ecommerce Product Images", a: "canva", b: "photoroom" },
   { slug: "instantly-vs-lemlist", title: "Instantly vs Lemlist", a: "instantly", b: "lemlist" },
 ];
 

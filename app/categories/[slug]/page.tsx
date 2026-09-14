@@ -31,8 +31,18 @@ export async function generateMetadata({ params }: { params: SlugParams }) {
   const cat = await getCategoryBySlug(slug);
   if (!cat) return { title: "Category not found" };
   return {
-    title: cat.slug === "copywriting" ? "AI Writing Tools: Choose by Task and Workflow" : `${cat.name} AI tools`,
-    description: cat.slug === "copywriting" ? "Choose AI writing tools for campaign copy, GTM workflows and sourced articles. Compare Jasper, Copy.ai and Writesonic with a practical pilot checklist." : cat.description,
+    title:
+      cat.slug === "copywriting"
+        ? "AI Writing Tools: Choose by Task and Workflow"
+        : cat.slug === "image-design"
+          ? "AI Image Tools for Ecommerce Product Photos"
+          : `${cat.name} AI tools`,
+    description:
+      cat.slug === "copywriting"
+        ? "Choose AI writing tools for campaign copy, GTM workflows and sourced articles. Compare Jasper, Copy.ai and Writesonic with a practical pilot checklist."
+        : cat.slug === "image-design"
+          ? "Compare AI image tools for ecommerce product photos, background removal, generated scenes, catalog workflows and reusable marketing designs."
+          : cat.description,
     alternates: { canonical: `/categories/${cat.slug}` },
   };
 }
@@ -94,6 +104,39 @@ export default async function CategoryPage({
       </p>
 
       {cat.slug === "copywriting" ? <CopywritingGuide /> : null}
+      {cat.slug === "image-design" ? (
+        <section className="mb-6 rounded-xl border border-brand-200 bg-brand-50 p-5">
+          <h2 className="text-[17px] font-medium text-ink-900">
+            Start with the ecommerce image workflow
+          </h2>
+          <p className="mt-3 text-[14px] leading-7 text-ink-700">
+            For product photos, choose by the job: Photoroom for repeatable
+            catalog and batch workflows, Canva for reusable product-image
+            templates, Adobe Express for quick cutouts inside a familiar editor,
+            and ChatGPT Images for fast concept and scene iteration.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2 text-[13px]">
+            <Link
+              href="/blog/best-ai-background-removers-ecommerce-workflow"
+              className="rounded-full border border-brand-200 bg-white px-3 py-1.5 font-medium text-brand-800 hover:bg-brand-100"
+            >
+              Background remover guide
+            </Link>
+            <Link
+              href="/compare/canva-vs-photoroom"
+              className="rounded-full border border-brand-200 bg-white px-3 py-1.5 font-medium text-brand-800 hover:bg-brand-100"
+            >
+              Canva vs Photoroom
+            </Link>
+            <Link
+              href="/tools/chatgpt-images"
+              className="rounded-full border border-brand-200 bg-white px-3 py-1.5 font-medium text-brand-800 hover:bg-brand-100"
+            >
+              ChatGPT Images
+            </Link>
+          </div>
+        </section>
+      ) : null}
       {currentTools.length > 0 && <>
         <h2 className="text-[15px] font-medium text-ink-900 mb-3">Current picks</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

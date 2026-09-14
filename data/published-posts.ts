@@ -5,8 +5,8 @@ import type { Review } from "@/data/tools";
 export const publishedPosts: Review[] = [
   {
     slug: "best-ai-background-removers-ecommerce-workflow",
-    title: "AI Background Generators for Ecommerce: How to Compare Product Image Workflows",
-    excerpt: "Compare AI background removal, generated scenes, batch workflows and API options for product photos without risking misleading listings.",
+    title: "Best AI Background Removers for Ecommerce Product Photos",
+    excerpt: "Compare Photoroom, Canva, Adobe Express, ChatGPT Images and API workflows for ecommerce product photos, cutouts and generated backgrounds.",
     readMins: 8,
     date: "2026-08-17",
     sections: [
@@ -86,6 +86,8 @@ export const publishedPosts: Review[] = [
       { label: "Review Photoroom for batch ecommerce images", href: "/tools/photoroom" },
       { label: "Review Adobe Express for cutouts and design", href: "/tools/adobe-express" },
       { label: "Review Canva for reusable product-image layouts", href: "/tools/canva" },
+      { label: "Use ChatGPT Images for product-scene concepts", href: "/tools/chatgpt-images" },
+      { label: "Compare Canva vs Photoroom for ecommerce images", href: "/compare/canva-vs-photoroom" },
       { label: "Explore image and design tools", href: "/categories/image-design" },
     ],
   },

@@ -28,3 +28,8 @@ export const SITE = {
 export function absoluteUrl(path = "/"): string {
   return new URL(path, `${SITE.url}/`).toString();
 }
+
+export function absoluteUrlWithTrailingSlash(path = "/"): string {
+  const url = absoluteUrl(path);
+  return url.endsWith("/") ? url : `${url}/`;
+}

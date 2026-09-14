@@ -7,6 +7,7 @@
   //   Output directory: out
   // (Or deploy from CLI with: `npx wrangler pages deploy out`)
   "name": "ai-tools-directory",
+  "compatibility_date": "2026-09-14",
   "pages_build_output_dir": "out",
   "d1_databases": [
     {

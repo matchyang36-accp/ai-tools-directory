@@ -3,7 +3,7 @@
 import Script from "next/script";
 import { useRef } from "react";
 
-const ADSENSE_CLIENT = "ca-pub-7218285443802148";
+const ADSENSE_CLIENT = "ca-pub-9105586882004544";
 const IN_ARTICLE_SLOT = "5021891765";
 
 declare global {

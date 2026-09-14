@@ -56,7 +56,7 @@ git push origin main
 - `/sitemap.xml` 和 `/robots.txt` 能打开（SEO 用）
 
 ## 以后改内容怎么更新？
-网站所有内容都在 `data/tools.ts`（57 个工具、9 个分类、评测、对比）里。
+网站公开内容主要在 `data/tools.ts`、`data/current-ai-tools.ts`、`data/published-posts.ts`、`data/tool-guides.ts` 和 `data/comparison-guides.ts`。当前代码生成 89 个工具、12 个分类、42 篇文章/评测和 5 个对比页。
 改完这个文件后：
 ```bash
 git add -A && git commit -m "update content" && git push origin main
@@ -71,6 +71,6 @@ Cloudflare 会自动重新构建部署（几分钟）。公开内容不需要数
 ### 技术说明（可忽略）
 - `next.config.mjs` 设了 `output: "export"`，`npm run build` 把整站导出到 `out/`。
 - 搜索改成浏览器端过滤（`app/search/page.tsx` 直接 import 数据），不再依赖 API 路由。
-- 之前的 D1 / next-on-pages 数据层配置仍未启用（公开内容全在 `data/tools.ts`）。
+- 公开页面采用静态数据构建；D1 主要用于管理员密码覆盖、匿名访客记录和工具官网点击统计。若启用外链点击统计，远程 D1 的 `tools` 表也需要同步当前工具 slug，否则点击校验会拒绝未知工具。
 - `functions/admin/[[path]].ts` 在边缘拦截未登录的后台页面；`functions/api/admin/analytics.ts` 也独立验证会话。身份验证或环境变量缺失时会尽早失败。
   若将来要动态管理海量内容，可再迁回带数据库的架构，但当前纯静态方案最稳、最快、最便宜。

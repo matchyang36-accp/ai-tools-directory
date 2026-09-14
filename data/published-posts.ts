@@ -478,7 +478,7 @@ export const publishedPosts: Review[] = [
         heading: "Final Word",
         paragraphs: [
           "ChatGPT doesn't write great blogs. You write great blogs — with ChatGPT as the engine. Master the prompt sequence above and you'll never spend 3 hours on a post again.",
-          "Ready to level up? Explore 500+ hand-picked AI writing tools at whichaiuse.com and find your next favorite one today.",
+          "Ready to level up? Explore the current hand-picked AI writing tools at whichaiuse.com and find your next favorite one today.",
         ],
       },
     ],
@@ -761,7 +761,7 @@ export const publishedPosts: Review[] = [
       {
         heading: "What to Do After You Generate",
         paragraphs: [
-          "Upscale, download, and edit in a free tool like Photopea for final touches. Need a full stack of AI creative tools? whichaiuse.com has 500+ curated for artists.",
+          "Upscale, download, and edit in a free tool like Photopea for final touches. Need a full stack of AI creative tools? whichaiuse.com keeps a curated list for artists.",
         ],
       },
       {

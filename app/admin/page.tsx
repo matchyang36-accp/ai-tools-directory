@@ -17,8 +17,8 @@ export default function AdminDashboard() {
           <ul className="space-y-4 text-sm">
             <li className="flex items-center justify-between"><span>静态内容与 SEO 页面</span><StatusBadge tone="success">运行正常</StatusBadge></li>
             <li className="flex items-center justify-between"><span>Google ads.txt</span><StatusBadge tone="success">已部署</StatusBadge></li>
-            <li className="flex items-center justify-between"><span>管理员身份保护</span><StatusBadge tone="warning">需配置 Access</StatusBadge></li>
-            <li className="flex items-center justify-between"><span>数据库写入功能</span><StatusBadge>尚未连接</StatusBadge></li>
+            <li className="flex items-center justify-between"><span>管理员身份保护</span><StatusBadge tone="success">应用内会话保护</StatusBadge></li>
+            <li className="flex items-center justify-between"><span>内容写入功能</span><StatusBadge>尚未开放</StatusBadge></li>
           </ul>
         </Panel>
         <Panel title="下一步待办">
@@ -26,7 +26,7 @@ export default function AdminDashboard() {
             <li><strong className="mr-2 text-brand-600">1.</strong>管理员页面与分析接口已使用同一套加密会话保护</li>
             <li><strong className="mr-2 text-brand-600">2.</strong>接入 Supabase Auth 与用户表</li>
             <li><strong className="mr-2 text-brand-600">3.</strong>将工具、反馈迁移到可写数据库</li>
-            <li><strong className="mr-2 text-brand-600">4.</strong>接入 Cloudflare Web Analytics 数据</li>
+            <li><strong className="mr-2 text-brand-600">4.</strong>验收 Cloudflare Analytics 与 D1 统计数据</li>
           </ol>
         </Panel>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -85,9 +86,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd(siteJsonLd) }}
         />
-        <script
+        <Script
+          id="cloudflare-web-analytics"
           type="module"
           src="https://static.cloudflareinsights.com/beacon.min.js"
+          strategy="afterInteractive"
           data-cf-beacon={JSON.stringify({
             token: CLOUDFLARE_ANALYTICS_TOKEN,
           })}

@@ -1,11 +1,12 @@
 import Link from "next/link";
 import CategoryCard from "@/components/CategoryCard";
 import { getCategories } from "@/lib/db";
+import { current2026PrimarySlugs } from "@/data/current-ai-tools";
 
 export const metadata = {
   title: "All categories",
   description:
-    "Browse 50 current AI tools and established alternatives by category, from AI assistants and coding to SEO, video and automation.",
+    `Browse ${current2026PrimarySlugs.length} current AI tools and established alternatives by category, from AI assistants and coding to SEO, video and automation.`,
   alternates: { canonical: "/categories" },
 };
 

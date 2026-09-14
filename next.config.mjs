@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Pure static export — deploys to Cloudflare Pages static hosting
-  // (or any static host). No edge runtime, no D1, no server functions.
+  agentRules: false,
+  // Public pages are statically exported to Cloudflare Pages. Pages Functions
+  // handle protected admin/API paths and can use the D1 binding in wrangler.jsonc.
   output: "export",
   // Generate directory-style HTML so any static server (and local preview)
   // can serve /tools/<slug>/ without extension rewriting.

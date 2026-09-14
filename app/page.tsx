@@ -100,8 +100,8 @@ export default async function HomePage() {
 
       <section className="mt-8 rounded-xl border border-brand-200 bg-brand-50 px-5 py-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-[15px] font-medium text-ink-900">50 current AI tools, organized for action</h2>
-          <p className="mt-1 text-[13px] text-ink-600">We keep established alternatives available, but prioritize the tools shaping today&apos;s workflows.</p>
+        <h2 className="text-[15px] font-medium text-ink-900">{primaryTools.length} current AI tools, organized for action</h2>
+        <p className="mt-1 text-[13px] text-ink-600">Established alternatives remain available, while current picks highlight the tools shaping today&apos;s workflows.</p>
         </div>
         <Link href="/categories" className="shrink-0 text-[13px] font-medium text-brand-600 hover:underline">Explore the market map →</Link>
       </section>

@@ -15,11 +15,11 @@ export default function SettingsPage() {
         </Panel>
         <Panel title="服务连接">
           <ul className="space-y-4 text-sm">
-            <li className="flex justify-between"><span>Cloudflare Pages</span><StatusBadge tone="success">已部署</StatusBadge></li>
-            <li className="flex justify-between"><span>Google Search Console</span><StatusBadge tone="success">已验证</StatusBadge></li>
-            <li className="flex justify-between"><span>Google AdSense ads.txt</span><StatusBadge tone="success">已发布</StatusBadge></li>
+            <li className="flex justify-between"><span>Cloudflare Pages</span><StatusBadge tone="success">生产项目已连接</StatusBadge></li>
+            <li className="flex justify-between"><span>Google Search Console</span><StatusBadge>需在平台复核</StatusBadge></li>
+            <li className="flex justify-between"><span>Google AdSense ads.txt</span><StatusBadge tone="success">文件已发布</StatusBadge></li>
             <li className="flex justify-between"><span>Supabase</span><StatusBadge>未连接</StatusBadge></li>
-            <li className="flex justify-between"><span>Cloudflare Access</span><StatusBadge tone="warning">需要配置</StatusBadge></li>
+            <li className="flex justify-between"><span>Cloudflare Access</span><StatusBadge>未使用</StatusBadge></li>
           </ul>
         </Panel>
         <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">为防止配置泄漏，设置页当前只读。后续写入操作应通过受认证的服务端 API 完成，不能直接把密钥放进浏览器。</p>

@@ -7,12 +7,15 @@ import { jsonLd } from "@/lib/json-ld";
 import OutboundToolLink from "@/components/OutboundToolLink";
 import { toolGuides } from "@/data/tool-guides";
 
+type SlugParams = Promise<{ slug: string }>;
+
 export function generateStaticParams() {
   return getTools().map((t) => ({ slug: t.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const t = await getToolBySlug(params.slug);
+export async function generateMetadata({ params }: { params: SlugParams }) {
+  const { slug } = await params;
+  const t = await getToolBySlug(slug);
   if (!t) return { title: "Tool not found" };
   const guide = toolGuides[t.slug];
   return {
@@ -25,9 +28,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function ToolPage({
   params,
 }: {
-  params: { slug: string };
+  params: SlugParams;
 }) {
-  const tool = await getToolBySlug(params.slug);
+  const { slug } = await params;
+  const tool = await getToolBySlug(slug);
   if (!tool) notFound();
   const cat = await getCategoryBySlug(tool.category);
   const guide = toolGuides[tool.slug];

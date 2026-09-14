@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BrandIcon from "@/components/BrandIcon";
 
@@ -14,6 +15,7 @@ const navItems = [
 ];
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
   const [loggingOut, setLoggingOut] = useState(false);
 
   async function logout() {
@@ -21,7 +23,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     try {
       await fetch("/api/admin/logout", { method: "POST", credentials: "same-origin" });
     } finally {
-      window.location.assign("/admin-login");
+      router.push("/admin-login");
     }
   }
 

@@ -21,8 +21,8 @@ export default function ContactPage() {
         <Link href="/submit" className="text-brand-600 hover:underline">
           submit a tool
         </Link>
-        . Business contact details will be added after the official domain is
-        launched.
+        . Direct business contact details will be added after the in-site
+        contact workflow is ready.
       </p>
       <Link
         href="/"

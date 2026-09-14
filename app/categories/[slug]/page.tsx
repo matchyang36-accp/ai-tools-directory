@@ -11,21 +11,24 @@ import {
 import { getCategories, isPrimaryTool } from "@/data/tools";
 import { hasFreePlan } from "@/lib/content-quality";
 
+type SlugParams = Promise<{ slug: string }>;
+
 export function generateStaticParams() {
   const cats = getCategories().map((c) => ({ slug: c.slug }));
   if (!cats.some((c) => c.slug === "free")) cats.push({ slug: "free" });
   return cats;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  if (params.slug === "free") {
+export async function generateMetadata({ params }: { params: SlugParams }) {
+  const { slug } = await params;
+  if (slug === "free") {
     return {
       title: "Free AI tools",
       description: "AI tools with a free plan for marketing, SEO and small business workflows.",
       alternates: { canonical: "/categories/free" },
     };
   }
-  const cat = await getCategoryBySlug(params.slug);
+  const cat = await getCategoryBySlug(slug);
   if (!cat) return { title: "Category not found" };
   return {
     title: cat.slug === "copywriting" ? "AI Writing Tools: Choose by Task and Workflow" : `${cat.name} AI tools`,
@@ -37,9 +40,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function CategoryPage({
   params,
 }: {
-  params: { slug: string };
+  params: SlugParams;
 }) {
-  if (params.slug === "free") {
+  const { slug } = await params;
+  if (slug === "free") {
     const freePlanTools = (await getTools()).filter((tool) =>
       hasFreePlan(tool.pricing),
     );
@@ -66,12 +70,12 @@ export default async function CategoryPage({
     );
   }
 
-  const cat = await getCategoryBySlug(params.slug);
+  const cat = await getCategoryBySlug(slug);
   if (!cat) notFound();
 
   const [tools, count] = await Promise.all([
-    getToolsByCategory(params.slug),
-    getCategoryCount(params.slug),
+    getToolsByCategory(slug),
+    getCategoryCount(slug),
   ]);
   const currentTools = tools.filter((tool) => isPrimaryTool(tool.slug));
   const establishedTools = tools.filter((tool) => !isPrimaryTool(tool.slug));
@@ -100,7 +104,7 @@ export default async function CategoryPage({
       </>}
       {establishedTools.length > 0 && <section className="mt-8">
         <h2 className="text-[15px] font-medium text-ink-900 mb-1">Established alternatives</h2>
-        <p className="text-[13px] text-ink-600 mb-3">Still available for comparison; not in the current top-50 editorial set.</p>
+        <p className="text-[13px] text-ink-600 mb-3">Still available for comparison; not in the current editorial picks.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {establishedTools.map((t) => (
           <ToolCard key={t.slug} tool={t} />

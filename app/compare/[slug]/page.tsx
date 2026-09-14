@@ -7,12 +7,15 @@ import { absoluteUrl } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
 import { comparisonGuides } from "@/data/comparison-guides";
 
+type SlugParams = Promise<{ slug: string }>;
+
 export function generateStaticParams() {
   return getComparisons().map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const c = await getComparisonBySlug(params.slug);
+export async function generateMetadata({ params }: { params: SlugParams }) {
+  const { slug } = await params;
+  const c = await getComparisonBySlug(slug);
   if (!c) return { title: "Comparison not found" };
   const guide = comparisonGuides[c.slug];
   return {
@@ -35,9 +38,10 @@ function StatRow({ label, a, b }: { label: string; a: string; b: string }) {
 export default async function CompareDetail({
   params,
 }: {
-  params: { slug: string };
+  params: SlugParams;
 }) {
-  const c = await getComparisonBySlug(params.slug);
+  const { slug } = await params;
+  const c = await getComparisonBySlug(slug);
   if (!c) notFound();
   const [a, b] = await Promise.all([
     getToolBySlug(c.a),

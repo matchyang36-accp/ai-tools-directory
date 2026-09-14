@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type Group = { count: number; sum?: { visits?: number }; dimensions?: { date?: string; value?: string } };
@@ -61,6 +62,7 @@ function locationLabel(visitor: RecentVisitor): string {
 }
 
 export default function AnalyticsDashboard() {
+  const router = useRouter();
   const [days, setDays] = useState(1);
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -68,25 +70,26 @@ export default function AnalyticsDashboard() {
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true);
-    setError(null);
     fetch(`/api/admin/analytics?days=${days}`, { credentials: "same-origin", signal: controller.signal })
       .then(async (response) => {
         const payload = await response.json();
         if (response.status === 401) {
-          window.location.assign(`/admin-login?next=${encodeURIComponent("/admin/analytics")}`);
+          router.push(`/admin-login?next=${encodeURIComponent("/admin/analytics")}`);
           throw new Error("管理员登录已失效，正在跳转登录页。");
         }
         if (!response.ok) throw new Error(payload.message || "访问数据加载失败。");
         return payload as AnalyticsData;
       })
-      .then(setData)
+      .then((payload) => {
+        setError(null);
+        setData(payload);
+      })
       .catch((reason) => {
         if (reason.name !== "AbortError") setError(reason.message || "访问数据加载失败。");
       })
       .finally(() => setLoading(false));
     return () => controller.abort();
-  }, [days]);
+  }, [days, router]);
 
   const maxDaily = Math.max(...(data?.daily || []).map((item) => item.count), 1);
 

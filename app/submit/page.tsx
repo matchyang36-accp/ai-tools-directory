@@ -22,9 +22,9 @@ export default function SubmitPage() {
           Submissions are in early access
         </h2>
         <p className="text-[13px] text-ink-600 leading-relaxed mt-2">
-          Until the official domain and submission workflow are ready, send the
-          tool name, website, category, and a short description through a GitHub
-          issue. Do not include passwords, API keys, or private customer data.
+          Until the in-site submission workflow is ready, send the tool name,
+          website, category, and a short description through a GitHub issue. Do
+          not include passwords, API keys, or private customer data.
         </p>
         <a
           href={`${SITE.repositoryUrl}/issues/new?title=Tool%20submission%3A%20`}

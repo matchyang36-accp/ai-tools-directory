@@ -10,6 +10,8 @@ import { absoluteUrl, SITE } from "@/lib/site";
 import { jsonLd } from "@/lib/json-ld";
 import OutboundToolLink from "@/components/OutboundToolLink";
 
+type SlugParams = Promise<{ slug: string }>;
+
 const SITE_DOMAIN_PATTERN = /(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)/gi;
 const SITE_DOMAIN_EXACT_PATTERN = /^(https?:\/\/(?:www\.)?whichaiuse\.com|(?:www\.)?whichaiuse\.com)$/i;
 
@@ -33,8 +35,9 @@ export function generateStaticParams() {
   return getReviews().map((r) => ({ slug: r.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const r = await getReviewBySlug(params.slug);
+export async function generateMetadata({ params }: { params: SlugParams }): Promise<Metadata> {
+  const { slug } = await params;
+  const r = await getReviewBySlug(slug);
   if (!r) return { title: "Not found" };
   return {
     title: r.title,
@@ -49,12 +52,18 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 export default async function BlogDetail({
   params,
 }: {
-  params: { slug: string };
+  params: SlugParams;
 }) {
-  const review = await getReviewBySlug(params.slug);
+  const { slug } = await params;
+  const review = await getReviewBySlug(slug);
   if (!review) notFound();
   const tool = review.toolSlug ? await getToolBySlug(review.toolSlug) : undefined;
-  let paragraphCount = 0;
+  const getParagraphOrdinal = (sectionIndex: number, paragraphIndex: number) =>
+    (review.sections || [])
+      .slice(0, sectionIndex)
+      .reduce((total, section) => total + section.paragraphs.length, 0) +
+    paragraphIndex +
+    1;
   const breadcrumbs = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -114,8 +123,7 @@ export default async function BlogDetail({
               ) : null}
               <div className="space-y-3">
                 {section.paragraphs.map((paragraph, paragraphIndex) => {
-                  paragraphCount += 1;
-                  const showAdAfterParagraph = paragraphCount === 2;
+                  const showAdAfterParagraph = getParagraphOrdinal(index, paragraphIndex) === 2;
 
                   return (
                     <div key={`${section.heading ?? "intro"}-${paragraphIndex}`}>

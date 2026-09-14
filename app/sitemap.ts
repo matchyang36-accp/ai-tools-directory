@@ -3,6 +3,8 @@ import { getTools, getCategories, getComparisons, getReviews } from "@/data/tool
 import { absoluteUrl } from "@/lib/site";
 import { isIndexableReview } from "@/lib/content-quality";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",

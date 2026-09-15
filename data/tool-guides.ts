@@ -606,6 +606,9 @@ export const toolGuides: Record<string, ToolGuide> = {
       },
     ],
     relatedLinks: [
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+      { label: "Compare Photoroom alternatives for ecommerce", href: "/blog/photoroom-alternatives" },
       { label: "Compare ecommerce background-image workflows", href: "/blog/best-ai-background-removers-ecommerce-workflow" },
       { label: "Compare Canva vs Photoroom for ecommerce images", href: "/compare/canva-vs-photoroom" },
       { label: "Read the Adobe Express workflow guide", href: "/tools/adobe-express" },
@@ -706,6 +709,9 @@ export const toolGuides: Record<string, ToolGuide> = {
       },
     ],
     relatedLinks: [
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+      { label: "Compare Photoroom alternatives for ecommerce", href: "/blog/photoroom-alternatives" },
       { label: "Compare ecommerce background-image workflows", href: "/blog/best-ai-background-removers-ecommerce-workflow" },
       { label: "Compare Canva vs Photoroom for ecommerce images", href: "/compare/canva-vs-photoroom" },
       { label: "Read the Photoroom catalog workflow guide", href: "/tools/photoroom" },
@@ -802,6 +808,9 @@ export const toolGuides: Record<string, ToolGuide> = {
       },
     ],
     relatedLinks: [
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+      { label: "Compare Photoroom alternatives for ecommerce", href: "/blog/photoroom-alternatives" },
       { label: "Compare ecommerce background-image workflows", href: "/blog/best-ai-background-removers-ecommerce-workflow" },
       { label: "Compare Canva vs Photoroom for ecommerce images", href: "/compare/canva-vs-photoroom" },
       { label: "Read the Photoroom catalog workflow guide", href: "/tools/photoroom" },
@@ -882,6 +891,9 @@ export const toolGuides: Record<string, ToolGuide> = {
       },
     ],
     relatedLinks: [
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+      { label: "Compare Photoroom alternatives for ecommerce", href: "/blog/photoroom-alternatives" },
       { label: "Compare ecommerce background-image workflows", href: "/blog/best-ai-background-removers-ecommerce-workflow" },
       { label: "Compare Canva vs Photoroom for ecommerce images", href: "/compare/canva-vs-photoroom" },
       { label: "Read the Photoroom catalog workflow guide", href: "/tools/photoroom" },

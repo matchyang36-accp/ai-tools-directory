@@ -405,6 +405,9 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
       },
     ],
     relatedLinks: [
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+      { label: "Compare Photoroom alternatives for ecommerce", href: "/blog/photoroom-alternatives" },
       { label: "Read the Photoroom catalog workflow guide", href: "/tools/photoroom" },
       { label: "Read the Canva product-image template guide", href: "/tools/canva" },
       { label: "Read the Adobe Express cutout workflow guide", href: "/tools/adobe-express" },

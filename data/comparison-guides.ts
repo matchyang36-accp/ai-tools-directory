@@ -345,51 +345,116 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
     ],
   },
   "midjourney-vs-leonardo": {
-    metaTitle: "Leonardo AI vs Midjourney: creative workflow comparison",
+    metaTitle: "Midjourney vs Leonardo AI: Which Image Tool Fits?",
     metaDescription:
-      "Compare Leonardo AI and Midjourney by image-creation workflow, reference controls, editing needs and the details to verify before choosing.",
+      "Compare Midjourney and Leonardo AI by creative exploration, control, editing workflow, team fit and when neither image tool is right.",
     summary:
-      "Leonardo AI and Midjourney both turn prompts and reference images into visual work. The most useful comparison is not a universal image-quality score. It is whether the product gives your team the right balance of creative exploration, reference control, editing and handoff for a real project.",
+      "Start with the image job, not a universal quality ranking. Midjourney is usually the stronger test for fast visual exploration, style direction and aesthetic iteration. Leonardo AI is usually the stronger test when the workflow needs more explicit controls around references, model choices, canvas-style editing, Blueprints or team production.",
+    quickAnswers: [
+      {
+        label: "Choose Midjourney if",
+        text: "you want fast visual exploration, style discovery, moodboards, personalization and web editing for creative concepts before a stricter production pass.",
+      },
+      {
+        label: "Choose Leonardo AI if",
+        text: "you need more visible controls around image guidance, model and dimension choices, canvas-style editing, Blueprints, collections or team-friendly asset production.",
+      },
+      {
+        label: "Choose neither if",
+        text: "the job requires exact product truth, strict brand approval, private-by-default catalog production or repeatable ecommerce outputs before a human review process exists.",
+      },
+    ],
+    pricingLabels: {
+      a: "Check current pricing",
+      b: "Check current pricing",
+    },
+    decisionRows: [
+      {
+        factor: "Best for",
+        a: "Creative direction, visual exploration, style discovery, moodboards and high-volume concept iteration before final production review.",
+        b: "Controlled image generation, reference-guided output, canvas-style editing, Blueprints and organized production workflows.",
+      },
+      {
+        factor: "Creative exploration",
+        a: "Stronger fit when a creator wants many visual directions quickly and can judge the best aesthetic path manually.",
+        b: "Stronger fit when exploration still needs more visible setup choices around models, dimensions, references and saved outputs.",
+      },
+      {
+        factor: "Reference and style control",
+        a: "Useful for image prompts, style references, moodboards and personalization when the goal is an aesthetic direction rather than exact product replication.",
+        b: "Useful for image guidance, uploaded references, content/style/character guidance and more explicit control over how references influence output.",
+      },
+      {
+        factor: "Editing workflow",
+        a: "Use the web editor when the team needs to refine a selected Midjourney image or uploaded image with canvas and masking-style edits.",
+        b: "Use Leonardo when the workflow benefits from AI Canvas, image-to-image, guidance settings, collections and post-generation actions in one workspace.",
+      },
+      {
+        factor: "Asset production",
+        a: "Better as a creative concept engine unless the team already has review, rights, privacy and handoff rules for final assets.",
+        b: "Better candidate when image creation needs to connect with repeatable assets, trained styles, Blueprints, API evaluation or team production.",
+      },
+      {
+        factor: "Motion and video relevance",
+        a: "Relevant if you want to explore Midjourney's current image and video generation path, while verifying plan access and privacy settings first.",
+        b: "Relevant if image, video, motion or Blueprint outputs may be part of the same creative workflow; verify current model and token rules first.",
+      },
+      {
+        factor: "Pricing approach",
+        a: "Check Midjourney's live plan page for current subscription tiers, generation limits, privacy options and commercial-use requirements.",
+        b: "Check Leonardo's live pricing and token pages for current plan access, token behavior, private mode, team features and API costs.",
+      },
+      {
+        factor: "Choose it if",
+        a: "You need to find a visual direction quickly and have a human who can turn promising outputs into approved creative.",
+        b: "You need a more controlled production workspace for references, edits, collections, repeatable creative inputs or team review.",
+      },
+      {
+        factor: "Skip it if",
+        a: "You need exact catalog images, private-by-default client work on a lower plan, or deterministic brand/product reproduction without manual approval.",
+        b: "You only need occasional inspiration, do not want to manage tokens/settings, or need final product accuracy more than creative range.",
+      },
+    ],
     sections: [
       {
-        heading: "The short answer",
+        heading: "Choose Midjourney if",
         paragraphs: [
-          "Both tools can start from a text prompt and let a creator iterate on generated images. A good trial uses the same brief, aspect ratio and reference material in each product. Compare whether the final workflow helps a designer make purposeful choices, not only whether one first-generation image looks more dramatic than another.",
-          "Midjourney may be a practical fit for creators who want to explore a visual direction, work with personalization or moodboards, and then refine a selected image in its web editor. Leonardo AI may be a practical fit for a workflow that needs prompt or image input, selectable models and dimensions, plus creative tools such as AI Canvas, image-to-image and Blueprints. The right choice depends on the final asset, required control and review process.",
+          "Choose Midjourney when the recurring job is to discover a visual direction quickly. Its current web workflow centers on the Create page, image uploads, style references, personalization, moodboards, organizing creations and an editor for refining images. That makes it a strong candidate for concept artists, marketers and creators who need to explore many possible looks before choosing one path.",
+          "The caution is that a striking first image is not the same as an approved business asset. If the image will represent a product, client, regulated claim or brand system, the team still needs source checks, rights review, privacy settings and a final human approval step.",
         ],
       },
       {
-        heading: "What they have in common",
+        heading: "Choose Leonardo AI if",
         paragraphs: [
-          "Both products are designed for iterative visual creation. A creator can start with an idea, generate options, retain useful directions and refine them with further instructions or image references. This makes both relevant for concepting, campaign exploration and visual prototypes.",
-          "Neither tool removes the need for a creative brief, brand review or rights review. Generated output can vary from run to run, and the safest workflow is to keep approved references, document the intended use of each asset and review output before it is published or used in a customer-facing campaign.",
+          "Choose Leonardo AI when the recurring job needs more visible controls around how images are made and managed. Its current help materials describe model and generation choices, image guidance, uploaded references, canvas-style editing, collections, Blueprints and token-based generation. That makes it worth testing for teams that care about repeatable inputs, reference handling and production organization.",
+          "The caution is that more controls also mean more settings to understand. A small creator who only wants occasional inspiration may not need a broader production workspace. A team should also verify the current token rules, private/public visibility, API costs and commercial-use terms before moving sensitive or client work into the platform.",
         ],
       },
       {
-        heading: "Where the creative workflows differ",
+        heading: "Choose neither if",
         paragraphs: [
-          "Midjourney's current web documentation describes a Create page, image and style references, Personalization profiles and moodboards. Its Editor can work with Midjourney creations and uploaded images, with tools for changing a canvas, masking an area, adding layers and submitting an edit. This is useful when the creative process moves from broad exploration into deliberate iteration on a selected visual direction.",
-          "Leonardo AI's current product and help materials describe prompt or image input, the ability to choose a model, dimensions and styles, plus tools such as AI Canvas, image-to-image and Blueprints. The help center also describes using reference images and adjusting image-guidance strength. This is useful when a team wants to evaluate several creative controls inside one generation workflow.",
+          "Choose neither if the real requirement is exact product reproduction, strict catalog consistency, private-by-default client work, legal approval or brand compliance without an existing review process. Generative image tools can help with ideation, but they can also introduce props, scale cues, style changes or product details that a buyer or stakeholder may interpret as real.",
+          "For ecommerce product photos, start with a workflow that preserves the real product image, transparent cutout and approved final export. For regulated or high-trust visuals, define the review owner before using either tool. If the team cannot reject inaccurate outputs, it is too early to rely on either product for final creative.",
         ],
       },
       {
-        heading: "Use this decision checklist",
+        heading: "Run a fair test before choosing",
         paragraphs: [
-          "Use a real project brief rather than an abstract prompt. Keep the image goal, target channel, reference assets and approval criteria identical during the comparison.",
+          "Use one real creative brief rather than an abstract prompt. Keep the target channel, aspect ratio, style references, product constraints and approval criteria identical in both tools. Then compare the workflow, not only the prettiest output.",
         ],
         bullets: [
-          "Do you need broad visual exploration, or repeatable control over a product, character or brand element?",
-          "Will the creator work mainly from text, or must they use supplied image and style references?",
-          "What editing is required after the first generation: composition changes, object changes, layers, aspect ratio or export?",
-          "Can the team review output for brand suitability, factual accuracy and rights before any public use?",
-          "Do the current plan, privacy settings, credit limits and commercial-use terms fit the expected volume?",
+          "Use the same prompt, references, aspect ratio and review owner in both products.",
+          "Record how much work is needed after the first useful output appears.",
+          "Check whether references improve the result or merely add style noise.",
+          "Verify current privacy, commercial-use and plan limits before uploading client or product material.",
+          "Reject any image that changes the product, brand claim, included accessories or required disclosure.",
         ],
       },
       {
-        heading: "A fair way to trial both products",
+        heading: "A practical evaluation process",
         paragraphs: [
-          "Prepare one brief with a specific audience, channel and visual outcome. For example, use one product image, a short brand direction and the exact aspect ratio needed for a campaign placement. Generate several options in both products, then save the prompts and references used so the team can reproduce the experiment later.",
-          "Review the results with the person responsible for final approval. Score the workflow against practical questions: how quickly a useful direction emerged, whether the reference material stayed relevant, how much manual editing was required and whether the output can be safely used under the current product terms. Do not treat a single preferred image as proof that one tool is better for every use case.",
+          "Prepare one brief with a specific audience, channel and visual outcome. For example, use a campaign image, a brand direction, a reference set and the exact aspect ratio needed for a placement. Generate multiple options in both products, then save the prompts, references and settings so the experiment can be reproduced or audited later.",
+          "Review the results with the person responsible for final approval. Score how quickly a useful direction emerged, whether the reference material stayed relevant, how much editing was required, whether privacy settings matched the job and whether the result can be safely used under the current terms. Do not treat a single favorite image as proof that one tool is better for every project.",
         ],
       },
     ],
@@ -397,27 +462,39 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
       {
         question: "Which tool is better for visual quality?",
         answer:
-          "There is no universal winner. Prompt quality, references, model settings, the target style and human review all affect the result. Test the same brief in both products before deciding for your workflow.",
+          "There is no universal winner. Prompt quality, references, model settings, the target style and human review all affect the result. Test the same brief in both products and judge the full workflow, not only the first image you like.",
       },
       {
         question: "Can I use my own images as references?",
         answer:
-          "Both products describe workflows that accept image references or uploads. Review their current documentation and terms, and make sure you have the right to use any reference image before uploading it.",
+          "Both products describe workflows that accept image references or uploads. Review current documentation, privacy settings and terms before uploading client, product or licensed material.",
       },
       {
         question: "What should a team verify before purchasing?",
         answer:
-          "Check the current plan limits, privacy settings, available editing features, integrations, export options and commercial-use terms. These details can change and should be verified on each provider's official site.",
+          "Check current pricing, usage limits, privacy controls, available editing features, token or generation rules, API needs and commercial-use terms on each provider's official site.",
       },
     ],
     sources: [
+      {
+        label: "Midjourney: creating on web",
+        href: "https://docs.midjourney.com/hc/en-us/articles/33390732264589-Creating-on-Web",
+      },
       {
         label: "Midjourney Editor documentation",
         href: "https://docs.midjourney.com/hc/en-us/articles/32764383466893-Editor",
       },
       {
-        label: "Midjourney getting started guide",
-        href: "https://docs.midjourney.com/hc/en-us/articles/33329261836941-Getting-Started-Guide",
+        label: "Midjourney Moodboards",
+        href: "https://docs.midjourney.com/hc/en-us/articles/39193335040013-Moodboards",
+      },
+      {
+        label: "Midjourney comparing plans",
+        href: "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+      },
+      {
+        label: "Midjourney commercial usage",
+        href: "https://docs.midjourney.com/hc/en-us/articles/27870375276557-Using-Images-Videos-Commercially",
       },
       {
         label: "Leonardo AI image generator",
@@ -427,6 +504,33 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
         label: "Leonardo AI image-generation guide",
         href: "https://intercom.help/leonardo-ai/en/articles/8942360-how-to-generate-images-with-leonardo-ai",
       },
+      {
+        label: "Leonardo AI Image Guidance",
+        href: "https://intercom.help/leonardo-ai/en/articles/8497988-image-guidance",
+      },
+      {
+        label: "Leonardo AI Blueprints",
+        href: "https://intercom.help/leonardo-ai/en/articles/12760267-blueprints-by-leonardo-ai",
+      },
+      {
+        label: "Leonardo AI pricing",
+        href: "https://www.leonardo.ai/pricing",
+      },
+      {
+        label: "Leonardo AI private and public images",
+        href: "https://intercom.help/leonardo-ai/en/articles/8044029-private-public-images",
+      },
+      {
+        label: "Leonardo AI commercial usage",
+        href: "https://intercom.help/leonardo-ai/en/articles/8044018-commercial-usage",
+      },
+    ],
+    relatedLinks: [
+      { label: "Read the Midjourney guide", href: "/tools/midjourney" },
+      { label: "Read the Leonardo AI guide", href: "/tools/leonardo-ai" },
+      { label: "Explore AI image and ecommerce tools", href: "/categories/image-design" },
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
     ],
   },
   "canva-vs-photoroom": {

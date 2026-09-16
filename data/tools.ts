@@ -1019,7 +1019,7 @@ export const comparisons: Comparison[] = [
   { slug: "surfer-seo-vs-clearscope", title: "Surfer SEO vs Clearscope", a: "surfer-seo", b: "clearscope" },
   { slug: "jasper-vs-copy-ai", title: "Jasper vs Copy.ai", a: "jasper", b: "copy-ai" },
   { slug: "heygen-vs-synthesia", title: "AI Avatars for Business: HeyGen vs Synthesia", a: "heygen", b: "synthesia" },
-  { slug: "midjourney-vs-leonardo", title: "Leonardo AI vs Midjourney", a: "leonardo-ai", b: "midjourney" },
+  { slug: "midjourney-vs-leonardo", title: "Midjourney vs Leonardo AI", a: "midjourney", b: "leonardo-ai" },
   { slug: "canva-vs-photoroom", title: "Canva vs Photoroom for Ecommerce Product Images", a: "canva", b: "photoroom" },
   { slug: "instantly-vs-lemlist", title: "Instantly vs Lemlist", a: "instantly", b: "lemlist" },
 ];

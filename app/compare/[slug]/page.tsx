@@ -91,11 +91,29 @@ export default async function CompareDetail({
       </nav>
       <h1 className="text-[20px] font-medium text-ink-900">{c.title}</h1>
 
+      {guide?.quickAnswers?.length ? (
+        <section className="mt-5 rounded-lg border border-brand-200 bg-brand-50 p-4">
+          <h2 className="text-[16px] font-medium text-ink-900">
+            Quick answer
+          </h2>
+          <div className="mt-3 space-y-3">
+            {guide.quickAnswers.map((answer) => (
+              <p key={answer.label} className="text-[14px] leading-6 text-ink-700">
+                <span className="font-medium text-ink-900">{answer.label}:</span>{" "}
+                {answer.text}
+              </p>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <div className="grid grid-cols-3 gap-3 mt-5">
         <div className="col-span-1" />
         <div className="bg-white rounded-lg border border-black/10 p-3 text-center">
           <p className="font-medium text-[14px] text-ink-900">{a.name}</p>
-          <p className="text-[12px] text-ink-400">{a.pricing}</p>
+          <p className="text-[12px] text-ink-400">
+            {guide?.pricingLabels?.a ?? a.pricing}
+          </p>
           <OutboundToolLink
             href={a.website}
             toolSlug={a.slug}
@@ -114,7 +132,9 @@ export default async function CompareDetail({
         </div>
         <div className="bg-white rounded-lg border border-black/10 p-3 text-center">
           <p className="font-medium text-[14px] text-ink-900">{b.name}</p>
-          <p className="text-[12px] text-ink-400">{b.pricing}</p>
+          <p className="text-[12px] text-ink-400">
+            {guide?.pricingLabels?.b ?? b.pricing}
+          </p>
           <OutboundToolLink
             href={b.website}
             toolSlug={b.slug}
@@ -133,17 +153,59 @@ export default async function CompareDetail({
         </div>
       </div>
 
-      <div className="bg-white rounded-lg border border-black/10 p-4 mt-3">
-        <div className="grid grid-cols-3 text-[13px] font-medium text-ink-900 border-b border-black/10 pb-2">
-          <div>Factor</div>
-          <div>{a.name}</div>
-          <div>{b.name}</div>
+      {guide?.decisionRows?.length ? (
+        <section className="mt-3 rounded-lg border border-black/10 bg-white">
+          <h2 className="px-4 pt-4 text-[16px] font-medium text-ink-900">
+            Decision table
+          </h2>
+          <div className="space-y-4 p-4 sm:hidden">
+            {guide.decisionRows.map((row) => (
+              <div key={row.factor} className="border-b border-black/10 pb-4 last:border-b-0 last:pb-0">
+                <h3 className="text-[13px] font-medium text-ink-900">{row.factor}</h3>
+                <div className="mt-3 grid gap-3">
+                  <div className="rounded-md border border-black/10 p-3">
+                    <p className="text-[12px] font-medium text-ink-900">{a.name}</p>
+                    <p className="mt-1 text-[13px] leading-6 text-ink-700">{row.a}</p>
+                  </div>
+                  <div className="rounded-md border border-black/10 p-3">
+                    <p className="text-[12px] font-medium text-ink-900">{b.name}</p>
+                    <p className="mt-1 text-[13px] leading-6 text-ink-700">{row.b}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hidden p-4 sm:block">
+            <div className="grid grid-cols-[150px_1fr_1fr] border-b border-black/10 pb-2 text-[13px] font-medium text-ink-900">
+              <div>Factor</div>
+              <div>{a.name}</div>
+              <div>{b.name}</div>
+            </div>
+            {guide.decisionRows.map((row) => (
+              <div
+                key={row.factor}
+                className="grid grid-cols-[150px_1fr_1fr] gap-4 border-b border-black/10 py-3 text-[13px] leading-6 last:border-b-0"
+              >
+                <div className="font-medium text-ink-700">{row.factor}</div>
+                <div className="text-ink-700">{row.a}</div>
+                <div className="text-ink-700">{row.b}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <div className="bg-white rounded-lg border border-black/10 p-4 mt-3">
+          <div className="grid grid-cols-3 text-[13px] font-medium text-ink-900 border-b border-black/10 pb-2">
+            <div>Factor</div>
+            <div>{a.name}</div>
+            <div>{b.name}</div>
+          </div>
+          <StatRow label="Pricing" a={a.pricing} b={b.pricing} />
+          <StatRow label="Suggested use case" a={a.bestFor} b={b.bestFor} />
+          <StatRow label="Potential strength" a={a.pros[0] ?? "—"} b={b.pros[0] ?? "—"} />
+          <StatRow label="Potential limitation" a={a.cons[0] ?? "—"} b={b.cons[0] ?? "—"} />
         </div>
-        <StatRow label="Pricing" a={a.pricing} b={b.pricing} />
-        <StatRow label="Suggested use case" a={a.bestFor} b={b.bestFor} />
-        <StatRow label="Potential strength" a={a.pros[0] ?? "—"} b={b.pros[0] ?? "—"} />
-        <StatRow label="Potential limitation" a={a.cons[0] ?? "—"} b={b.cons[0] ?? "—"} />
-      </div>
+      )}
 
       <p className="text-[13px] text-ink-600 mt-6">
         Use this as a starting point, then verify the current pricing, product
@@ -154,14 +216,16 @@ export default async function CompareDetail({
 
       {guide ? (
         <section className="mt-10 space-y-8">
-          <div className="rounded-xl border border-brand-200 bg-brand-50 p-5">
-            <h2 className="text-[18px] font-medium text-ink-900">
-              How to choose between {a.name} and {b.name}
-            </h2>
-            <p className="mt-3 text-[14px] leading-7 text-ink-700">
-              {guide.summary}
-            </p>
-          </div>
+          {!guide.quickAnswers?.length ? (
+            <div className="rounded-xl border border-brand-200 bg-brand-50 p-5">
+              <h2 className="text-[18px] font-medium text-ink-900">
+                How to choose between {a.name} and {b.name}
+              </h2>
+              <p className="mt-3 text-[14px] leading-7 text-ink-700">
+                {guide.summary}
+              </p>
+            </div>
+          ) : null}
 
           {guide.sections.map((section) => (
             <section key={section.heading}>

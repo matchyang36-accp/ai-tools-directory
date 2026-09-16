@@ -2,6 +2,16 @@ export interface ComparisonGuide {
   metaTitle: string;
   metaDescription: string;
   summary: string;
+  quickAnswers?: Array<{
+    label: string;
+    text: string;
+  }>;
+  pricingLabels?: { a: string; b: string };
+  decisionRows?: Array<{
+    factor: string;
+    a: string;
+    b: string;
+  }>;
   sections: Array<{
     heading: string;
     paragraphs: string[];
@@ -63,51 +73,117 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
     ]
   },
   "surfer-seo-vs-clearscope": {
-    metaTitle: "Surfer SEO vs Clearscope: workflow comparison",
+    metaTitle: "Surfer SEO vs Clearscope: Which Content SEO Tool Fits?",
     metaDescription:
-      "Compare Surfer SEO and Clearscope by writing workflow, SERP research, team fit and the details to verify before choosing.",
+      "Compare Surfer SEO and Clearscope by content optimization workflow, SERP research, team fit, AI support and when to choose neither.",
     summary:
-      "Surfer SEO and Clearscope both help teams plan and improve search-focused content. The useful question is not which one has the better score; it is which workflow gives your team clearer research, better editorial control and a repeatable way to refresh published pages.",
+      "Choose Surfer SEO if you want a more guided SEO production workflow around Content Editor, keyword research, optimization checks and internal-linking tasks. Choose Clearscope if your team wants research-led content briefs, real-time topic coverage guidance and an editorial workflow that fits tools such as Google Docs, Microsoft Word and WordPress. Choose neither if you only publish occasional articles, do not have a repeatable SEO process, or still need to fix basic topic selection, source quality and editorial review first.",
+    quickAnswers: [
+      {
+        label: "Choose Surfer SEO if",
+        text: "you want a guided SEO production workflow around Content Editor, keyword research, optimization checks, internal-linking tasks and pre-publish review.",
+      },
+      {
+        label: "Choose Clearscope if",
+        text: "your team wants research-led briefs, real-time topic coverage guidance and an editorial workflow that fits tools such as Google Docs, Microsoft Word and WordPress.",
+      },
+      {
+        label: "Choose neither if",
+        text: "you only publish occasional articles, lack a repeatable SEO process, or still need to fix topic selection, source quality and editorial review first.",
+      },
+    ],
+    pricingLabels: {
+      a: "Check current pricing",
+      b: "Check current pricing",
+    },
+    decisionRows: [
+      {
+        factor: "Best for",
+        a: "Teams that want a guided SEO workflow from research and outline through writing, optimization, internal links and pre-publish review.",
+        b: "Editorial teams that want search-landscape analysis, topic coverage guidance and an optimization process that can fit existing writing tools.",
+      },
+      {
+        factor: "Content optimization workflow",
+        a: "Content Editor starts from target keywords and location, then provides competitor-based guidelines, scores, optimization feedback and review steps.",
+        b: "Drafts analyze top SERP results for a target query and surface recommended terms, questions, citations and other writing guidance.",
+      },
+      {
+        factor: "Research and SERP analysis",
+        a: "Useful when you want keyword clusters, SERP-informed content planning and competitor-based guidelines tied into the writing flow.",
+        b: "Useful when you want a focused search-landscape view for a topic, including intent, competitor outlines, suggested terms and citable sources.",
+      },
+      {
+        factor: "Writing workflow",
+        a: "Better fit if writers are comfortable working inside a dedicated SEO editor and reviewing optimization suggestions before publishing.",
+        b: "Better fit if editors want recommendations that can support drafts, manual writing, optimization and common editorial integrations.",
+      },
+      {
+        factor: "Team workflow",
+        a: "Consider it when content production, optimization, monitoring and internal linking are shared responsibilities across an SEO or content team.",
+        b: "Consider it when a content team values usability, sharing/exporting, content inventory monitoring and editorial adoption.",
+      },
+      {
+        factor: "AI assistance",
+        a: "Surfer includes AI-oriented workflows such as Surfer AI, Surfy and AI search visibility features; verify the current plan details before buying.",
+        b: "Clearscope includes AI Draft and AI/search visibility features; verify current credits, drafts and plan access before buying.",
+      },
+      {
+        factor: "Pricing approach",
+        a: "Check Surfer's live pricing page for current plan names, document limits, AI visibility features, integrations and team access.",
+        b: "Check Clearscope's live pricing page for current plans, drafts, tracked prompts, pages, users and add-ons.",
+      },
+      {
+        factor: "Choose it if",
+        a: "You want a structured SEO content production system and can review suggestions instead of chasing a score blindly.",
+        b: "You want a clean editorial optimization workflow and your team will actually use briefs, content grades and inventory insights.",
+      },
+      {
+        factor: "Skip it if",
+        a: "You need only occasional keyword ideas, have no editorial review process, or are not ready to maintain optimized pages after publishing.",
+        b: "You need a low-cost occasional writing helper, or your main bottleneck is publishing discipline rather than content optimization insight.",
+      },
+    ],
     sections: [
       {
-        heading: "The short answer",
+        heading: "Choose Surfer SEO if",
         paragraphs: [
-          "Both products are built around a target query. They analyze the current search landscape and give writers real-time guidance as a draft is developed. Neither score should be treated as a promise of rankings: search results depend on the usefulness of the page, the evidence it contains, technical quality and competition as well as on-page coverage.",
-          "Start with the workflow your team already uses. Surfer SEO may be a practical fit when a writer wants to work from a guided Content Editor with competitor research, outlines and optimization steps in one place. Clearscope may be a practical fit when an editorial team wants topic coverage guidance alongside a familiar Google Docs, Microsoft Word or WordPress workflow. Use a trial or product demo with one real brief before committing a team to either process.",
+          "Choose Surfer SEO when the recurring job is to plan, write, optimize and refresh search-focused pages inside a guided production workflow. Its Content Editor is built around target keywords, location, competitor analysis, content guidelines, scores and review steps. That makes it a stronger first test for an SEO owner or content producer who wants the tool to shape the workflow around each page.",
+          "It is also the better fit to test if internal linking, pre-publish checks, optimization suggestions and AI search visibility are part of the same operating process. The caution is that a higher score is not a publishing strategy. A team still needs source review, original examples and judgment about whether a suggestion helps the reader.",
         ],
       },
       {
-        heading: "What they have in common",
+        heading: "Choose Clearscope if",
         paragraphs: [
-          "Each tool uses a target topic to study pages that currently rank and turns that research into recommendations for a draft. In practical terms, both can help a writer identify related concepts, likely questions to answer and a sensible way to check topical coverage before publishing.",
-          "That overlap makes them useful for teams that have already chosen a topic and need a clearer editorial brief. They are not substitutes for first-hand research, product documentation, original examples or a fact-checking process. A content score can help organize a draft, but it cannot validate a claim in that draft.",
+          "Choose Clearscope when the recurring job is to turn a target query into a strong editorial brief, draft or refresh plan that writers and editors can understand quickly. Its Drafts analyze the current search landscape and surface recommended terms, common questions, competitor outlines, citable sources and other real-time guidance.",
+          "It is also a strong candidate for teams that care about adoption inside existing editorial habits. Clearscope emphasizes real-time topic coverage feedback, content inventory monitoring, sharing/exporting and integrations with writing tools such as Google Docs, Microsoft Word and WordPress. That can matter more than a longer feature list if the editor needs a simpler review loop.",
         ],
       },
       {
-        heading: "Where the workflow differs",
+        heading: "Choose neither if",
         paragraphs: [
-          "Surfer's official Content Editor documentation describes a workflow that begins with target keywords, location and language choices, then provides writing guidelines, competitor research and optimization feedback in the editor. Its workflow also includes optional templates, internal-linking work and a pre-publish review. This can suit a team that wants a more guided production path around each article.",
-          "Clearscope's official documentation describes Drafts that analyze the current search landscape for a query and surface recommended terms, common questions and expected citation sources. Its product materials also emphasize drafting and optimization inside common editorial tools, plus a Content Inventory for monitoring published pages. This can suit a team that wants recommendations to travel with an established writing and review process.",
+          "Choose neither if the site does not yet have a repeatable publishing process, a clear topic strategy or someone responsible for updating old pages. A content optimization tool cannot fix weak source material, thin product knowledge, unclear search intent or a page that exists only to satisfy a score.",
+          "A solo creator who publishes occasionally may be better served by a lightweight keyword workflow, Search Console review and a strict editorial checklist. A team with a mature SEO stack may also decide that neither tool is needed if existing briefs, content refreshes, internal linking and reporting are already working.",
         ],
       },
       {
-        heading: "Use this decision checklist",
+        heading: "Use this decision checklist before paying",
         paragraphs: [
-          "Run the same brief through both products and have the person who will actually publish the page review the output. Compare the quality of the recommendations, not only the score at the end.",
+          "Run the same real brief through both products and ask the person who will publish the page to review the output. Compare whether each workflow helps the editor make a better page, not only whether it produces a higher score.",
         ],
         bullets: [
-          "Where does the writer prefer to work: a dedicated optimization editor or an existing document workflow?",
-          "Does the team need guided research and draft production, or mainly topic coverage recommendations during editing?",
-          "Can the tool support your target language, country, team permissions and publishing integrations?",
-          "How will the team verify sources, add original experience and reject weak suggestions before publishing?",
-          "What are the current plan limits, credits, collaboration rules and cancellation terms for the expected volume?",
+          "Can the tool support your target language, country, search location, publishing workflow and team permissions?",
+          "Does it help the writer answer the searcher's question earlier and more clearly?",
+          "Are the recommended terms, questions and sources useful, or do they push the draft toward keyword padding?",
+          "Can the team export, share or publish the draft without adding more handoffs?",
+          "Do the current plan limits, drafts, documents, credits, AI features, integrations and cancellation terms fit the expected volume?",
         ],
       },
       {
-        heading: "A sensible evaluation process",
+        heading: "A fair evaluation process",
         paragraphs: [
           "Choose one existing page that is useful but underperforming. Define its search intent, collect the primary sources the article should cite and write down the questions a reader needs answered. Then create a brief in each product using the same target query and location. This keeps the comparison focused on workflow quality rather than on marketing claims.",
-          "Ask the editor to review every recommended term and outline change. Keep additions that make the answer clearer, more accurate or more complete. Reject additions that repeat a keyword, introduce claims you cannot source or make the article sound like it was written for a scoring system instead of a reader. Publish only after checking headings, internal links, metadata and the main conversion path.",
+          "Ask the editor to review every recommended term and outline change. Keep additions that make the answer clearer, more accurate or more complete. Reject additions that repeat a keyword, introduce claims you cannot source or make the article sound like it was written for a scoring system instead of a reader.",
+          "Before you buy, verify current pricing and plan access directly with each provider. Product limits, AI features, credits, integrations and collaboration rules change too often for an old comparison page to be the source of truth.",
         ],
       },
     ],
@@ -134,13 +210,39 @@ export const comparisonGuides: Record<string, ComparisonGuide> = {
         href: "https://docs.surferseo.com/en/articles/5700347-content-editor-overview",
       },
       {
+        label: "Surfer Keyword Research",
+        href: "https://docs.surferseo.com/en/articles/11891594-keyword-research",
+      },
+      {
+        label: "Surfer pricing",
+        href: "https://surferseo.com/pricing/",
+      },
+      {
         label: "Clearscope: analyzing the search landscape",
         href: "https://www.clearscope.io/support/getting-started-content-reports",
+      },
+      {
+        label: "Clearscope AI Draft workflow",
+        href: "https://www.clearscope.io/support/draft-with-ai",
       },
       {
         label: "Clearscope content optimization platform",
         href: "https://www.clearscope.io/product/optimize",
       },
+      {
+        label: "Clearscope pricing",
+        href: "https://www.clearscope.io/pricing",
+      },
+      {
+        label: "Clearscope Content Inventory",
+        href: "https://www.clearscope.io/support/getting-started-content-inventory",
+      },
+    ],
+    relatedLinks: [
+      { label: "Read the Surfer SEO guide", href: "/tools/surfer-seo" },
+      { label: "Read the Clearscope guide", href: "/tools/clearscope" },
+      { label: "Compare Jasper and Copy.ai for marketing workflows", href: "/compare/jasper-vs-copy-ai" },
+      { label: "Explore SEO tools", href: "/categories/seo" },
     ],
   },
   "heygen-vs-synthesia": {

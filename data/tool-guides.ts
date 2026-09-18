@@ -902,6 +902,173 @@ export const toolGuides: Record<string, ToolGuide> = {
       { label: "Explore image and design tools", href: "/categories/image-design" },
     ],
   },
+  midjourney: {
+    displayTitle: "Midjourney Review: Visual Exploration and Creative Workflow",
+    metaTitle: "Midjourney Review: Should You Use It for Images?",
+    metaDescription:
+      "Evaluate Midjourney for visual exploration, moodboards, references, editing and campaign concepts, including its limits for ecommerce production.",
+    summary:
+      "Midjourney is a strong candidate when you need to discover a visual direction, explore styles or develop campaign concepts through repeated image generation and review. Skip it as the primary production system when exact product details, private work, repeatable catalog output or approval without human inspection are non-negotiable. Treat it as a creative exploration tool first, then verify the current plan, privacy settings and commercial-use terms for your project.",
+    sections: [
+      {
+        heading: "What Midjourney actually does",
+        paragraphs: [
+          "Midjourney's current website workflow lets a user create images from text prompts, add uploaded images, adjust creation settings and organize the resulting work. Image Prompts can influence content, composition and color, while Style References are designed to carry an overall visual look rather than copy the objects in a source image. Personalization profiles and Moodboards provide additional ways to develop an aesthetic direction from selected images.",
+          "The web Editor supports refining Midjourney outputs and uploaded images with tools such as region edits, remixing, panning and expanding the canvas. These controls make the platform more than a one-prompt generator, but they do not turn references into an exact reconstruction system. The creator still needs to compare every result with the brief and decide what can move forward.",
+        ],
+      },
+      {
+        heading: "Best use cases for Midjourney",
+        paragraphs: [
+          "Midjourney fits work where the main question is how an idea could look. A creative team can use it to explore campaign directions, mood and lighting, scene concepts, illustration approaches or a broader visual language before committing production time. Moodboards, style references and image prompts are useful when words alone do not communicate the intended aesthetic.",
+          "It is also useful for generating several possible directions for a creative review. The value comes from comparing, rejecting and refining options, not from assuming the first attractive image is ready to publish.",
+        ],
+        bullets: [
+          "Creative concept development before a shoot or design build.",
+          "Moodboards and visual direction for a campaign or brand project.",
+          "Campaign imagery and scene concepts that will receive human review.",
+          "Illustration, editorial and social-image exploration.",
+          "Testing how references, composition and style affect a visual brief.",
+        ],
+      },
+      {
+        heading: "A practical Midjourney workflow",
+        paragraphs: [
+          "Start with a short brief that names the audience, channel, subject, visual objective and details that must not change. Create an initial set from a focused text prompt. Add an image prompt when composition or subject cues matter, a style reference when the look and feel matters, or a moodboard when the project needs a broader aesthetic direction. These controls have different purposes, so do not treat every uploaded image as an instruction to reproduce it exactly.",
+          "Choose a promising direction, then use variations or the Editor to refine it. Review the image at full size for anatomy, text, logos, product details, misleading objects and unintended implications. Export only after the creative owner has approved the result, and retain the prompt, references and selected output so the decision can be revisited.",
+        ],
+        bullets: [
+          "Prompt: define the visual job and the non-negotiable facts.",
+          "Reference: choose image, style or mood inputs for a specific reason.",
+          "Edit: refine a selected direction instead of endlessly restarting.",
+          "Review: inspect factual, brand, rights and channel risks.",
+          "Export: keep the approved output with its brief and source material.",
+        ],
+      },
+      {
+        heading: "Strengths that matter in a real workflow",
+        paragraphs: [
+          "Midjourney combines prompt-led creation, several kinds of visual reference, aesthetic personalization, moodboards, organization and web editing in one creative loop. That is most valuable when a team needs to communicate a visual possibility quickly and then narrow many ideas into an approved direction.",
+          "Its strength is creative range, not automatic correctness. Style References focus on visual characteristics such as color, medium, texture or lighting, and Midjourney describes Image Prompts as inspiration rather than exact copying. That distinction helps set realistic expectations before a user uploads a product, person or branded asset.",
+        ],
+      },
+      {
+        heading: "Limitations to understand before choosing it",
+        paragraphs: [
+          "Generated images can alter small facts that matter: lettering, labels, proportions, packaging, included accessories, materials or the relationship between a product and its surroundings. References can guide a result without guaranteeing faithful reproduction. A team that cannot inspect and reject those changes should not depend on Midjourney for final factual imagery.",
+          "Privacy also requires an active decision. Midjourney describes its community as open by default and documents separate controls for keeping creations private. Availability of privacy features and the correct place to generate private work can depend on the current plan and workflow. Confirm current privacy settings before uploading client work, unreleased products or confidential references.",
+          "Plans, usage rules and commercial terms can change. Check current pricing, verify the current plan, confirm current privacy settings and review current commercial-use terms directly with Midjourney before purchase or publication. A platform permission does not remove the user's responsibility for trademarks, copyright, likeness rights or other third-party material.",
+        ],
+      },
+      {
+        heading: "Is Midjourney suitable for ecommerce product images?",
+        paragraphs: [
+          "Midjourney can contribute to ecommerce work during concept development: exploring a campaign mood, seasonal scene, ad direction or lifestyle setting before a real product image is composited or photographed. It can also help a creative team discuss which visual direction deserves a controlled production test.",
+          "It is a weaker fit when the final image must preserve exact color, shape, packaging, text, scale and included items across many SKUs. Do not present a generated approximation as evidence of the real product. Keep original photography and approved product data as the source of truth, and compare every final asset with them before publishing.",
+          "For a complete ecommerce workflow, choose product-photo tools by the operational job and follow a documented product-photo process. Midjourney should not be treated as proof that an image meets marketplace rules or that a catalog can run without human quality control.",
+        ],
+      },
+      {
+        heading: "Choose Midjourney if, and skip it if",
+        paragraphs: [
+          "Choose Midjourney when the recurring bottleneck is finding a compelling visual direction and someone on the team can review, refine and approve the work. Skip it when the primary requirement is deterministic output, exact product reproduction, unattended batch catalog production or privacy without first confirming the appropriate account settings.",
+        ],
+        bullets: [
+          "Choose it if you need visual exploration, moodboards, campaign concepts or style development.",
+          "Choose it if reference-led iteration and web editing fit an existing creative review process.",
+          "Skip it if generated detail changes would create product, legal or brand risk.",
+          "Skip it if hundreds of catalog assets need repeatable automation, naming and exception handling.",
+          "Skip it if nobody owns final factual, rights and channel-policy review.",
+        ],
+      },
+      {
+        heading: "Alternatives for different image jobs",
+        paragraphs: [
+          "Leonardo AI is the closest comparison when you are deciding between creative exploration and a workspace with different generation, guidance and production controls. Use the dedicated Midjourney vs Leonardo comparison for that choice rather than treating either tool as a universal winner.",
+          "ChatGPT Images is worth considering when conversational image creation and iterative instructions are central to the workflow. Adobe Firefly is relevant when generative work must continue inside Adobe's editing ecosystem. For ecommerce, compare dedicated product-photo tools when cutouts, catalog consistency, batch handling or product truth matter more than open-ended visual exploration.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Who is Midjourney best for?",
+        answer:
+          "It is best suited to creators, designers, marketers and creative teams that need to explore visual directions, styles, moodboards or campaign concepts and can review the resulting images before use.",
+      },
+      {
+        question: "Is Midjourney suitable for ecommerce product photos?",
+        answer:
+          "It can help with campaign concepts, scene exploration and visual direction. It should not be assumed to preserve exact product color, shape, packaging, text or scale, so final ecommerce assets require comparison with real product photography and approved product data.",
+      },
+      {
+        question: "Does Midjourney copy an uploaded reference exactly?",
+        answer:
+          "No. Midjourney describes Image Prompts and references as ways to guide new creations. Use the Editor for targeted refinement, but still inspect every important detail rather than expecting deterministic reproduction.",
+      },
+      {
+        question: "Are Midjourney creations private?",
+        answer:
+          "Do not assume they are private. Midjourney documents an open-by-default community and separate privacy controls. Confirm current privacy settings, plan access and the correct creation surface before uploading sensitive material.",
+      },
+      {
+        question: "Can Midjourney images be used commercially?",
+        answer:
+          "Midjourney publishes commercial-use guidance with conditions and exceptions. Review the current terms for your account and organization, and separately check third-party rights, trademarks, likenesses and any rules that apply to the intended channel.",
+      },
+      {
+        question: "Should I choose Midjourney or Leonardo AI?",
+        answer:
+          "Choose by workflow rather than a universal quality claim. Midjourney is a strong test for visual exploration and aesthetic direction; Leonardo AI may be worth testing when different guidance, editing or production controls are the priority. Use the dedicated comparison for a fuller decision.",
+      },
+    ],
+    sources: [
+      {
+        label: "Midjourney: creating on web",
+        href: "https://docs.midjourney.com/hc/en-us/articles/33390732264589-Creating-on-Web",
+      },
+      {
+        label: "Midjourney Editor documentation",
+        href: "https://docs.midjourney.com/hc/en-us/articles/32764383466893-Editor",
+      },
+      {
+        label: "Midjourney Image Prompts",
+        href: "https://docs.midjourney.com/hc/en-us/articles/32040250122381-Image-Prompts",
+      },
+      {
+        label: "Midjourney Style Reference",
+        href: "https://docs.midjourney.com/hc/en-us/articles/32180011136653-Style-Reference",
+      },
+      {
+        label: "Midjourney Personalization",
+        href: "https://docs.midjourney.com/hc/en-us/articles/32433330574221-Personalization",
+      },
+      {
+        label: "Midjourney Moodboards",
+        href: "https://docs.midjourney.com/hc/en-us/articles/39193335040013-Moodboards",
+      },
+      {
+        label: "Midjourney privacy guidance",
+        href: "https://docs.midjourney.com/hc/en-us/articles/28014645615373-Keeping-Your-Creations-Private",
+      },
+      {
+        label: "Midjourney comparing plans",
+        href: "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+      },
+      {
+        label: "Midjourney commercial usage",
+        href: "https://docs.midjourney.com/hc/en-us/articles/27870375276557-Using-Images-Videos-Commercially",
+      },
+    ],
+    relatedLinks: [
+      { label: "Compare Midjourney with Leonardo AI", href: "/compare/midjourney-vs-leonardo" },
+      { label: "Review Leonardo AI", href: "/tools/leonardo-ai" },
+      { label: "Review ChatGPT Images for product-scene concepts", href: "/tools/chatgpt-images" },
+      { label: "Review Adobe Firefly", href: "/tools/adobe-firefly" },
+      { label: "Explore image and design tools", href: "/categories/image-design" },
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+    ],
+  },
   heygen: {
     displayTitle: "HeyGen Review: Avatar Video and Translation Workflow",
     metaTitle: "HeyGen Review: Avatar Video and Translation Guide",

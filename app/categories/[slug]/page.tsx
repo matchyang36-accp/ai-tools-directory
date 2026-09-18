@@ -117,6 +117,12 @@ export default async function CategoryPage({
           </p>
           <div className="mt-4 flex flex-wrap gap-2 text-[13px]">
             <Link
+              href="/blog/best-ai-product-background-generators"
+              className="rounded-full border border-brand-200 bg-white px-3 py-1.5 font-medium text-brand-800 hover:bg-brand-100"
+            >
+              Product background generators
+            </Link>
+            <Link
               href="/blog/best-ai-product-photo-tools"
               className="rounded-full border border-brand-200 bg-white px-3 py-1.5 font-medium text-brand-800 hover:bg-brand-100"
             >

@@ -1069,6 +1069,197 @@ export const toolGuides: Record<string, ToolGuide> = {
       { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
     ],
   },
+  "leonardo-ai": {
+    displayTitle: "Leonardo AI Review: Guided Image Creation and Editing",
+    metaTitle: "Leonardo AI Review: Should You Use It for Images?",
+    metaDescription:
+      "Evaluate Leonardo AI for reference-guided generation, editing and creative asset workflows, including privacy, commercial-use and ecommerce limits.",
+    summary:
+      "Leonardo AI is worth considering when you want to guide image generation with references, continue editing selected results and keep several creative steps in one workspace. It is a weaker fit when exact reproduction, unattended catalog production or sensitive work without verified privacy settings is required. Treat references as guidance rather than a fidelity guarantee, review every important detail, and confirm current pricing, token costs, privacy options and commercial-use terms before committing.",
+    sections: [
+      {
+        heading: "What Leonardo AI actually does",
+        paragraphs: [
+          "Leonardo combines text-led image generation with reference inputs and editing tools. Its current Image Guidance documentation describes style, content, character, pose, depth, edge and other controls, with availability depending on the model and account. The newer Inline Editor accepts descriptive changes and can use additional reference images, while the Canvas Editor supports focused work such as inpainting, outpainting and sketch-led changes.",
+          "Leonardo also offers Blueprints, which are ready-made workflows that combine models, prompts and settings around a defined creative task. They can reduce setup for supported jobs and their outputs can feed another Blueprint or further editing. Leonardo's current documentation describes user-built Blueprints and Blueprint API access as upcoming, so do not buy the product on the assumption that every workflow can already be authored, saved or automated in that form.",
+        ],
+      },
+      {
+        heading: "Best use cases for Leonardo AI",
+        paragraphs: [
+          "Leonardo fits creative work that starts with a direction but still needs controlled exploration. References can help communicate desired content, style, composition or character cues, and the editing tools let a creator refine a selected result instead of restarting every attempt. This can suit asset concepts, campaign directions, scene variations and marketing visuals that will pass through human review.",
+          "The useful distinction is not that Leonardo guarantees consistency. It is that the workspace provides several ways to guide, compare and revise outputs. Results still depend on the chosen model, reference mode, prompt, strength, settings and source material.",
+        ],
+        bullets: [
+          "Asset and scene concept development from a written brief.",
+          "Reference-guided variations where style, content or composition cues matter.",
+          "Iterative image editing with prompts, inpainting or outpainting.",
+          "Campaign and product-scene exploration before controlled production.",
+          "Testing a ready-made Blueprint when its inputs and outputs match the job.",
+        ],
+      },
+      {
+        heading: "A practical Leonardo AI workflow",
+        paragraphs: [
+          "Begin with a brief that separates creative freedom from facts that must remain unchanged. Choose the reference type for a reason: a style reference should guide visual treatment, while content, character, pose or structural guidance serves a different job. Generate a small set, compare it with the brief and select only a promising direction for further editing.",
+          "Use the Inline Editor or Canvas Editor for focused changes, then review the result at full size. Check text, logos, anatomy, materials, product color, shape, packaging, included items and the relationship between objects. Keep the approved output with its prompt, references and review notes before exporting or handing it to another production step.",
+        ],
+        bullets: [
+          "Brief: define the audience, channel, visual goal and non-negotiable facts.",
+          "Guide: select references and controls that match the intended influence.",
+          "Generate: create a limited set and reject directions that drift from the brief.",
+          "Edit: refine the selected image with a targeted instruction or canvas operation.",
+          "Review and export: approve factual, rights, privacy and channel requirements.",
+        ],
+      },
+      {
+        heading: "Strengths that matter in a real workflow",
+        paragraphs: [
+          "Leonardo brings generation, multiple forms of image guidance, prompt-based inline editing and canvas tools into one environment. This is useful when a creator needs to move from a rough concept to a reviewed asset through several controlled iterations rather than relying on a single prompt.",
+          "Its official guidance also exposes the tradeoffs behind the controls. Reference types influence different aspects of an image, stronger guidance can introduce unwanted results, and feature compatibility varies by model. That makes Leonardo most useful to someone willing to test settings and inspect outcomes, not someone expecting deterministic reproduction.",
+        ],
+      },
+      {
+        heading: "Public and private generation require an active choice",
+        paragraphs: [
+          "Leonardo currently documents public generations as visible and usable within its service, with licenses granted to Leonardo and other users as described in its terms and help center. That matters when prompts, references or outputs involve unreleased products, client work or other sensitive material. Do not upload that material while assuming the default workflow is private.",
+          "The help center also documents a Private Mode and visibility controls for eligible paid accounts. Private status changes who can view and use an asset within Leonardo's documented service rules, but it should not be presented as a universal confidentiality guarantee. Verify current privacy options and plan requirements, confirm the setting before each sensitive generation, and apply your own access, retention and contractual controls.",
+        ],
+      },
+      {
+        heading: "Commercial use still needs a rights review",
+        paragraphs: [
+          "Leonardo's current commercial-usage guidance allows commercial use subject to its terms, while drawing an important distinction between public and private generations. Public assets may carry platform and community licenses described by Leonardo; privately generated outputs are treated differently under the current terms. Review the current commercial-use terms before publishing because eligibility, ownership language and service rules can change.",
+          "Platform permission is only one part of the decision. The user still needs to review uploaded references, trademarks, branding, copyrighted material, likeness rights and the rules of the destination marketplace or advertising channel. This page is workflow guidance, not legal advice or a promise that a particular output is cleared for use.",
+        ],
+      },
+      {
+        heading: "Limitations to understand before choosing it",
+        paragraphs: [
+          "Image Guidance can make a result more directed, but it does not promise an exact copy. Leonardo's own documentation notes that reference modes transfer different characteristics and that settings can produce unwanted results. Character, product, layout and visual consistency therefore remain review goals rather than guaranteed properties.",
+          "Usage cost is also task-dependent. Leonardo documents that token cost can vary with the feature, model, number of references, settings, image size and output count. API usage is accounted for separately from web-app tokens. Check current pricing, verify current token costs and check current API availability for the exact workflow instead of estimating from an old allowance or plan name.",
+          "The workspace does not remove production controls outside generation. Naming, version approval, bulk export, exception handling, factual review and marketplace compliance still need owners. Sensitive or high-volume work should be piloted with failure cases before it becomes part of a production process.",
+        ],
+      },
+      {
+        heading: "Is Leonardo AI suitable for ecommerce product images?",
+        paragraphs: [
+          "Leonardo can help an ecommerce or marketing team explore scenes, campaign directions and controlled creative variations. It can also be useful for testing how a reference-led concept might look before a real product asset moves into a more constrained editing or photography workflow.",
+          "Do not assume a guided generation preserves exact color, dimensions, packaging, labels, materials or included accessories. Compare every proposed product image with approved photography and product data. Leonardo should not be used as proof of product truth, platform compliance or the safety of unattended catalog production.",
+          "Use the product-photo tools guide when the decision concerns the complete ecommerce tool stack, and use the step-by-step product-photo workflow when the task runs from source image to publishable asset. Leonardo's role here is creative development and reviewed variation, not ownership of the whole catalog process.",
+        ],
+      },
+      {
+        heading: "Choose Leonardo AI if, and skip it if",
+        paragraphs: [
+          "Choose Leonardo when reference-led generation and continued editing solve a real creative bottleneck and a person can review each important output. Skip it when the primary requirement is deterministic reproduction, unattended catalog consistency or confidential generation before the account's privacy controls and terms have been verified.",
+        ],
+        bullets: [
+          "Choose it if you want references, generation and editing in one iterative workspace.",
+          "Choose it if asset concepts or scene variations will receive deliberate creative review.",
+          "Choose it if an available Blueprint matches a repeatable task you want to test.",
+          "Skip it if a reference must be reproduced exactly without drift.",
+          "Skip it if nobody owns product-detail, rights and channel-policy review.",
+          "Skip it if your automation depends on an API feature before current support and cost are confirmed.",
+        ],
+      },
+      {
+        heading: "Alternatives for different image jobs",
+        paragraphs: [
+          "Midjourney is the closest alternative when the decision is between two creative image platforms. Use the dedicated Midjourney vs Leonardo comparison for that choice; this review focuses on whether Leonardo's own guidance and editing workflow fits your work.",
+          "ChatGPT Images may fit a workflow centered on conversational iteration and instruction-led edits. Adobe Firefly is relevant when the generated asset needs to continue through Adobe's editing ecosystem. For ecommerce production, compare dedicated product-photo tools when cutouts, product truth, catalog repeatability or operational handoffs matter more than creative exploration.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Who is Leonardo AI best for?",
+        answer:
+          "It is best suited to creators, designers and marketing teams that want to guide generation with references, edit selected results and review creative assets before use. It is less suitable when exact reproduction or unattended production is required.",
+      },
+      {
+        question: "Does Leonardo AI reproduce a reference image exactly?",
+        answer:
+          "No. Its guidance modes influence aspects such as style, content, character, pose or structure, depending on the selected tool and model. Treat the result as a new generation and inspect every detail that matters.",
+      },
+      {
+        question: "Are Leonardo AI generations private?",
+        answer:
+          "Do not assume they are private. Leonardo documents public visibility and separate privacy controls for eligible accounts. Confirm current privacy options and plan requirements, verify the setting before generating, and avoid treating a product setting as a complete confidentiality program.",
+      },
+      {
+        question: "Can Leonardo AI images be used commercially?",
+        answer:
+          "Leonardo publishes commercial-use guidance subject to its current terms, with important differences between public and private generations. Review current commercial-use terms and separately check references, trademarks, likenesses and channel rules before publishing.",
+      },
+      {
+        question: "Is Leonardo AI suitable for ecommerce product images?",
+        answer:
+          "It can support product-scene concepts, campaign exploration and reviewed variations. It should not be assumed to preserve exact product color, shape, packaging, text or scale, so approved photography and product data must remain the source of truth.",
+      },
+      {
+        question: "Does Leonardo AI have an API?",
+        answer:
+          "Leonardo currently documents a Production API with separate usage accounting from web-app tokens. Check current API availability, supported models and features, pricing and limits for the exact workflow before designing automation around it.",
+      },
+      {
+        question: "Should I choose Leonardo AI or Midjourney?",
+        answer:
+          "Choose by workflow rather than a universal quality claim. Leonardo is worth testing when reference modes and continued editing are central; Midjourney is a strong test for visual exploration and aesthetic direction. Use the dedicated comparison for the full decision.",
+      },
+    ],
+    sources: [
+      {
+        label: "Leonardo AI: generating images",
+        href: "https://intercom.help/leonardo-ai/en/articles/8942360-how-to-generate-images-with-leonardo-ai",
+      },
+      {
+        label: "Leonardo AI Image Guidance",
+        href: "https://intercom.help/leonardo-ai/en/articles/8497988-image-guidance",
+      },
+      {
+        label: "Leonardo AI Omni Models and Inline Editor",
+        href: "https://intercom.help/leonardo-ai/en/articles/11483692-using-omni-models-and-the-inline-editor",
+      },
+      {
+        label: "Leonardo AI Canvas Editor",
+        href: "https://intercom.help/leonardo-ai/en/articles/8093145-how-to-use-canvas-editor-tool",
+      },
+      {
+        label: "Leonardo AI Blueprints",
+        href: "https://intercom.help/leonardo-ai/en/articles/12760267-blueprints-by-leonardo-ai",
+      },
+      {
+        label: "Leonardo AI private and public images",
+        href: "https://intercom.help/leonardo-ai/en/articles/8044029-private-public-images",
+      },
+      {
+        label: "Leonardo AI commercial usage",
+        href: "https://intercom.help/leonardo-ai/en/articles/8044018-commercial-usage",
+      },
+      {
+        label: "Leonardo AI token FAQ",
+        href: "https://intercom.help/leonardo-ai/en/articles/9044700-tokens-frequently-asked-questions",
+      },
+      {
+        label: "Leonardo AI API FAQ",
+        href: "https://docs.leonardo.ai/docs/api-faq",
+      },
+      {
+        label: "Leonardo AI API pricing and plans FAQ",
+        href: "https://docs.leonardo.ai/docs/pricing-and-plans-faq",
+      },
+    ],
+    relatedLinks: [
+      { label: "Compare Leonardo AI with Midjourney", href: "/compare/midjourney-vs-leonardo" },
+      { label: "Review Midjourney", href: "/tools/midjourney" },
+      { label: "Review ChatGPT Images for conversational creation", href: "/tools/chatgpt-images" },
+      { label: "Review Adobe Firefly", href: "/tools/adobe-firefly" },
+      { label: "Explore image and design tools", href: "/categories/image-design" },
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+    ],
+  },
   heygen: {
     displayTitle: "HeyGen Review: Avatar Video and Translation Workflow",
     metaTitle: "HeyGen Review: Avatar Video and Translation Guide",

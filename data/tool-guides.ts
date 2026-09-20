@@ -1260,6 +1260,207 @@ export const toolGuides: Record<string, ToolGuide> = {
       { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
     ],
   },
+  "adobe-firefly": {
+    displayTitle: "Adobe Firefly Review: Generative Editing and Adobe Workflows",
+    metaTitle: "Adobe Firefly Review: Should You Use It for Images?",
+    metaDescription:
+      "Evaluate Adobe Firefly for image generation, generative editing, partner models and Adobe workflows, including commercial-use and ecommerce limits.",
+    summary:
+      "Adobe Firefly is worth considering when generative creation or editing needs to continue inside an Adobe workflow. It can help with image concepts, Generative Fill, background changes and creative variations, but the selected model, feature status, plan and destination app affect what is available and which terms apply. Treat Adobe-developed Firefly models and partner models as separate choices, review every output, and confirm current commercial-use terms before publishing.",
+    sections: [
+      {
+        heading: "What Adobe Firefly actually does",
+        paragraphs: [
+          "Adobe Firefly is both a family of Adobe-developed generative models and a creation experience that appears across the Firefly website and supported Adobe applications. Current workflows include generating images from prompts, adding or replacing selected content with Generative Fill, expanding a canvas and replacing or generating backgrounds. The exact controls depend on the feature, model and Adobe surface being used.",
+          "Firefly generations can also continue into supported Adobe apps. Adobe documents access to compatible generation history from applications such as Photoshop, Illustrator and InDesign, while features powered by Firefly also appear directly inside Adobe products. This makes Firefly most relevant when generation is one step in an editing process rather than the final action.",
+        ],
+      },
+      {
+        heading: "Who Firefly is for",
+        paragraphs: [
+          "Firefly is a practical candidate for designers, marketers and creative teams already working in Adobe products who want to explore an idea, replace or extend part of an image and then continue refining the asset. It can reduce the handoff between a generative tool and an established editing environment when the required feature and destination app are available to the account.",
+          "It is a weaker fit for users who need deterministic product reproduction, unattended catalog production or one permanent set of model and usage rules. A creator still needs to choose the model deliberately, inspect the output and understand the terms that apply to the specific workflow.",
+        ],
+      },
+      {
+        heading: "Adobe models and partner models are different choices",
+        paragraphs: [
+          "Adobe-developed Firefly models and partner models available through Adobe are not the same product layer. Adobe identifies partner models as third-party models and says availability can vary by product, plan and region. Their controls, credit use, feature status and applicable terms may differ from Adobe-developed models, so the Firefly name alone does not answer which model created an output or which conditions apply.",
+          "Adobe's Firefly Product Description also excludes non-Adobe-trained capabilities and beta or trial features from the Firefly indemnification scope described on that page. Separate partner-model coverage can exist only for specified customers, models, products and generally available features under applicable terms. Confirm current model availability, check whether a feature is beta or generally available and review the documentation for the exact Adobe surface before relying on any commercial or legal protection.",
+        ],
+      },
+      {
+        heading: "Best use cases for Adobe Firefly",
+        paragraphs: [
+          "Firefly fits creative work where an existing image or visual direction needs controlled experimentation. Generative Fill can target a selected area, background replacement can test a different setting, and image generation can create directions for a campaign or design review. These uses are strongest when a person can compare alternatives and continue editing the selected result.",
+          "The Adobe connection is also useful when a team already finishes work in Photoshop, Illustrator, InDesign or another supported application. Compatibility and access still need to be verified for the chosen plan and workflow rather than assumed from the Adobe brand.",
+        ],
+        bullets: [
+          "Creative concepts and campaign directions that will receive human review.",
+          "Generative Fill for adding, replacing or refining a selected image area.",
+          "Background replacement or generation for scene exploration.",
+          "Expanding and refining assets before a conventional editing pass.",
+          "Moving compatible generations into supported Adobe applications.",
+        ],
+      },
+      {
+        heading: "A practical Firefly workflow",
+        paragraphs: [
+          "Start with a brief that names the audience, final channel and facts that must not change. Decide whether the task needs a new image, a background change or a targeted edit. Then check which model is selected, whether it is Adobe-developed or provided by a partner, and whether the feature is beta or generally available before supplying sensitive or rights-controlled material.",
+          "Generate a limited set, reject results that drift from the brief and refine only a promising direction. Inspect text, logos, people, product color, shape, packaging, proportions and surrounding claims at full size. Continue into the appropriate Adobe editor when manual correction is needed, then approve the final export against the source asset and intended channel.",
+        ],
+        bullets: [
+          "Brief: define the creative job, source of truth and required review.",
+          "Select: confirm the model provider, feature status and account access.",
+          "Generate or edit: make a focused change instead of an open-ended request.",
+          "Review and refine: compare the result with approved source material.",
+          "Handoff and export: finish in the appropriate Adobe app and retain the approved asset.",
+        ],
+      },
+      {
+        heading: "Strengths that matter in a real workflow",
+        paragraphs: [
+          "Firefly combines image generation with targeted editing operations such as Generative Fill, canvas expansion and background replacement. That range is useful when a creator needs to move between exploration and a more specific image correction without treating every change as a new project.",
+          "Its connection with supported Adobe applications is the more durable reason to shortlist it. The value is not that every Firefly result is publication-ready, but that a generated direction can remain inside a familiar editing and approval process where a designer can correct, composite and export it.",
+        ],
+      },
+      {
+        heading: "Commercial use depends on the exact workflow",
+        paragraphs: [
+          "Do not reduce Firefly to the phrase commercially safe. Adobe publishes different product descriptions and conditions for Adobe-developed Firefly features and partner models, and it excludes some beta, trial and non-Adobe-trained capabilities from specified Firefly indemnification coverage. Eligibility can also depend on the customer's agreement, plan, feature, surface and export event.",
+          "Review current commercial-use terms before publishing. Separately confirm that prompts, uploads and outputs do not violate copyright, trademark, privacy, publicity or other third-party rights, and check the destination platform's rules. Adobe access or an indemnification provision is not a universal clearance of the input, brand, person or final claim.",
+        ],
+      },
+      {
+        heading: "What Content Credentials can and cannot tell you",
+        paragraphs: [
+          "Adobe describes Content Credentials as tamper-evident metadata that can provide context about how an asset was created or edited. Firefly automatically applies them to some wholly generated assets, and Adobe also uses them to identify generative AI sources in supported partner-model workflows. They are useful for provenance and disclosure checks when the file and publishing workflow preserve that information.",
+          "A Content Credential is not proof that an image is factually accurate, legally cleared or safe for every commercial use. It does not replace checking product details, third-party rights or channel policy, and its presence or contents can depend on the feature and export path. Inspect the credential as one part of review rather than treating it as an approval badge.",
+        ],
+      },
+      {
+        heading: "Is Firefly suitable for ecommerce product images?",
+        paragraphs: [
+          "Firefly can help an ecommerce team explore product scenes, generate or replace a background, extend a composition and develop campaign visuals before final production. It is especially relevant when a designer wants to continue adjusting the selected image in an Adobe editor.",
+          "Generated or edited imagery can still change product color, shape, packaging, text, proportions, included items or reflections. Keep approved photography and product data as the source of truth, compare every proposed asset with them and retain a human approval step. Firefly does not prove marketplace compliance or make an unattended catalog workflow reliable.",
+          "Use the product background generator guide when the decision is which tool should create new studio, lifestyle or branded scenes. Use the product photo tools guide when the decision concerns the complete ecommerce tool stack. This review focuses only on whether Firefly itself fits a creative and editing workflow.",
+        ],
+      },
+      {
+        heading: "Limitations to understand before choosing it",
+        paragraphs: [
+          "Generation and Generative Fill can produce convincing images while changing details that matter. A selected region, reference or prompt guides an output but does not guarantee exact reconstruction. Product, brand and factual accuracy therefore remain review responsibilities rather than platform guarantees.",
+          "Firefly is also a moving collection of surfaces and models. Partner-model availability, beta or generally available status, plan access, credits, output limits and supported handoffs can change. Check current pricing, verify the current plan, confirm current model availability and check whether each required feature is beta or generally available before adopting a workflow.",
+          "Teams should also plan for model selection, version review, source-file retention and a manual fallback. If a required partner model becomes unavailable or an account lacks the expected feature, the workflow needs a documented route back to conventional editing rather than failing at publication time.",
+        ],
+      },
+      {
+        heading: "Choose Adobe Firefly if, and skip it if",
+        paragraphs: [
+          "Choose Firefly when generation or targeted editing needs to feed an Adobe-centered creative process and someone can review and refine each important result. Skip it when the primary requirement is exact product reproduction, unattended high-volume output or a single commercial-use assumption that applies to every available model and feature.",
+        ],
+        bullets: [
+          "Choose it if Generative Fill, background changes or canvas expansion solve a recurring editing job.",
+          "Choose it if compatible Adobe app handoff reduces friction in an existing workflow.",
+          "Choose it if your team can select models deliberately and review outputs before export.",
+          "Skip it if generated detail changes would create product, brand or legal risk without review.",
+          "Skip it if the workflow depends on a partner model or beta feature before access and terms are confirmed.",
+          "Skip it if nobody owns factual checks, rights review and final channel approval.",
+        ],
+      },
+      {
+        heading: "Alternatives for different image jobs",
+        paragraphs: [
+          "Midjourney is worth considering when open-ended visual exploration, moodboards and aesthetic direction are the main job. Leonardo AI is relevant when reference guidance and continued generation-to-editing controls are central. ChatGPT Images may fit a workflow organized around conversational creation and iterative instructions.",
+          "Those tools are alternatives for different creative processes, not universal winners. For ecommerce, move to dedicated product-photo tools when cutouts, batch catalog work, operational handoffs or product truth matter more than creative editing inside Adobe's ecosystem.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Who is Adobe Firefly best for?",
+        answer:
+          "It is best suited to designers, marketers and creative teams that want image generation or targeted generative editing to continue inside a reviewed Adobe workflow. It is less suitable when exact reproduction or unattended production is required.",
+      },
+      {
+        question: "Are Adobe Firefly models and partner models the same?",
+        answer:
+          "No. Adobe-developed Firefly models and third-party partner models can have different controls, availability, credit use, feature status and applicable terms. Confirm the selected model and documentation for the exact Adobe product before use.",
+      },
+      {
+        question: "Is Adobe Firefly commercially safe?",
+        answer:
+          "That phrase is too broad for a purchasing decision. Commercial-use and indemnification conditions can depend on the model, feature status, product, plan, customer agreement and export workflow. Review current commercial-use terms and third-party rights before publishing.",
+      },
+      {
+        question: "What are Content Credentials in Adobe Firefly?",
+        answer:
+          "They are tamper-evident metadata that can provide provenance information about how supported assets were created or edited. They improve transparency but do not prove factual accuracy, legal clearance or suitability for a particular channel.",
+      },
+      {
+        question: "Can Firefly replace a product background?",
+        answer:
+          "Firefly documents background replacement through Generative Fill and related image workflows. Review the output against the real product because generated surroundings or edits can change details, lighting, reflections or proportions.",
+      },
+      {
+        question: "Is Adobe Firefly suitable for ecommerce product images?",
+        answer:
+          "It can support product-scene concepts, background generation and reviewed creative edits. It should not be assumed to preserve exact color, shape, packaging, text or scale, so approved photography and product data must remain the source of truth.",
+      },
+      {
+        question: "How should I choose a Firefly plan?",
+        answer:
+          "List the required model, Adobe app, feature, expected usage and review workflow, then check current pricing and verify the current plan directly with Adobe. Do not choose from an old price, credit allowance or model list.",
+      },
+    ],
+    sources: [
+      {
+        label: "Adobe Firefly product page",
+        href: "https://www.adobe.com/products/firefly.html",
+      },
+      {
+        label: "Adobe Firefly Product Description",
+        href: "https://helpx.adobe.com/legal/product-descriptions/adobe-firefly.html",
+      },
+      {
+        label: "Partner models in Adobe products",
+        href: "https://helpx.adobe.com/creative-cloud/apps/generative-ai/non-adobe-models-in-adobe-products.html",
+      },
+      {
+        label: "Adobe Generative AI User Guidelines",
+        href: "https://www.adobe.com/legal/licenses-terms/adobe-gen-ai-user-guidelines.html",
+      },
+      {
+        label: "Adobe Generative AI Product Specific Terms",
+        href: "https://www.adobe.com/cc-shared/assets/pdf/legal/servicetou/adobe-generative-ai-product-specific-terms-en-us-20260423.pdf",
+      },
+      {
+        label: "Adobe Firefly Content Credentials overview",
+        href: "https://helpx.adobe.com/firefly/web/get-started/learn-the-basics/content-credentials-overview.html",
+      },
+      {
+        label: "Adobe Firefly background replacement",
+        href: "https://helpx.adobe.com/firefly/web/work-with-images/edit-images/generative-fill.html",
+      },
+      {
+        label: "Access Firefly generations in Adobe apps",
+        href: "https://helpx.adobe.com/firefly/web/access-your-files/access-your-generation-history-in-other-adobe-apps.html",
+      },
+      {
+        label: "Adobe Firefly plans",
+        href: "https://www.adobe.com/products/firefly/plans.html",
+      },
+    ],
+    relatedLinks: [
+      { label: "Compare AI product background generators", href: "/blog/best-ai-product-background-generators" },
+      { label: "Review Midjourney for visual exploration", href: "/tools/midjourney" },
+      { label: "Review Leonardo AI for guided image creation", href: "/tools/leonardo-ai" },
+      { label: "Review ChatGPT Images for conversational creation", href: "/tools/chatgpt-images" },
+      { label: "Explore image and design tools", href: "/categories/image-design" },
+      { label: "Compare AI product photo tools", href: "/blog/best-ai-product-photo-tools" },
+      { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
+    ],
+  },
   heygen: {
     displayTitle: "HeyGen Review: Avatar Video and Translation Workflow",
     metaTitle: "HeyGen Review: Avatar Video and Translation Guide",

@@ -1461,6 +1461,200 @@ export const toolGuides: Record<string, ToolGuide> = {
       { label: "Create product photos with AI step by step", href: "/blog/how-to-create-product-photos-with-ai" },
     ],
   },
+  metricool: {
+    displayTitle: "Metricool Review: Social Planning, Analytics and Reporting",
+    metaTitle: "Metricool Review: Should You Use It for Social Media?",
+    metaDescription:
+      "Evaluate Metricool for social planning, publishing, analytics, reporting, inbox management, automation and API workflows, with current limits to verify.",
+    summary:
+      "Metricool is worth considering when planning, publishing, analytics, client reporting and basic community management need to live in one social media workspace. It is a stronger fit for repeatable multi-network or multi-brand operations than for someone who only needs occasional scheduling. Network support, brand limits, reporting tools, AI allowances and API access vary, so test the exact workflow and verify the current plan before buying.",
+    sections: [
+      {
+        heading: "What Metricool actually does",
+        paragraphs: [
+          "Metricool brings several social media jobs into one workspace. Its current product materials organize the work around planning and publishing, analytics, reporting, an Inbox, SmartLinks, advertising and campaign analysis, plus automation features such as Flows. The value is operational: a team can prepare content, publish it, inspect results and turn those results into reports without rebuilding the same context in separate tools.",
+          "That breadth does not mean every feature works identically for every account or social network. Platform APIs, connected account types, permissions and the selected plan affect what can be published, measured or answered. Evaluate Metricool against the channels and content formats you actually use rather than against a general feature list.",
+        ],
+      },
+      {
+        heading: "Who Metricool is for",
+        paragraphs: [
+          "Metricool is a practical candidate for social media managers, agencies and in-house teams that repeatedly plan content, review performance and prepare stakeholder or client reports. It can be especially relevant when several networks or brands need a shared calendar and a consistent reporting routine, provided the required brand capacity, permissions and approval features are available in the current plan.",
+          "It may be more system than a solo creator needs for occasional posts. It is also a weaker fit when the central requirement is a full customer-support helpdesk, unlimited automation across every network or a custom data pipeline whose API access and endpoints have not been confirmed.",
+        ],
+      },
+      {
+        heading: "Planning and publishing workflow",
+        paragraphs: [
+          "The Planner provides a calendar for preparing, previewing, scheduling and publishing social content. Official documentation covers network-specific formats and controls such as images, videos, carousels, stories, threads, first comments, tags and other publishing options. Teams can also use drafts, approval steps or reusable scheduling workflows when those features are available to their account.",
+          "Support is not universal. A format that can be published directly to one network may require a notification or manual finish on another, and account type or network API restrictions can remove options such as tagging, music, replies or analytics. Confirm current publishing support by network for every critical format before moving a production calendar.",
+        ],
+      },
+      {
+        heading: "Analytics and reporting serve different jobs",
+        paragraphs: [
+          "Analytics helps a user inspect the performance of connected profiles and content, including organic and, where supported, paid data. Available metrics and history differ by network, connection type and plan. Treat a cross-network dashboard as a shared review surface, not as proof that each network exposes the same definitions or depth of data.",
+          "Reporting is the handoff layer. Metricool currently documents reports, campaign dashboards, Metricool Studio and a Looker Studio connector for different reporting needs. These can support recurring client updates, campaign review or custom analysis, but access, history, templates and sharing options vary. Verify current reporting limits instead of assuming every account receives the complete reporting stack.",
+        ],
+      },
+      {
+        heading: "Inbox is useful community management, not a full helpdesk",
+        paragraphs: [
+          "Metricool's Inbox is designed to read and reply to supported messages, comments, mentions or reviews from connected profiles. Filters, saved replies and shared brand access can reduce tab switching during routine community management when the relevant network and interaction type are supported.",
+          "It does not replace a complete customer-support system. Metricool documents network-specific reply windows and limitations around actions such as deleting or hiding content, advertising comments, notifications, conversation assignment and multi-brand viewing. Decide whether the team needs basic social response handling or ticket ownership, service-level rules, customer history and escalation before treating Inbox as the support system.",
+        ],
+      },
+      {
+        heading: "AI, Flows and automation still need an owner",
+        paragraphs: [
+          "Metricool's AI text tool can generate post proposals inside supported planning workflows. Use it for a first draft, variation or tone adjustment, then check the facts, links, brand voice and platform context before scheduling. Confirm current AI and automation allowances because credits, availability and account access can change.",
+          "Flows adds trigger-based automation for supported social interactions, while recurring schedules and other planning tools address repeated publishing work. Network coverage, templates, permissions and availability are still product constraints, not universal guarantees. Start with one low-risk automation, review its public replies and private messages, keep a manual fallback and name the person responsible for pausing it when the result is wrong.",
+        ],
+      },
+      {
+        heading: "API and integrations are a decision factor, not the whole product",
+        paragraphs: [
+          "Metricool's official API guidance describes two broad uses: exporting metrics to another system and supporting programmatic tasks such as scheduling or publishing through integrations. Official materials also document integration paths involving tools such as Zapier and Make. This can matter to an agency, reporting team or product operation that has outgrown manual exports.",
+          "Do not design an automation from a search snippet or an old plan comparison. Verify current API availability and usage limits, required account access, supported endpoints, authentication, data fields and network restrictions for the exact task. Build a retry path, visible error logging and a manual publishing fallback before placing client reporting or scheduled content behind an integration.",
+        ],
+      },
+      {
+        heading: "A practical way to evaluate Metricool",
+        paragraphs: [
+          "Run a small trial with one representative brand rather than connecting every client account. Prepare one week of real posts across the two most important networks, including the formats that usually cause friction. Schedule and publish them, record any manual finishing steps and check whether previews, approvals and error messages are clear enough for the people who will operate the calendar.",
+          "After publishing, compare Metricool's analytics with the native network data, create the report your stakeholder actually expects and handle several real comments or messages in Inbox. Then test one low-risk AI or automation task. Only test API access if data export or system integration is a genuine requirement. Count correction time, unsupported actions and manual handoffs before deciding whether consolidation saves work.",
+        ],
+        bullets: [
+          "Planning: can the team prepare and approve the required formats?",
+          "Publishing: which posts complete automatically and which need manual action?",
+          "Analytics: are the required metrics available and understood by network?",
+          "Reporting: can the team reproduce one real client or management report?",
+          "Inbox: can routine interactions be handled without losing ownership?",
+          "Automation: can an error be seen, paused and corrected safely?",
+          "API: confirm access and limits only if integration is part of the buying decision.",
+        ],
+      },
+      {
+        heading: "Strengths that matter in a real workflow",
+        paragraphs: [
+          "Metricool's main strength is the connection between planning, measurement and reporting. A team can move from a shared publishing calendar to performance review and stakeholder reporting without treating each stage as a separate project. Inbox, SmartLinks, campaigns and supported integrations can extend that workspace when those jobs belong to the same operator.",
+          "The platform also documents team and client workflows such as roles and approval controls. Those capabilities can be valuable for agencies or distributed teams, but their practical value depends on current plan access and whether the permission model matches how accounts are owned and reviewed.",
+        ],
+      },
+      {
+        heading: "Limitations to understand before choosing it",
+        paragraphs: [
+          "Third-party social tools inherit restrictions from each network. Publishing formats, analytics fields, reply windows and Inbox actions can differ or change when a network updates its API. A successful connection therefore does not prove that every native feature is available inside Metricool.",
+          "Metricool also combines many jobs without replacing every specialist system. Inbox is not a full helpdesk, generated text still needs editorial review, Flows needs monitoring and API access does not remove network restrictions. Brand capacity, team controls, reporting history, AI allowances, integrations and automation access can change by plan.",
+          "Check current pricing, verify current plan and brand limits, confirm current publishing support by network, verify current API availability and usage limits, and confirm current AI and automation allowances immediately before adoption. Keep native-network access and documented manual procedures so a platform or integration failure does not stop publication or customer response.",
+        ],
+      },
+      {
+        heading: "Choose Metricool if, and skip it if",
+        paragraphs: [
+          "Choose Metricool when the recurring problem is coordinating social planning, publishing, analytics and reporting in one reviewed workflow. Skip it when only a lightweight scheduler is needed, when a full customer-service helpdesk is the real requirement or when a critical network action is unsupported and no manual fallback is acceptable.",
+        ],
+        bullets: [
+          "Choose it if one team owns the calendar, performance review and recurring reports.",
+          "Choose it if an agency or multi-brand operation can validate the current account, role and approval limits.",
+          "Choose it if consolidating planning, analytics and basic community management reduces real handoffs.",
+          "Skip it if occasional scheduling is the only recurring job and a simpler tool covers it.",
+          "Skip it if ticket assignment, customer records and service-level workflows require a dedicated helpdesk.",
+          "Skip it if an API endpoint or network capability is essential before current access has been verified.",
+        ],
+      },
+      {
+        heading: "Alternatives for a narrower workflow",
+        paragraphs: [
+          "Buffer is worth comparing when the main need is a simpler publishing and scheduling workflow rather than a broader reporting, Inbox and multi-brand operating system. A native social network tool may also be enough when one channel dominates and its full publishing or community features matter more than cross-network consolidation.",
+          "Choose the smallest system that solves the repeated bottleneck. Metricool earns its place when several connected stages are used; it is harder to justify when most of the workspace would remain untouched.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Who is Metricool best for?",
+        answer:
+          "Metricool is best suited to social media managers, agencies and in-house teams that repeatedly combine content planning, multi-network publishing, analytics and stakeholder reporting. Confirm current brand, team and approval limits for the account you are considering.",
+      },
+      {
+        question: "Does Metricool support every social network feature?",
+        answer:
+          "No. Supported networks, formats, publishing controls, analytics fields and Inbox actions differ because account types and third-party platform APIs impose restrictions. Confirm current publishing support by network for the exact formats and actions you need.",
+      },
+      {
+        question: "Is Metricool good for agencies?",
+        answer:
+          "It can fit agencies that need shared planning, client reporting, multiple brands, roles or approval workflows. Test one representative client first and verify current plan and brand limits before migrating every account.",
+      },
+      {
+        question: "Does Metricool have an API?",
+        answer:
+          "Metricool currently documents API access for exporting data and supporting integrations or automated tasks. Verify current API availability and usage limits, plan access, endpoints and network restrictions before building a dependency on it.",
+      },
+      {
+        question: "Does Metricool replace a social inbox or helpdesk?",
+        answer:
+          "It provides an Inbox for supported social messages, comments, mentions and reviews, but it is not a complete helpdesk. Network-specific reply limits, notifications, assignment, deletion actions and multi-brand handling should be tested against the team's support process.",
+      },
+      {
+        question: "Does Metricool include AI and automation?",
+        answer:
+          "Metricool documents AI-assisted post text and automation features such as Flows and recurring planning workflows. Generated content and automated replies still need human ownership, and current AI credits, network coverage, permissions and plan access should be confirmed.",
+      },
+      {
+        question: "What should I verify before paying for Metricool?",
+        answer:
+          "Check current pricing, verify current plan and brand limits, confirm publishing and Inbox support for each important network, verify reporting history and exports, confirm current AI and automation allowances, and validate API access only if integration is required.",
+      },
+    ],
+    sources: [
+      {
+        label: "Metricool social media management platform",
+        href: "https://metricool.com/",
+      },
+      {
+        label: "Metricool plans and pricing",
+        href: "https://metricool.com/pricing/",
+      },
+      {
+        label: "Scheduling and posting options by social network",
+        href: "https://help.metricool.com/scheduling-and-posting-options-by-social-network-cwmb3",
+      },
+      {
+        label: "Metricool analytics metrics guide",
+        href: "https://help.metricool.com/your-metrics-in-metricool-full-guide-pcwam",
+      },
+      {
+        label: "Metricool reporting hub guide",
+        href: "https://help.metricool.com/reporting-your-reports-and-analytics-hub-ejidy",
+      },
+      {
+        label: "Metricool Inbox manager guide",
+        href: "https://help.metricool.com/inbox-manager-how-to-manage-messages-and-comments-from-metricool-s9zze",
+      },
+      {
+        label: "Metricool AI text generator guide",
+        href: "https://help.metricool.com/how-to-create-posts-with-metricools-ai-text-generator-sv0j8",
+      },
+      {
+        label: "Metricool Flows overview",
+        href: "https://help.metricool.com/what-are-flows-nfody",
+      },
+      {
+        label: "Metricool API access guide",
+        href: "https://help.metricool.com/api-access-export-your-metricool-data-to-other-tools-and-automate-tasks-x8ln5",
+      },
+      {
+        label: "Metricool API integration basics",
+        href: "https://help.metricool.com/basic-guide-for-api-integration-r97af",
+      },
+    ],
+    relatedLinks: [
+      { label: "Explore social media tools", href: "/categories/social-media" },
+      { label: "Review Buffer for a simpler scheduling workflow", href: "/tools/buffer" },
+    ],
+  },
   heygen: {
     displayTitle: "HeyGen Review: Avatar Video and Translation Workflow",
     metaTitle: "HeyGen Review: Avatar Video and Translation Guide",
